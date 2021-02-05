@@ -138,5 +138,5 @@ Restore the UUID of `/dev/nvme0n1p2` (see `blkid /dev/nvme0n1p2`) in `/etc/nixos
 
 ```
 $ mkdir ~/.xmonad; git clone git@github.com:savau/xmonad-config.git ~/.xmonad
-$ mkdir ~/.zsh; git clone git@github.com:savau/zsh-config ~/.zsh  # TODO: change default zshrc location to ~/.zsh/zshrc
+$ mkdir ~/.zsh; git clone git@github.com:savau/zsh-config ~/.zsh && echo "ZDOTDIR=~/.zsh" > ~/.zshenv && rm ~/.zshrc
 ```
