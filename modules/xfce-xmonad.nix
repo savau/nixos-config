@@ -23,4 +23,8 @@
     };
     displayManager.defaultSession = "xfce+xmonad";
   };
+
+  environment.systemPackages = with pkgs; [
+    xmobar stalonetray
+  ];
 }
