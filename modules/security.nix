@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  environment.systemPackages = [
-    #keepassxc
+  environment.systemPackages = with pkgs; [
+    keepassxc
   ];
 }
