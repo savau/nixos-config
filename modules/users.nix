@@ -22,6 +22,6 @@
     ];
     shell = pkgs.zsh;
     uid = 1000;
-    openssh.authorizedKeys.keyFiles = [ ../keys/github.pub ];
+    #openssh.authorizedKeys.keyFiles = [ ../keys/github.pub ];
   };
 }
