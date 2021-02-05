@@ -55,7 +55,7 @@ $ lvcreate -l '100%FREE' -n root vg
 
 Format the partitions:
 ```
-$ mkfs.fat /dev/nvme0n1p1
+$ mkfs.fat -F 32 /dev/nvme0n1p1
 $ mkfs.ext4 -L root /dev/vg/root
 $ mkswap -L swap /dev/vg/swap
 ```
