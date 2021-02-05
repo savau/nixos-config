@@ -110,10 +110,10 @@ I maintain various configurations (NixOS, XMonad, ZSH, Vim, ...) on GitHub repos
 #### 5.0 Preparation
 
 On github.com, generate a personal access token (to be able to add an ssh key to your GitHub account later on):
-    - On another device, go to "Settings" -> "Developer settings" (left sidebar) -> "Personal access token" (left sidebar)
-    - Click "Generate new token"
-    - Give the token a descriptive name
-    - Grant `write:public_key` and `read:public_key` permissions
+- On another device, go to "Settings" -> "Developer settings" (left sidebar) -> "Personal access token" (left sidebar)
+- Click "Generate new token"
+- Give the token a descriptive name
+- Grant `write:public_key` and `read:public_key` permissions
 
 Login as user `savau` and generate a new SSH key pair (use the default file location):
 ```
