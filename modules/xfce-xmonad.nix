@@ -25,6 +25,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    xmobar stalonetray
+    xmobar stalonetray xscreensaver
   ];
 }
