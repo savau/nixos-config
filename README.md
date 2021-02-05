@@ -3,7 +3,7 @@ My personal NixOS configuration
 
 
 ## NixOS Installation Guide
-Full guide to install NixOS with UEFI and full disk encryption (encrypted /boot) using LVM on LUKS
+Full guide to install NixOS with UEFI and LVM on LUKS
 
 ### 1. Create Bootable USB Stick
 
@@ -17,27 +17,24 @@ Full guide to install NixOS with UEFI and full disk encryption (encrypted /boot)
 
 ### 2. Boot the Installer
 
-- disable Secure Boot Control
-- disable USB legacy boot
-- enable Launch CSM
+- Disable Secure Boot Control
+- Disable USB legacy boot
+- Enable Launch CSM
 
 ### 3. Partitioning
 (Assuming a 256GB NVMe SSD and 16GB physical RAM)
 
 Use `gdisk /dev/nvme0n1` to write the following partition table:
 ```
-NAME          SIZE   TYPE  MOUNTPOINT
-nvme0n1       238.5G disk
-├─nvme0n1p1     500M part  /boot/efi
-└─nvme0n1p2     238G part
-  └─root        238G crypt
-    ├─vg-swap    32G lvm   [SWAP]
-    └─vg-root   206G lvm   /
+Number      Size  Code
+     1      500M  ef00
+     2  100%FREE  8300
 ```
 
-- one partition of size 500M in FAT (EFI partition)
-- one partition with LVM on LUKS, containing both the swap and the root filesystem (only works with LUKS1 in case of Grub!)
-- as a rule of thumb: the amount of swap space should be double the amount of physical RAM available on your machine
+- One partition of size 500M in FAT32 (EFI partition)
+- One partition with LVM on LUKS, containing both the swap and the root filesystem
+    - (Note: only works with LUKS1 in case of Grub!)
+- As a rule of thumb: The amount of swap space should be double the amount of physical RAM available on your machine
 
 Set up the encrypted LUKS partition and open it:
 ```
@@ -72,7 +69,7 @@ $ swapon /dev/vg/swap
 
 Configure WPA supplicant if you want to use WiFi for installing (if not, make sure you are connected via Ethernet):
 ```
-$ wpa_passphrase SSID PWD > /etc/wpa_supplicant.conf
+$ wpa_passphrase $SSID $PWD > /etc/wpa_supplicant.conf
 ```
 
 Generate an initial NixOS configuration:
