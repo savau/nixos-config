@@ -2,6 +2,6 @@
 
 {
   environment.systemPackages = [
-    keepassxc
+    #keepassxc
   ];
 }
