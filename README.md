@@ -110,10 +110,11 @@ I maintain various configurations (NixOS, XMonad, ZSH, Vim, ...) on GitHub repos
 #### 5.0 Preparation
 
 On github.com, generate a personal access token (to be able to add an ssh key to your GitHub account later on):
-- On another device, go to "Settings" -> "Developer settings" (left sidebar) -> "Personal access token" (left sidebar)
-- Click "Generate new token"
-- Give the token a descriptive name
-- Grant `write:public_key` and `read:public_key` permissions
+
+    - Using the web interface, go to "Settings" -> "Developer settings" (left sidebar) -> "Personal access token" (left sidebar)
+    - Click "Generate new token"
+    - Give the token a descriptive name
+    - Grant `write:public_key` and `read:public_key` permissions
 
 Login as user `savau` and generate a new SSH key pair (use the default file location):
 ```
@@ -135,15 +136,15 @@ $ curl -H "Authorization: token $TOKEN" --data '{"title":"$KEYTITLE","key":"$CLI
 
 #### 5.1 NixOS configuration
 
-I maintain my NixOS configuration on GitHub, so I want to clone my configuration from there:
 (TODO: move hardware-configuration.nix to git as well?)
+
 ```
 $ rm -rf /etc/nixos
 $ git clone git@github.com:savau/nixos-config.git /etc/nixos
 $ nixos-generate-config && mv /etc/nixos/hardware-configuration.nix /etc/nixos/machines/xego/hardware-configuration.nix  # alternatively, move the previous hardware-configuration.nix to some temporary location and, after cloning the config repo, move it back to /etc/nixos/machines/xego/hardware-configuration.nix
 ```
 
-Now that we have our config, symlink the relevant config file (under `machines/$MACHINENAME/configuration.nix`) to `/mnt/etc/nixos/configuration.nix`:
+Now that we have our NixOS config, symlink the relevant config file (under `machines/$MACHINENAME/configuration.nix`) to `/etc/nixos/configuration.nix`:
 ```
 $ cd /etc/nixos
 $ ln -sf "machines/$MACHINENAME/configuration.nix" .
@@ -161,7 +162,6 @@ Restore the UUID of `/dev/nvme0n1p2` (see `blkid /dev/nvme0n1p2`) in `/etc/nixos
 
 #### 5.2 Miscellanenous configuration
 
-```
-$ mkdir ~/.xmonad; git clone git@github.com:savau/xmonad-config.git ~/.xmonad
-$ mkdir ~/.zsh; git clone git@github.com:savau/zsh-config ~/.zsh && echo "ZDOTDIR=~/.zsh" > ~/.zshenv && rm ~/.zshrc
-```
+- [ZSH config](https://github.com/savau/zsh-config)
+- [Vim config](https://github.com/savau/vim-config)
+- [XMonad config](https://github.com/savau/xmonad-config)
