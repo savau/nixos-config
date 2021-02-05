@@ -108,6 +108,8 @@ $ reboot
 
 ### 5. Fetch configurations
 
+#### 5.1 NixOS configuration
+
 I maintain my NixOS configuration on GitHub, so I want to clone my configuration from there:
 (TODO: move hardware-configuration.nix to git as well?)
 ```
@@ -130,4 +132,11 @@ Restore the UUID of `/dev/nvme0n1p2` (see `blkid /dev/nvme0n1p2`) in `/etc/nixos
     ...
   };
 ...
+```
+
+#### 5.2 Miscellanenous configuration
+
+```
+$ mkdir ~/.xmonad; git clone git@github.com:savau/xmonad-config.git ~/.xmonad
+$ mkdir ~/.zsh; git clone git@github.com:savau/zsh-config ~/.zsh  # TODO: change default zshrc location to ~/.zsh/zshrc
 ```
