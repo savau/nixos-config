@@ -75,23 +75,59 @@ Configure WPA supplicant if you want to use WiFi for installing (if not, make su
 $ wpa_passphrase SSID PWD > /etc/wpa_supplicant.conf
 ```
 
-As for `/mnt/etc/nixos/configuration.nix`, I maintain my NixOS configuration on GitHub, so I want to clone my configuration from there:
-```
-$ git clone https://github.com/savau/nixos-config.git /mnt/etc/nixos
-```
-
-Now that we have our config, we symlink the relevant config file (under `machines/<machine-name>/configuration.nix`) to `/mnt/etc/nixos/configuration.nix`:
-```
-$ ln -sf "machines/$MACHINENAME/configuration.nix" .  # in /mnt/etc/nixos
-```
-
-Generate `/mnt/etc/nixos/hardware-configuration.nix` (`/mnt/etc/nixos/configuration.nix` will be left unchanged if it already exists):
+Generate an initial NixOS configuration:
 ```
 $ nixos-generate-config --root /mnt
+```
+
+Note the UUID of the root partition `/dev/nvme0n1p2`:
+```
+$ blkid /dev/nvme0n1p2
+```
+
+Edit the newly generated /mnt/etc/nixos/configuration.nix and add the following:
+```
+  ...
+  boot.initrd.luks.devices.luksroot = {
+    device = "/dev/disk/by-uuid/$UUID";
+    preLVM = true;
+    allowDiscards = true;
+  };
+  ...
+  environment.systemPackages = with pkgs; [
+    wget vim htop git
+  ];
+  ...
 ```
 
 Now, we are ready to install NixOS:
 ```
 $ nixos-install
 $ reboot
+```
+
+### 5. Fetch configurations
+
+I maintain my NixOS configuration on GitHub, so I want to clone my configuration from there:
+(TODO: move hardware-configuration.nix to git as well?)
+```
+$ rm -rf /etc/nixos
+$ git clone https://github.com/savau/nixos-config.git /etc/nixos
+$ nixos-generate-config && mv /etc/nixos/hardware-configuration.nix /etc/nixos/machines/xego/hardware-configuration.nix  # alternatively, move the previous hardware-configuration.nix to some temporary location and, after cloning the config repo, move it back to /etc/nixos/machines/xego/hardware-configuration.nix
+```
+
+Now that we have our config, symlink the relevant config file (under `machines/$MACHINENAME/configuration.nix`) to `/mnt/etc/nixos/configuration.nix`:
+```
+$ cd /etc/nixos
+$ ln -sf "machines/$MACHINENAME/configuration.nix" .
+```
+
+Restore the UUID of `/dev/nvme0n1p2` (see `blkid /dev/nvme0n1p2`) in `/etc/nixos/configuration.nix`:
+```
+...
+  boot.initrd.luks.devices.luksroot = {
+    device = "/dev/disk/by-uuid/$UUID";
+    ...
+  };
+...
 ```
