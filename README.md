@@ -95,7 +95,7 @@ Edit the newly generated /mnt/etc/nixos/configuration.nix and add the following:
   };
   ...
   environment.systemPackages = with pkgs; [
-    wget vim htop git
+    wget curl vim htop git xclip
   ];
   ...
 ```
@@ -108,13 +108,41 @@ $ reboot
 
 ### 5. Fetch configurations
 
+I maintain various configurations (NixOS, XMonad, ZSH, Vim, ...) on GitHub repositories, so I want to clone my configurations from there. To be able to do so, I first need to generate a new key pair to use git with SSH.
+
+#### 5.0 Preparation
+
+On github.com, generate a personal access token (to be able to add an ssh key to your GitHub account later on):
+    - On another device, go to "Settings" -> "Developer settings" (left sidebar) -> "Personal access token" (left sidebar)
+    - Click "Generate new token"
+    - Give the token a descriptive name
+    - Grant `write:public_key` and `read:public_key` permissions
+
+Login as user `savau` and generate a new SSH key pair (use the default file location):
+```
+$ ssh-keygen -t ed25519 -C "sarah.vaupel@protonmail.com"
+```
+
+Then, add your SSH key to the ssh-agent:
+```
+$ eval "$(ssh-agent -s)"  # start the ssh-agent in the background
+> Agent pid X
+$ ssh-add ~/.ssh/id_ed25519
+```
+
+Add the newly generated SSH key to your GitHub account:
+```
+$ xclip -selection clipboard < ~/.ssh/id_ed25519.pub  # copy the SSH public key to your clipboard
+$ curl -H "Authorization: token $TOKEN" --data '{"title":"$KEYTITLE","key":"$CLIPBOARDCONTENT"}' https://api.github.com/user/keys
+```
+
 #### 5.1 NixOS configuration
 
 I maintain my NixOS configuration on GitHub, so I want to clone my configuration from there:
 (TODO: move hardware-configuration.nix to git as well?)
 ```
 $ rm -rf /etc/nixos
-$ git clone https://github.com/savau/nixos-config.git /etc/nixos
+$ git clone git@github.com:savau/nixos-config.git /etc/nixos
 $ nixos-generate-config && mv /etc/nixos/hardware-configuration.nix /etc/nixos/machines/xego/hardware-configuration.nix  # alternatively, move the previous hardware-configuration.nix to some temporary location and, after cloning the config repo, move it back to /etc/nixos/machines/xego/hardware-configuration.nix
 ```
 
