@@ -136,15 +136,16 @@ $ curl -H "Authorization: token $TOKEN" --data '{"title":"$KEYTITLE","key":"$CLI
 
 #### 5.1 NixOS configuration
 
-(TODO: move hardware-configuration.nix to git as well?)
+We clone our NixOS configuration directly to /etc/nixos, and then symlink the machine-specific configurations from /etc/nixos/machines/$MACHINENAME.
 
+We first delete the old configuration, clone our configuration and regenerate the hardware-configuration.nix:
 ```
 $ rm -rf /etc/nixos
 $ git clone git@github.com:savau/nixos-config.git /etc/nixos
 $ nixos-generate-config && mv /etc/nixos/hardware-configuration.nix /etc/nixos/machines/xego/hardware-configuration.nix  # alternatively, move the previous hardware-configuration.nix to some temporary location and, after cloning the config repo, move it back to /etc/nixos/machines/xego/hardware-configuration.nix
 ```
 
-Now that we have our NixOS config, symlink the relevant config file (under `machines/$MACHINENAME/configuration.nix`) to `/etc/nixos/configuration.nix`:
+Now that we have our configuration files, symlink the relevant config for this machine (under `machines/$MACHINENAME/configuration.nix`) to `/etc/nixos/configuration.nix`:
 ```
 $ cd /etc/nixos
 $ ln -sf "machines/$MACHINENAME/configuration.nix" .
