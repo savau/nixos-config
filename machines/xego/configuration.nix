@@ -38,9 +38,6 @@
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
 
-    # https://bugzilla.kernel.org/show_bug.cgi?id=110941
-    #kernelParams = [ "intel_pstate=no_hwp" ];
-
     initrd.luks.devices.luksroot = {
       device = "/dev/disk/by-uuid/d3e66e51-1ce9-4609-a63a-a09c4e72338b";
       preLVM = true;
