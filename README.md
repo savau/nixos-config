@@ -69,7 +69,7 @@ $ swapon /dev/vg/swap
 
 Configure WPA supplicant if you want to use WiFi for installing (if not, make sure you are connected via Ethernet):
 ```
-$ wpa_passphrase $SSID $PWD > /etc/wpa_supplicant.conf
+$ wpa_passphrase SSID PWD > /etc/wpa_supplicant.conf
 ```
 
 Generate an initial NixOS configuration:
@@ -86,7 +86,7 @@ Edit the newly generated `/mnt/etc/nixos/configuration.nix` and add the followin
 ```
   ...
   boot.initrd.luks.devices.luksroot = {
-    device = "/dev/disk/by-uuid/$UUID";
+    device = "/dev/disk/by-uuid/UUID";
     preLVM = true;
     allowDiscards = true;
   };
@@ -118,12 +118,13 @@ On github.com, generate a personal access token (to be able to add an ssh key to
 
 Login as user `savau` and generate a new SSH key pair (use the default file location):
 ```
-$ ssh-keygen -t ed25519 -C "$EMAIL"
+$ ssh-keygen -t ed25519 -C "EMAIL"
 ```
 
 Then, add your SSH key to the ssh-agent:
 ```
-$ eval "$(ssh-agent -s)"  # start the ssh-agent in the background
+$ # start the ssh-agent in the background:
+$ eval "$(ssh-agent -s)"
 > Agent pid X
 $ ssh-add ~/.ssh/id_ed25519
 ```
@@ -132,14 +133,14 @@ Add the newly generated SSH key to your GitHub account:
 ```
 $ # copy the SSH public key to your clipboard:
 $ xclip -selection clipboard < ~/.ssh/id_ed25519.pub
-$ curl -H "Authorization: token $TOKEN" --data 
-    '{"title":"$KEYTITLE","key":"$CLIPBOARDCONTENT"}' 
+$ curl -H "Authorization: token TOKEN" --data 
+    '{"title":"KEYTITLE","key":"CLIPBOARDCONTENT"}' 
     https://api.github.com/user/keys
 ```
 
 #### 5.1 NixOS configuration
 
-We clone our NixOS configuration directly to `/etc/nixos`, and then symlink the machine-specific configurations from `/etc/nixos/machines/$MACHINE`.
+We clone our NixOS configuration directly to `/etc/nixos`, and then symlink the machine-specific configurations from `/etc/nixos/machines/MACHINE`.
 
 We first delete the old configuration, clone our configuration and regenerate the `hardware-configuration.nix`:
 ```
@@ -147,20 +148,20 @@ $ rm -rf /etc/nixos
 $ git clone git@github.com:savau/nixos-config.git /etc/nixos
 $ nixos-generate-config
 $ mv /etc/nixos/hardware-configuration.nix
-     /etc/nixos/machines/$MACHINE/hardware-configuration.nix
+     /etc/nixos/machines/MACHINE/hardware-configuration.nix
 ```
 
-Now that we have our configuration files, symlink the relevant config for this machine (under `machines/$MACHINE/configuration.nix`) to `/etc/nixos/configuration.nix`:
+Now that we have our configuration files, symlink the relevant config for this machine (under `machines/MACHINE/configuration.nix`) to `/etc/nixos/configuration.nix`:
 ```
 $ cd /etc/nixos
-$ ln -sf "machines/$MACHINE/configuration.nix" .
+$ ln -sf "machines/MACHINE/configuration.nix" .
 ```
 
 Finally, restore the UUID of `/dev/nvme0n1p2` (see `blkid /dev/nvme0n1p2`) in `/etc/nixos/configuration.nix`:
 ```
 ...
   boot.initrd.luks.devices.luksroot = {
-    device = "/dev/disk/by-uuid/$UUID";
+    device = "/dev/disk/by-uuid/UUID";
     ...
   };
 ...
