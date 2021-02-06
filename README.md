@@ -82,7 +82,7 @@ Note the UUID of the root partition `/dev/nvme0n1p2`:
 $ blkid /dev/nvme0n1p2
 ```
 
-Edit the newly generated /mnt/etc/nixos/configuration.nix and add the following:
+Edit the newly generated `/mnt/etc/nixos/configuration.nix` and add the following options:
 ```
   ...
   boot.initrd.luks.devices.luksroot = {
@@ -111,14 +111,14 @@ I maintain various configurations (NixOS, XMonad, ZSH, Vim, ...) on GitHub repos
 
 On github.com, generate a personal access token (to be able to add an ssh key to your GitHub account later on):
 
-    - Using the web interface, go to "Settings" -> "Developer settings" (left sidebar) -> "Personal access token" (left sidebar)
-    - Click "Generate new token"
-    - Give the token a descriptive name
-    - Grant `write:public_key` and `read:public_key` permissions
+- Using the web interface, go to "Settings" -> "Developer settings" (left sidebar) -> "Personal access token" (left sidebar)
+- Click "Generate new token"
+- Give the token a descriptive name
+- Grant `write:public_key` and `read:public_key` permissions
 
 Login as user `savau` and generate a new SSH key pair (use the default file location):
 ```
-$ ssh-keygen -t ed25519 -C "sarah.vaupel@protonmail.com"
+$ ssh-keygen -t ed25519 -C "$EMAIL"
 ```
 
 Then, add your SSH key to the ssh-agent:
@@ -130,28 +130,33 @@ $ ssh-add ~/.ssh/id_ed25519
 
 Add the newly generated SSH key to your GitHub account:
 ```
-$ xclip -selection clipboard < ~/.ssh/id_ed25519.pub  # copy the SSH public key to your clipboard
-$ curl -H "Authorization: token $TOKEN" --data '{"title":"$KEYTITLE","key":"$CLIPBOARDCONTENT"}' https://api.github.com/user/keys
+$ # copy the SSH public key to your clipboard:
+$ xclip -selection clipboard < ~/.ssh/id_ed25519.pub
+$ curl -H "Authorization: token $TOKEN" --data 
+    '{"title":"$KEYTITLE","key":"$CLIPBOARDCONTENT"}' 
+    https://api.github.com/user/keys
 ```
 
 #### 5.1 NixOS configuration
 
-We clone our NixOS configuration directly to /etc/nixos, and then symlink the machine-specific configurations from /etc/nixos/machines/$MACHINENAME.
+We clone our NixOS configuration directly to `/etc/nixos`, and then symlink the machine-specific configurations from `/etc/nixos/machines/$MACHINE`.
 
-We first delete the old configuration, clone our configuration and regenerate the hardware-configuration.nix:
+We first delete the old configuration, clone our configuration and regenerate the `hardware-configuration.nix`:
 ```
 $ rm -rf /etc/nixos
 $ git clone git@github.com:savau/nixos-config.git /etc/nixos
-$ nixos-generate-config && mv /etc/nixos/hardware-configuration.nix /etc/nixos/machines/xego/hardware-configuration.nix  # alternatively, move the previous hardware-configuration.nix to some temporary location and, after cloning the config repo, move it back to /etc/nixos/machines/xego/hardware-configuration.nix
+$ nixos-generate-config
+$ mv /etc/nixos/hardware-configuration.nix
+     /etc/nixos/machines/$MACHINE/hardware-configuration.nix
 ```
 
-Now that we have our configuration files, symlink the relevant config for this machine (under `machines/$MACHINENAME/configuration.nix`) to `/etc/nixos/configuration.nix`:
+Now that we have our configuration files, symlink the relevant config for this machine (under `machines/$MACHINE/configuration.nix`) to `/etc/nixos/configuration.nix`:
 ```
 $ cd /etc/nixos
-$ ln -sf "machines/$MACHINENAME/configuration.nix" .
+$ ln -sf "machines/$MACHINE/configuration.nix" .
 ```
 
-Restore the UUID of `/dev/nvme0n1p2` (see `blkid /dev/nvme0n1p2`) in `/etc/nixos/configuration.nix`:
+Finally, restore the UUID of `/dev/nvme0n1p2` (see `blkid /dev/nvme0n1p2`) in `/etc/nixos/configuration.nix`:
 ```
 ...
   boot.initrd.luks.devices.luksroot = {
