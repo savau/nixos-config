@@ -92,7 +92,7 @@ Edit the newly generated `/mnt/etc/nixos/configuration.nix` and add the followin
   };
   ...
   environment.systemPackages = with pkgs; [
-    wget curl vim htop git xclip
+    wget curl vim htop git
   ];
   ...
 ```
@@ -109,14 +109,24 @@ I maintain various configurations (NixOS, XMonad, ZSH, Vim, ...) on GitHub repos
 
 #### 5.0 Preparation
 
-On github.com, generate a personal access token (to be able to add an ssh key to your GitHub account later on):
+On `github.com`, generate a personal access token (to be able to add an ssh key to your GitHub account later on):
 
-- Using the web interface, go to "Settings" -> "Developer settings" (left sidebar) -> "Personal access token" (left sidebar)
+- Using the web interface, go to "Settings" -> "Developer settings" -> "Personal access token"
 - Click "Generate new token"
 - Give the token a descriptive name
 - Grant `write:public_key` and `read:public_key` permissions
+- (Don't forget to remove the token after successfully adding your SSH key to GitHub!)
 
-Login as user `savau` and generate a new SSH key pair (use the default file location):
+We now need to generate a new SSH key pair, and thus need to create our main user:
+```
+$ useradd USER
+$ passwd USER
+$ usermod -aG wheel USER
+$ mkdir /home/USER
+$ chown -R USER /home/USER
+```
+
+Login as USER and generate a new SSH key pair (use the default file location):
 ```
 $ ssh-keygen -t ed25519 -C "EMAIL"
 ```
@@ -131,10 +141,8 @@ $ ssh-add ~/.ssh/id_ed25519
 
 Add the newly generated SSH key to your GitHub account:
 ```
-$ # copy the SSH public key to your clipboard:
-$ xclip -selection clipboard < ~/.ssh/id_ed25519.pub
 $ curl -H "Authorization: token TOKEN" --data 
-    '{"title":"KEYTITLE","key":"CLIPBOARDCONTENT"}' 
+    "{\"title\":\"KEYTITLE\",\"key\":\"$(cat ~/.ssh/id_ed25519.pub)\"}" 
     https://api.github.com/user/keys
 ```
 
@@ -172,3 +180,10 @@ Finally, restore the UUID of `/dev/nvme0n1p2` (see `blkid /dev/nvme0n1p2`) in `/
 - [ZSH config](https://github.com/savau/zsh-config)
 - [Vim config](https://github.com/savau/vim-config)
 - [XMonad config](https://github.com/savau/xmonad-config)
+
+### 6 Finishing
+
+When you're happy with the result and whenever you make changes to your NixOS configuration, rebuild NixOS:
+```
+$ nixos-rebuild switch
+```
