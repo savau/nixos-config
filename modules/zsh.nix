@@ -12,6 +12,10 @@
     #  source $ZSH/oh-my-zsh.sh
     #'';
     #promptInit = "";  # avoid conflicts with oh-my-zsh
+    ohMyZsh = {
+      enable = true;
+      plugins = [ "git" ];
+    };
   };
 
   environment.systemPackages = with pkgs; [
