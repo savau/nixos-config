@@ -188,3 +188,11 @@ When you're happy with the result and whenever you make changes to your NixOS co
 ```
 $ nixos-rebuild switch
 ```
+
+
+## Miscellaneous
+
+- Set background colour:
+```
+$xsetroot -solid black
+```
