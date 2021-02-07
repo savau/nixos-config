@@ -21,7 +21,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    lxappearance-gtk3
+    lxappearance
     
     arc-theme
     arc-icon-theme
