@@ -115,7 +115,6 @@ On `github.com`, generate a personal access token (to be able to add an ssh key 
 - Click "Generate new token"
 - Give the token a descriptive name
 - Grant `write:public_key` and `read:public_key` permissions
-- (Don't forget to remove the token after successfully adding your SSH key to GitHub!)
 
 We now need to generate a new SSH key pair, and thus need to create our main user:
 ```
@@ -141,10 +140,12 @@ $ ssh-add ~/.ssh/id_ed25519
 
 Add the newly generated SSH key to your GitHub account:
 ```
-$ curl -H "Authorization: token TOKEN" --data 
-    "{\"title\":\"KEYTITLE\",\"key\":\"$(cat ~/.ssh/id_ed25519.pub)\"}" 
+$ curl -i -u GITHUB_USER:GITHUB_PATOKEN --data 
+    "{\"title\":\"USER@MACHINE\",\"key\":\"$(cat ~/.ssh/id_ed25519.pub)\"}" 
     https://api.github.com/user/keys
 ```
+
+Repeat this process for root (generate a fresh token for this purpose) to be able to use git as root (necessary for `/etc/nixos`). The default location for root keys is `/root/.ssh`.
 
 #### 5.1 NixOS configuration
 
