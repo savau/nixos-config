@@ -58,4 +58,6 @@
   };
 
   networking.hostName = "xego";
+
+  time.timeZone = "Europe/Berlin";
 }
