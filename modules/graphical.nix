@@ -21,11 +21,18 @@
   };
 
   environment.systemPackages = with pkgs; [
+    # lxappearance to change theme
     lxappearance
-    
+
+    # theme stuff
     arc-theme
     arc-icon-theme
+
+    # tray stuff
     volumeicon
     birdtray
+
+    # convenience stuff
+    pcmanfm
   ];
 }
