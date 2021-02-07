@@ -8,6 +8,7 @@
       ../../modules/nix.nix
       ../../modules/nixpkgs.nix
       ../../modules/networking.nix
+      ../../modules/zsh.nix
       ../../modules/basics.nix
       ../../modules/locales.nix
       ../../modules/workstation.nix
@@ -39,7 +40,7 @@
     loader.efi.canTouchEfiVariables = true;
 
     initrd.luks.devices.luksroot = {
-      device = "/dev/disk/by-uuid/d3e66e51-1ce9-4609-a63a-a09c4e72338b";
+      device = "/dev/disk/by-uuid/704ef974-cdc6-471f-8e5d-fd539a4e04f1";
       preLVM = true;
       allowDiscards = true;
     };
