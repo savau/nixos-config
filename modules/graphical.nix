@@ -16,7 +16,7 @@
       source-sans-pro
       source-serif-pro
       dejavu_fonts
-      powerline
+      powerline-fonts
     ];
   };
 
