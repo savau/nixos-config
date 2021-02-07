@@ -2,10 +2,12 @@
 
 {
   environment.systemPackages = with pkgs; [
-    pkgs.powertop
-    pkgs.acpi
-    pkgs.upower
+    powertop
+    acpi
+    tlp
+    upower
   ];
 
+  services.tlp.enable = true;
   services.upower.enable = true;
 }
