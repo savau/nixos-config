@@ -20,6 +20,10 @@
     ];
   };
 
+  services.xserver.displayManager.sessionCommands = ''
+    xsetroot -solid black
+  '';
+
   environment.systemPackages = with pkgs; [
     # lxappearance to change theme
     lxappearance
