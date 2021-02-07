@@ -11,7 +11,7 @@
       ../../modules/zsh.nix
       ../../modules/basics.nix
       ../../modules/locales.nix
-      ../../modules/workstation.nix
+      ../../modules/work.nix
       ../../modules/graphical.nix
       ../../modules/laptop.nix
       ../../modules/users.nix
