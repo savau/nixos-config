@@ -16,8 +16,6 @@
     # utilities
     wget
     unzip
-    ncurses
-    zlib
 
     # nix
     nix-prefetch-git
