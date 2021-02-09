@@ -26,6 +26,8 @@
     nix-prefetch-git
     
     # desktop applications
+    libreoffice
+    texstudio
     zoom
   ];
 

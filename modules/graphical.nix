@@ -58,7 +58,5 @@
     firefox
     thunderbird
     evince
-    libreoffice
-    texstudio
   ];
 }
