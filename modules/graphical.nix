@@ -22,12 +22,12 @@
 
   services.xserver.displayManager.sessionCommands = let
     myCustomKeyboardLayout = pkgs.writeText "xkb-layout" ''
-      ! Map umlauts to RIGHT ALT + <key>
-      keycode 108 = Mode_switch
+      ! Map umlauts to ALT + <key>
+      keysym Alt_L = Mode_switch
       keysym e = e E EuroSign
-      keysym a = a A adiaresis Adiaresis
-      keysym o = o O odiaresis Odiaresis
-      keysym u = u U udiaresis Udiaresis
+      keysym a = a A adiaeresis Adiaeresis
+      keysym o = o O odiaeresis Odiaeresis
+      keysym u = u U udiaeresis Udiaeresis
       keysym s = s S ssharp
 
       ! disable capslock
@@ -42,6 +42,9 @@
   '';
 
   environment.systemPackages = with pkgs; [
+    # X-related stuff
+    xorg.xmodmap
+
     # lxappearance to change theme
     lxappearance
 
