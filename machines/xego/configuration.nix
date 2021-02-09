@@ -8,7 +8,6 @@
       ../../modules/nix.nix
       ../../modules/nixpkgs.nix
       ../../modules/zsh.nix
-      ../../modules/vim.nix
       ../../modules/networking.nix
       ../../modules/basics.nix
       ../../modules/locales.nix
