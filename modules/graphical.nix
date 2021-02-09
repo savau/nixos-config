@@ -20,6 +20,7 @@
     ];
   };
 
+  # set background to solid black
   services.xserver.displayManager.sessionCommands = ''
     xsetroot -solid black
   '';
@@ -37,6 +38,6 @@
     birdtray
 
     # convenience stuff
-    pcmanfm
+    #pcmanfm
   ];
 }

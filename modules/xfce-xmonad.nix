@@ -6,8 +6,12 @@
       xterm.enable = false;
       xfce = {
         enable = true;
-        noDesktop = true;
+        noDesktop = false;
         enableXfwm = false;
+        thunarPlugins = with pkgs.xfce; [
+          thunar-archive-plugin
+          thunar-volman
+        ];
       };
     };
     windowManager = {
@@ -26,8 +30,8 @@
 
   environment.systemPackages = with pkgs; [
     xscreensaver
-    xmobar
-    stalonetray
+    #xmobar
+    #stalonetray
     dmenu
   ];
 }
