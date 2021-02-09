@@ -36,8 +36,5 @@
     # tray stuff
     volumeicon
     birdtray
-
-    # convenience stuff
-    #pcmanfm
   ];
 }
