@@ -91,7 +91,12 @@ vim_configurable.customize {
     '';
 
     packages.myVimPackage = with pkgs.vimPlugins; {
-      start = [ gitgutter ];
+      # loaded on launch:
+      start = [
+        gitgutter
+      ];
+      # manually loadable by calling `:packadd $plugin-name`:
+      #opt = [  ];
     };
   };
 }
