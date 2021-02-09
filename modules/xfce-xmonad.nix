@@ -6,7 +6,7 @@
       xterm.enable = false;
       xfce = {
         enable = true;
-        noDesktop = false;
+        noDesktop = true;
         enableXfwm = false;
         thunarPlugins = with pkgs.xfce; [
           thunar-archive-plugin
@@ -22,7 +22,7 @@
           haskellPackages.xmonad-contrib
           haskellPackages.xmonad-extras
           haskellPackages.xmonad
-          haskellPackages.dbus  # needed for integration with xfce4-panel
+          # haskellPackages.dbus  # needed for xmobar integration with xfce4-panel
         ];
       };
     };
@@ -31,8 +31,9 @@
 
   environment.systemPackages = with pkgs; [
     xscreensaver
-    #xmobar
-    #stalonetray
+    xmobar
+    stalonetray
     dmenu
+    # autoconf automake pkg-config  # needed for xmobar integration with xfce4-panel
   ];
 }
