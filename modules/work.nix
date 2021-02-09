@@ -25,14 +25,8 @@
     # nix
     nix-prefetch-git
     
-    # desktop
-    firefox
-    thunderbird
-    evince
-    okular
-    zoom-us
-    libreoffice
-    texstudio
+    # desktop applications
+    zoom
   ];
 
   virtualisation = {

@@ -45,15 +45,20 @@
     # X-related stuff
     xorg.xmodmap
 
-    # lxappearance to change theme
+    # system theme stuff
     lxappearance
-
-    # theme stuff
     arc-theme
     arc-icon-theme
 
-    # tray stuff
+    # system tray stuff
     volumeicon
     birdtray
+
+    # applications
+    firefox
+    thunderbird
+    evince
+    libreoffice
+    texstudio
   ];
 }
