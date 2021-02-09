@@ -58,5 +58,6 @@
     firefox
     thunderbird
     evince
+    megasync
   ];
 }
