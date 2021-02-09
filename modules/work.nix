@@ -12,6 +12,11 @@
     python
     ghc
     stack
+
+    # prerequisites for Haskell Language Server
+    ncurses
+    icu.dev
+    zlib
     
     # utilities
     wget

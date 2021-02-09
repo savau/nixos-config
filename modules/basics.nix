@@ -3,7 +3,6 @@
 {
   environment.systemPackages = with pkgs; [
     (import ./vim.nix)
-    ncurses icu.dev zlib  # pre-requisites for Haskell Language Server
     git
     htop
   ];
