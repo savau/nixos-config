@@ -5,7 +5,7 @@
 
   environment.systemPackages = with pkgs; [
     # build-essentials
-    binutils gcc gnumake pkgconfig python ghc
+    binutils gcc gnumake pkgconfig python ghc stack
     # utilities
     wget unzip
     # nix
