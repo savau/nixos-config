@@ -178,8 +178,6 @@ Finally, restore the UUID of `/dev/nvme0n1p2` (see `blkid /dev/nvme0n1p2`) in `/
 
 #### 5.2 Miscellanenous configuration
 
-- [ZSH config](https://github.com/savau/zsh-config)
-- [Vim config](https://github.com/savau/vim-config)
 - [XMonad config](https://github.com/savau/xmonad-config)
 - [X config](https://github.com/savau/x-config)
 - [Miscellaneous utilities](https://github.com/savau/misc-utils)
