@@ -12,6 +12,7 @@
     python
     ghc
     stack
+    texlive.combined.scheme-full
 
     # prerequisites for Haskell Language Server
     ncurses
