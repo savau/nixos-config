@@ -55,6 +55,8 @@
 
     # override nixos-hardware profile
     thermald.enable = true;
+
+    blueman.enable = true;
   };
 
   networking.hostName = "xego";
