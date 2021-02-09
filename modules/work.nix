@@ -5,14 +5,28 @@
 
   environment.systemPackages = with pkgs; [
     # build-essentials
-    binutils gcc gnumake pkgconfig python ghc stack
+    binutils
+    gcc
+    gnumake
+    pkgconfig
+    python
+    ghc
+    stack
+    
     # utilities
-    wget unzip
+    wget
+    unzip
+    ncurses
+    zlib
+
     # nix
     nix-prefetch-git
+    
     # desktop
-    firefox thunderbird
-    evince okular
+    firefox
+    thunderbird
+    evince
+    okular
     zoom-us
     libreoffice
     texstudio
