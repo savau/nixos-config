@@ -22,7 +22,7 @@
           haskellPackages.xmonad-contrib
           haskellPackages.xmonad-extras
           haskellPackages.xmonad
-          # haskellPackages.dbus  # needed for xmobar integration with xfce4-panel
+          # haskellPackages.dbus  # needed for xmonad integration with xfce4-panel
         ];
       };
     };
@@ -34,6 +34,6 @@
     xmobar
     stalonetray
     dmenu
-    # autoconf automake pkg-config  # needed for xmobar integration with xfce4-panel
+    # autoconf automake pkg-config  # needed for xmonad integration with xfce4-panel
   ];
 }
