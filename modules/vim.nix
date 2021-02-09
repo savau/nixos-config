@@ -93,7 +93,6 @@ vim_configurable.customize {
     packages.myVimPackage = with pkgs.vimPlugins; {
       # loaded on launch:
       start = [
-        supertab   # insert completion using the tab key
         airline    # fancy bottom status line
         fugitive   # allows git operations within vim (via `:Git <command>`)
         gitgutter  # displays a git diff in the sign column
