@@ -20,8 +20,24 @@
     ];
   };
 
-  # set background to solid black
-  services.xserver.displayManager.sessionCommands = ''
+  services.xserver.displayManager.sessionCommands = let
+    myCustomKeyboardLayout = pkgs.writeText "xkb-layout" ''
+      ! Map umlauts to RIGHT ALT + <key>
+      keycode 108 = Mode_switch
+      keysym e = e E EuroSign
+      keysym a = a A adiaresis Adiaresis
+      keysym o = o O odiaresis Odiaresis
+      keysym u = u U udiaresis Udiaresis
+      keysym s = s S ssharp
+
+      ! disable capslock
+      remove Lock = Caps_Lock
+    '';
+  in ''
+    # apply custom keyboard layout:
+    ${pkgs.xorg.xmodmap}/bin/xmodmap ${myCustomKeyboardLayout}
+    
+    # set background to solid black:
     xsetroot -solid black
   '';
 
