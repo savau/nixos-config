@@ -50,6 +50,7 @@
 
     # system theme stuff
     lxappearance
+    qt5ct
     arc-theme
     arc-icon-theme
 
