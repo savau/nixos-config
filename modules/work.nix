@@ -30,6 +30,7 @@
     texstudio
     libreoffice
     zoom
+    jetbrains.idea-community
   ];
 
   virtualisation = {
