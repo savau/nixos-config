@@ -2,6 +2,7 @@
 
 {
   imports = [ ./xfce-xmonad.nix ];
+  
   services.xserver = {
     enable = true;
     layout = "us";
@@ -44,15 +45,20 @@
   # enable handling of hotplug and sleep events by autorandr
   services.autorandr.enable = true;
 
+  qt5 = {
+    enable = true;
+    platformTheme = "gtk2";
+    style = "gtk2";
+  };
+
   environment.systemPackages = with pkgs; [
     # X-related stuff
     xorg.xmodmap
 
     # system theme stuff
-    lxappearance
-    qt5ct
     arc-theme
     arc-icon-theme
+    lxappearance
 
     # system tray stuff
     volumeicon
