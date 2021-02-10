@@ -28,6 +28,7 @@
     
     # desktop applications
     texstudio
+    rstudio
     libreoffice
     zoom
     jetbrains.idea-community
