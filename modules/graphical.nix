@@ -45,11 +45,7 @@
   # enable handling of hotplug and sleep events by autorandr
   services.autorandr.enable = true;
 
-  qt5 = {
-    enable = true;
-    platformTheme = "gtk2";
-    style = "gtk2";
-  };
+  programs.qt5ct.enable = true;
 
   environment.systemPackages = with pkgs; [
     # X-related stuff
