@@ -2,11 +2,12 @@
 
 {
   services = {
+    # TODO: do I need this?
     #openldap = {
     #  enable = true;
-    #  rootdn = "cn=admin,dc=example";
-    #  rootpw = "rootpw-test";
-    #  suffix = "dc=example";
+    #  rootdn = "cn=root,dc=nixos,dc=org";
+    #  rootpw = "thereisnopassword";
+    #  suffix = "dc=nixos,dc=org";
     #};
 
     postgresql = {
@@ -35,4 +36,9 @@
       ];
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    openldap
+    #haskell.packages.ghc8103
+  ];
 }
