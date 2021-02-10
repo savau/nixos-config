@@ -188,3 +188,66 @@ When you're happy with the result and whenever you make changes to your NixOS co
 ```
 $ nixos-rebuild switch
 ```
+
+
+## Uni2work Setup Guide
+Ad-hoc written guide to setup Uni2work productive environment under NixOS. Also contains comments how the README.md in the Uni2work repository should be updated at specific steps. Note that this part is currently a work in progress.
+
+### Prerequisites
+
+- `de_DE.UTF-8/UTF-8` locale: `config.i18n.supportedLocales` defaults to `[ "all" ]`, so `de_DE.UTF-8/UTF-8` should be available by default. If `config.i18n.supportedLocales` is explicitely set to something else, make sure to include `"de_DE.UTF-8/UTF-8"` in the list.
+
+### Clone Repository
+
+- Edit u2w README.md:
+    - Update repo link! (Also default to clone via SSH and paste link to how-to-ssh)
+    - Maybe also add best practice of dest:
+    ```
+    $ git clone git@gitlab2.rz.ifi.lmu.de:uni2work/uni2work.git uni2work/uni2work
+    $ cd ~
+    $ ln -s uni2work/uni2work u2w
+    $ cd u2w
+    ```
+
+### LDAP
+
+Install:
+```
+environment.systemPackages = [ pkgs.openldap ];
+```
+
+### PostgreSQL
+
+Install: See `modules/u2w.nix`. With this, you can also skip the manual process of adding psql users (including linking them to linux users) and databases.
+
+When creating new `uniworx` psql account, in the current state `createuser --interactive` will not ask for a password prompt (which is okay, I guess).
+
+### Compiling the Frontend
+
+Node and npm are required to compile the frontend:
+```
+environment.systemPackages = with pkgs; [ nodejs ];
+```
+
+### Other prerequisites
+
+Prerequisites that are listed in u2w README, but not needed on NixOS:
+
+- `stack`
+- `slapd`, `ldap-utils` (included in `openldap` afaik)
+- `postgresql`
+- `libsasl2-dev`, `libldap2-dev` (TODO: double-check for errors about missing C libs in `stack setup` or `stack build`
+- `libsodium-dev` (TODO: verify), `pkg-config` (already installed afaik)
+
+### Stack
+
+Using `stack` from `nixpkgs`, let's see if that works... ~~(if not, fixiate stack version or sth)~~ (it works, hooray)
+
+For this to work, you ~~may~~ will need to switch to nixos-unstable:
+```
+$ # as root:
+$ nix-channel --list  # sanity check
+$ nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+$ nix-channel --add https://nixos.org/channels/nixpkgs-unstable  # not sure if this is really necessary, afaik no
+$ nixos-rebuild switch --upgrade
+```
