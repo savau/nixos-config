@@ -13,6 +13,7 @@
     gnumake
     pkgconfig
     python
+    nodejs
     stack
     texlive.combined.scheme-full
 
