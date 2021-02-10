@@ -1,7 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./direnv.nix ];
+  imports = [
+    ./direnv.nix
+    ./u2w.nix
+  ];
 
   environment.systemPackages = with pkgs; [
     # build-essentials
@@ -43,16 +46,6 @@
 
   services = {
     printing.enable = true;
-
-    postgresql = {
-      enable = true;
-    };
-    #openldap = {
-    #  enable = true;
-    #  rootdn = "cn=admin,dc=example";
-    #  rootpw = "rootpw-test";
-    #  suffix = "dc=example";
-    #};
   };
 
   programs = {
