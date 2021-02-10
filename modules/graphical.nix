@@ -57,6 +57,9 @@
     volumeicon
     birdtray
 
+    # display-related stuff
+    arandr
+
     # applications
     firefox
     thunderbird
