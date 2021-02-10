@@ -41,6 +41,9 @@
     xsetroot -solid black
   '';
 
+  # enable handling of hotplug and sleep events by autorandr
+  services.autorandr.enable = true;
+
   environment.systemPackages = with pkgs; [
     # X-related stuff
     xorg.xmodmap
