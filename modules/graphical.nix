@@ -50,6 +50,7 @@
   environment.systemPackages = with pkgs; [
     # X-related stuff
     xorg.xmodmap
+    xclip
 
     # system theme stuff
     arc-theme
