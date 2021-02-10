@@ -13,7 +13,6 @@
     gnumake
     pkgconfig
     python
-    ghc
     stack
     texlive.combined.scheme-full
 
