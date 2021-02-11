@@ -216,6 +216,8 @@ Install:
 environment.systemPackages = [ pkgs.openldap ];
 ```
 
+For local development without authenticating LDAP users, this might not be necessary. TODO: verify
+
 ### PostgreSQL
 
 Install: See `modules/u2w.nix`. With this, you can also skip the manual process of adding psql users (including linking them to linux users) and databases.
