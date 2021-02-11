@@ -253,3 +253,18 @@ $ nix-channel --add https://nixos.org/channels/nixos-unstable nixos
 $ nix-channel --add https://nixos.org/channels/nixpkgs-unstable  # not sure if this is really necessary, afaik no
 $ nixos-rebuild switch --upgrade
 ```
+
+### Compilation
+
+Update u2w README: 
+
+- first db fill with test data: `cd u2w && ./db.sh -cf`
+- include `npm install` before compiling frontend
+- use `npm run start` for watcher; local app will be reachable under `localhost:3000`
+- after first start of the application, use `cp -r .stack-work .stack-work-run` to enable caching (for faster compilation)
+
+maybe include error cases:
+
+- `wellKnownBase is not a directory`: run `npm install` (e.g. before calling `./db.sf`)
+- `Not Found - GET https://registry.npmjs.org/@fortawesome%2ffontawesome-pro - Not found` when running `npm install`: remove `package-lock.json` and try again
+- `no space left on device` (tested with 8GB RAM and 16GB swap)
