@@ -38,7 +38,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    openldap
+    #openldap
     #haskell.packages.ghc8103
   ];
 }

@@ -16,6 +16,7 @@
     nodejs
     stack
     texlive.combined.scheme-full
+    gup
 
     # prerequisites for Haskell Language Server
     ncurses
