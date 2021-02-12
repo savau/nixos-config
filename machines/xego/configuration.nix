@@ -7,6 +7,7 @@
 
       ../../modules/nix.nix
       ../../modules/nixpkgs.nix
+      ../../modules/system.nix
       ../../modules/zsh.nix
       ../../modules/networking.nix
       ../../modules/basics.nix
