@@ -2,8 +2,8 @@
 
 {
   environment.systemPackages = with pkgs; [
-    (import ./vim.nix)
     git
     htop
+    (import ./vim.nix)
   ];
 }
