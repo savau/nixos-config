@@ -1,14 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    powertop
-    acpi
-    tlp
-    upower
-  ];
-
+  powerManagement = {
+    enable = true;
+    powertop.enable = true;
+  };
+  
   services.tlp.enable = true;
-  services.upower.enable = true;
-  powerManagement.enable = true;
 }
