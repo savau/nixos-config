@@ -2,10 +2,10 @@
 
 {
   imports = [
-    ./graphical/display-manager.nix
+    ./display-manager.nix
 
-    ./graphical/fonts.nix
-    ./graphical/randr.nix
+    ./fonts.nix
+    ./randr.nix
   ];
 
   services.xserver = {

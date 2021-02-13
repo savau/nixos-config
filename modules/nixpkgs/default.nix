@@ -2,6 +2,6 @@
 
 {
   nixpkgs = {
-    config = import ./nixpkgs/config.nix;
+    config = import ./config.nix;
   };
 }

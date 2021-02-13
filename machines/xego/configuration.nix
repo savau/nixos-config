@@ -6,18 +6,18 @@
       ./hardware-configuration.nix
 
       ../../modules/nix.nix
-      ../../modules/nixpkgs.nix
+      (import ../../modules/nixpkgs)
 
       ../../modules/system.nix
       ../../modules/zsh.nix
       ../../modules/networking.nix
       ../../modules/basics.nix
       ../../modules/locales.nix
-      ../../modules/graphical.nix
+      (import ../../modules/graphical)
       ../../modules/laptop.nix
       ../../modules/users.nix
       ../../modules/security.nix
-      ../../modules/work.nix
+      (import ../../modules/work)
       ../../modules/entertainment.nix
     ];
 

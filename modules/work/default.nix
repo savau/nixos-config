@@ -2,11 +2,11 @@
 
 {
   imports = [
-    ./work/direnv.nix
-    ./work/haskell.nix
-    ./work/java.nix
-    ./work/tex.nix
-    ./work/u2w.nix
+    ./direnv.nix
+    ./haskell.nix
+    ./java.nix
+    ./tex.nix
+    ./u2w.nix
   ];
 
   boot.tmpOnTmpfs = true;
