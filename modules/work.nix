@@ -47,7 +47,6 @@
     nix-prefetch-git
     
     # desktop applications
-    jetbrains.idea-community
     libreoffice
     rstudio
     zoom
