@@ -14,7 +14,7 @@
       ../../modules/basics.nix
       ../../modules/locales.nix
       (import ../../modules/graphical)
-      ../../modules/laptop.nix
+      ../../modules/laptop-battery.nix
       ../../modules/users.nix
       ../../modules/security.nix
       (import ../../modules/work)
