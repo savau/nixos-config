@@ -3,6 +3,7 @@
 {
   imports = [
     ./work/direnv.nix
+    ./work/java.nix
     ./work/tex.nix
     ./work/u2w.nix
   ];
