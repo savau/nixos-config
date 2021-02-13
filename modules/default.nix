@@ -8,8 +8,8 @@
     ./basics.nix
     ./entertainment.nix
     (import ./graphical)
+    ./i18n.nix
     ./laptop-battery.nix
-    ./locales.nix
     ./networking.nix
     ./system.nix
     ./security.nix
