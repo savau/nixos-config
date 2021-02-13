@@ -231,6 +231,16 @@ Node and npm are required to compile the frontend:
 environment.systemPackages = with pkgs; [ nodejs ];
 ```
 
+Generate a `.npmrc` before `npm install`:
+```
+$ FONTAWESOME_NPM_AUTH_TOKEN=<insert token> ./.npmrc.gup
+```
+
+Now setup npm:
+```
+$ npm install
+```
+
 ### Other prerequisites
 
 Prerequisites that are listed in u2w README, but not needed on NixOS:
