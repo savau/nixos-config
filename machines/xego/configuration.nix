@@ -5,21 +5,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
-    ../../modules/nix.nix
-    (import ../../modules/nixpkgs)
-
-    ../../modules/system.nix
-    ../../modules/ssh.nix
-    ../../modules/zsh.nix
-    ../../modules/networking.nix
-    ../../modules/basics.nix
-    ../../modules/locales.nix
-    (import ../../modules/graphical)
-    ../../modules/laptop-battery.nix
-    ../../modules/users.nix
-    ../../modules/security.nix
-    (import ../../modules/work)
-    ../../modules/entertainment.nix
+    (import ../../modules)
   ];
 
   hardware = {
