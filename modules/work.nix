@@ -3,6 +3,7 @@
 {
   imports = [
     ./work/direnv.nix
+    ./work/tex.nix
     ./work/u2w.nix
   ];
 
@@ -32,7 +33,6 @@
     pkgconfig
     python
     stack
-    texlive.combined.scheme-full
 
     # prerequisites for Haskell Language Server
     icu.dev
@@ -50,7 +50,6 @@
     jetbrains.idea-community
     libreoffice
     rstudio
-    texstudio
     zoom
   ];
 }
