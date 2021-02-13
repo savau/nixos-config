@@ -9,6 +9,7 @@
       (import ../../modules/nixpkgs)
 
       ../../modules/system.nix
+      ../../modules/ssh.nix
       ../../modules/zsh.nix
       ../../modules/networking.nix
       ../../modules/basics.nix

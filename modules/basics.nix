@@ -6,8 +6,4 @@
     git
     htop
   ];
-
-  services = {
-    openssh.enable = true;  # allow to ssh in
-  };
 }
