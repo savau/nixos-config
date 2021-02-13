@@ -62,9 +62,6 @@
       keysym o = o O odiaeresis Odiaeresis
       keysym u = u U udiaeresis Udiaeresis
       keysym s = s S ssharp
-
-      ! disable capslock
-      remove Lock = Caps_Lock
     '';
   in ''
     # merge Xresources:
