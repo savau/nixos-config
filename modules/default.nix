@@ -5,17 +5,17 @@
     ./nix.nix
     (import ./nixpkgs)
 
-    ./system.nix
-    ./ssh.nix
-    ./zsh.nix
-    ./networking.nix
     ./basics.nix
-    ./locales.nix
+    ./entertainment.nix
     (import ./graphical)
     ./laptop-battery.nix
-    ./users.nix
+    ./locales.nix
+    ./networking.nix
+    ./system.nix
     ./security.nix
+    ./ssh.nix
+    ./users.nix
     (import ./work)
-    ./entertainment.nix
+    ./zsh.nix
   ];
 }
