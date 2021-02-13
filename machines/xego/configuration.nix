@@ -7,17 +7,18 @@
 
       ../../modules/nix.nix
       ../../modules/nixpkgs.nix
+
       ../../modules/system.nix
       ../../modules/zsh.nix
       ../../modules/networking.nix
       ../../modules/basics.nix
       ../../modules/locales.nix
-      ../../modules/work.nix
       ../../modules/graphical.nix
       ../../modules/laptop.nix
       ../../modules/users.nix
-      ../../modules/entertainment.nix
       ../../modules/security.nix
+      ../../modules/work.nix
+      ../../modules/entertainment.nix
     ];
 
   hardware = {
@@ -41,7 +42,7 @@
     loader.efi.canTouchEfiVariables = true;
 
     initrd.luks.devices.luksroot = {
-      device = "/dev/disk/by-uuid/704ef974-cdc6-471f-8e5d-fd539a4e04f1";
+      device = "/dev/disk/by-uuid/fd90341e-768c-43c8-b725-855d71ea7722";
       preLVM = true;
       allowDiscards = true;
     };
