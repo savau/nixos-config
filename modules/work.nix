@@ -3,6 +3,7 @@
 {
   imports = [
     ./work/direnv.nix
+    ./work/haskell.nix
     ./work/java.nix
     ./work/tex.nix
     ./work/u2w.nix
@@ -33,13 +34,7 @@
     nodejs
     pkgconfig
     python
-    stack
 
-    # prerequisites for Haskell Language Server
-    icu.dev
-    ncurses
-    zlib
-    
     # utilities
     unzip
     wget
