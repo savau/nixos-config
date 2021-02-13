@@ -7,18 +7,6 @@
     xkbOptions = "caps:escape";
   };
 
-  fonts = {
-    enableGhostscriptFonts = true;
-    fonts = with pkgs; [
-      corefonts
-      source-code-pro
-      source-sans-pro
-      source-serif-pro
-      dejavu_fonts
-      powerline-fonts
-    ];
-  };
-
   services.xserver.displayManager.sessionCommands = let
     myCustomXresources = pkgs.writeText "Xresources" ''
       ! Copy selection to clipboard
