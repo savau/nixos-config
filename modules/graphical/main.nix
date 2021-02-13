@@ -60,9 +60,6 @@
     xsetroot -solid black
   '';
 
-  # enable handling of hotplug and sleep events by autorandr
-  services.autorandr.enable = true;
-
   programs.qt5ct.enable = true;
 
   environment.systemPackages = with pkgs; [
@@ -78,9 +75,6 @@
     # system tray stuff
     volumeicon
     birdtray
-
-    # display-related stuff
-    arandr
 
     # applications
     firefox
