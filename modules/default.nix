@@ -11,7 +11,6 @@
     ./laptop-battery.nix
     ./media.nix
     ./networking.nix
-    ./system.nix
     ./security.nix
     ./ssh.nix
     ./users.nix

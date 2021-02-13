@@ -74,6 +74,9 @@
     xorg.xmodmap
     xclip
 
+    # system-tool GUIs
+    gparted
+
     # system theme stuff
     arc-theme
     arc-icon-theme
