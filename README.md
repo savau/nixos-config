@@ -109,28 +109,21 @@ I maintain various configurations (NixOS, XMonad, ZSH, Vim, ...) on GitHub repos
 
 #### 5.0 Preparation
 
-On `github.com`, generate a personal access token (to be able to add an ssh key to your GitHub account later on):
+To be able to get your NixOS config (i.e. to clone this repository), you first need to generate an SSH key and add it to your GitHub account.
+
+On `github.com`, generate a personal access token for this purpose:
 
 - Using the web interface, go to "Settings" -> "Developer settings" -> "Personal access token"
 - Click "Generate new token"
-- Give the token a descriptive name
+- Give the token a descriptive name (e.g. "USER@MACHINE")
 - Grant `write:public_key` and `read:public_key` permissions
 
-We now need to generate a new SSH key pair, and thus need to create our main user:
-```
-$ useradd USER
-$ passwd USER
-$ usermod -aG wheel USER
-$ mkdir /home/USER
-$ chown -R USER /home/USER
-```
-
-Login as USER and generate a new SSH key pair (use the default file location):
+Now, generate a new SSH key pair as/for root (use the default file location, i.e. `/root/.ssh/`):
 ```
 $ ssh-keygen -t ed25519 -C "EMAIL"
 ```
 
-Then, add your SSH key to the ssh-agent:
+Add this SSH key to the ssh-agent:
 ```
 $ # start the ssh-agent in the background:
 $ eval "$(ssh-agent -s)"
@@ -138,14 +131,14 @@ $ eval "$(ssh-agent -s)"
 $ ssh-add ~/.ssh/id_ed25519
 ```
 
-Add the newly generated SSH key to your GitHub account:
+To be able to clone this repository, add the newly generated SSH key to your GitHub account:
 ```
 $ curl -i -u GITHUB_USER:GITHUB_PATOKEN --data 
     "{\"title\":\"USER@MACHINE\",\"key\":\"$(cat ~/.ssh/id_ed25519.pub)\"}" 
     https://api.github.com/user/keys
 ```
 
-Repeat this process for root (generate a fresh token for this purpose) to be able to use git as root (necessary for `/etc/nixos`). The default location for root keys is `/root/.ssh`.
+Repeat this process for your main user later on (generate a fresh token for this purpose, if needed).
 
 #### 5.1 NixOS configuration
 
