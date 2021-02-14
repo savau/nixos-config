@@ -175,9 +175,23 @@ Finally, restore the UUID of `/dev/nvme0n1p2` (see `blkid /dev/nvme0n1p2`) in `/
 - [X config](https://github.com/savau/x-config)
 - [Miscellaneous utilities](https://github.com/savau/misc-utils)
 
-### 6 Finishing
+### 6 Switch to `nixos-unstable`
 
-When you're happy with the result and whenever you make changes to your NixOS configuration, rebuild NixOS:
+I recommend to switch to `nixos-unstable` to allow for rolling releases:
+```
+$ # as root:
+$ # sanity check; the NixOS version that was installed
+$ #   on the USB drive should be listed:
+$ nix-channel --list
+$ nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+$ nixos-rebuild switch --upgrade
+```
+
+Switching to `nixos-unstable` is also required for your u2w development environment.
+
+### 7 Finishing
+
+When you're happy with the result and whenever you make changes to your NixOS configuration, use the following command to rebuild NixOS with the latest configuration and to directly switch to the new build:
 ```
 $ nixos-rebuild switch
 ```
@@ -248,14 +262,6 @@ Prerequisites that are listed in u2w README, but not needed on NixOS:
 
 Using `stack` from `nixpkgs`, let's see if that works... ~~(if not, fixiate stack version or sth)~~ (it works, hooray)
 
-For this to work, you ~~may~~ will need to switch to nixos-unstable:
-```
-$ # as root:
-$ nix-channel --list  # sanity check
-$ nix-channel --add https://nixos.org/channels/nixos-unstable nixos
-$ nix-channel --add https://nixos.org/channels/nixpkgs-unstable  # not sure if this is really necessary, afaik no
-$ nixos-rebuild switch --upgrade
-```
 
 ### Compilation
 
