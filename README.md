@@ -279,6 +279,8 @@ maybe include error cases:
 - `no space left on device` (tested with 8GB RAM and 40GB swap)
     - does not occur in nix shell, i.e. use `nix-shell --command "npx npm-run-all start"` instead for now
 - `npm-run-all` command not found, even though installed (via prior `npm i`): 
-    - `npx npm-run-all <command>` works around this issue, but I did not find any fix or root cause for this yet
+    - `npx npm-run-all <command>` works around this issue
+    - running `npm install` in nix shell seems to fix this issue (TODO: verify)
 - `In nix shell but runExecL is False` (or sth like this):
     - running build or start outside of nix-shell, use this instead: `nix-shell --comand "npx npm-run-all start"` (`npx npm-run-all start` instead of `npm run start` right now, see fix above)
+- `npm run (build|start)` failed with exec code 1, no further errors reported => remove `.stack-work.lock` and try again
