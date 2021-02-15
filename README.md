@@ -284,3 +284,5 @@ maybe include error cases:
 - `In nix shell but runExecL is False` (or sth like this):
     - running build or start outside of nix-shell, use this instead: `nix-shell --comand "npx npm-run-all start"` (`npx npm-run-all start` instead of `npm run start` right now, see fix above)
 - `npm run (build|start)` failed with exec code 1, no further errors reported => remove `.stack-work.lock` and try again
+- in nix shell, when running `npm run (start|build)`: `devel.hs: Network.Socket.connect: <socket: 13>: does not exist (Connection refused)`
+    - no idea yet...
