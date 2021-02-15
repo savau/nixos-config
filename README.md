@@ -109,28 +109,21 @@ I maintain various configurations (NixOS, XMonad, ZSH, Vim, ...) on GitHub repos
 
 #### 5.0 Preparation
 
-On `github.com`, generate a personal access token (to be able to add an ssh key to your GitHub account later on):
+To be able to get your NixOS config (i.e. to clone this repository), you first need to generate an SSH key and add it to your GitHub account.
+
+On `github.com`, generate a personal access token for this purpose:
 
 - Using the web interface, go to "Settings" -> "Developer settings" -> "Personal access token"
 - Click "Generate new token"
-- Give the token a descriptive name
+- Give the token a descriptive name (e.g. "USER@MACHINE")
 - Grant `write:public_key` and `read:public_key` permissions
 
-We now need to generate a new SSH key pair, and thus need to create our main user:
-```
-$ useradd USER
-$ passwd USER
-$ usermod -aG wheel USER
-$ mkdir /home/USER
-$ chown -R USER /home/USER
-```
-
-Login as USER and generate a new SSH key pair (use the default file location):
+Now, generate a new SSH key pair as/for root (use the default file location, i.e. `/root/.ssh/`):
 ```
 $ ssh-keygen -t ed25519 -C "EMAIL"
 ```
 
-Then, add your SSH key to the ssh-agent:
+Add this SSH key to the ssh-agent:
 ```
 $ # start the ssh-agent in the background:
 $ eval "$(ssh-agent -s)"
@@ -138,14 +131,14 @@ $ eval "$(ssh-agent -s)"
 $ ssh-add ~/.ssh/id_ed25519
 ```
 
-Add the newly generated SSH key to your GitHub account:
+To be able to clone this repository, add the newly generated SSH key to your GitHub account:
 ```
 $ curl -i -u GITHUB_USER:GITHUB_PATOKEN --data 
     "{\"title\":\"USER@MACHINE\",\"key\":\"$(cat ~/.ssh/id_ed25519.pub)\"}" 
     https://api.github.com/user/keys
 ```
 
-Repeat this process for root (generate a fresh token for this purpose) to be able to use git as root (necessary for `/etc/nixos`). The default location for root keys is `/root/.ssh`.
+Repeat this process for your main user later on (generate a fresh token for this purpose, if needed).
 
 #### 5.1 NixOS configuration
 
@@ -182,9 +175,23 @@ Finally, restore the UUID of `/dev/nvme0n1p2` (see `blkid /dev/nvme0n1p2`) in `/
 - [X config](https://github.com/savau/x-config)
 - [Miscellaneous utilities](https://github.com/savau/misc-utils)
 
-### 6 Finishing
+### 6 Switch to `nixos-unstable`
 
-When you're happy with the result and whenever you make changes to your NixOS configuration, rebuild NixOS:
+I recommend to switch to `nixos-unstable` to allow for rolling releases:
+```
+$ # as root:
+$ # sanity check; the NixOS version that was installed
+$ #   on the USB drive should be listed:
+$ nix-channel --list
+$ nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+$ nixos-rebuild switch --upgrade
+```
+
+Switching to `nixos-unstable` is also required for your u2w development environment.
+
+### 7 Finishing
+
+When you're happy with the result and whenever you make changes to your NixOS configuration, use the following command to rebuild NixOS with the latest configuration and to directly switch to the new build:
 ```
 $ nixos-rebuild switch
 ```
@@ -255,14 +262,6 @@ Prerequisites that are listed in u2w README, but not needed on NixOS:
 
 Using `stack` from `nixpkgs`, let's see if that works... ~~(if not, fixiate stack version or sth)~~ (it works, hooray)
 
-For this to work, you ~~may~~ will need to switch to nixos-unstable:
-```
-$ # as root:
-$ nix-channel --list  # sanity check
-$ nix-channel --add https://nixos.org/channels/nixos-unstable nixos
-$ nix-channel --add https://nixos.org/channels/nixpkgs-unstable  # not sure if this is really necessary, afaik no
-$ nixos-rebuild switch --upgrade
-```
 
 ### Compilation
 
