@@ -30,7 +30,7 @@
     gcc
     gnumake
     gup
-    nodejs
+    nodejs-12_x
     pkgconfig
     python
 
