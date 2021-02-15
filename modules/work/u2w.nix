@@ -40,5 +40,6 @@
   environment.systemPackages = with pkgs; [
     #openldap
     #haskell.packages.ghc8103
+    exiftool
   ];
 }
