@@ -277,6 +277,7 @@ maybe include error cases:
 - `wellKnownBase is not a directory`: run `npm install` (e.g. before calling `./db.sf`)
 - `Not Found - GET https://registry.npmjs.org/@fortawesome%2ffontawesome-pro - Not found` when running `npm install`: remove `package-lock.json` and try again
 - `no space left on device` (tested with 8GB RAM and 40GB swap)
+    - does not occur in nix shell, i.e. use `nix-shell --command "npx npm-run-all start"` instead for now
 - `npm-run-all` command not found, even though installed (via prior `npm i`): 
     - `npx npm-run-all <command>` works around this issue, but I did not find any fix or root cause for this yet
 - `In nix shell but runExecL is False` (or sth like this):
