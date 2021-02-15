@@ -3,12 +3,9 @@
 {
   services = {
     # TODO: do I need this?
-    #openldap = {
-    #  enable = true;
-    #  rootdn = "cn=root,dc=nixos,dc=org";
-    #  rootpw = "thereisnopassword";
-    #  suffix = "dc=nixos,dc=org";
-    #};
+    openldap = {
+      enable = true;
+    };
 
     postgresql = {
       enable = true;
@@ -38,8 +35,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    #openldap
-    #haskell.packages.ghc8103
+    openldap
     exiftool
   ];
 }
