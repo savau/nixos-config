@@ -22,7 +22,7 @@
           haskellPackages.xmonad-contrib
           haskellPackages.xmonad-extras
           haskellPackages.xmonad
-          # haskellPackages.dbus  # needed for xmonad integration with xfce4-panel
+          #haskellPackages.dbus  # needed for xmonad integration with xfce4-panel
         ];
       };
     };
@@ -30,10 +30,25 @@
   };
 
   environment.systemPackages = with pkgs; [
+    # xscreensaver and locker
     xscreensaver
+
+    # status bar
     xmobar
+
+    # system tray
     stalonetray
+
+    # system tray stuff
+    birdtray
+    volumeicon
+
+    # dynamic menu
     dmenu
-    # autoconf automake pkg-config  # needed for xmonad integration with xfce4-panel
+
+    #autoconf automake pkg-config  # needed for xmonad integration with xfce4-panel
+
+    # file manager
+    xfce.thunar
   ];
 }
