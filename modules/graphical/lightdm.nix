@@ -18,5 +18,6 @@
         hide-user-image = true
         reader = orca
       '';
+    };
   };
 }
