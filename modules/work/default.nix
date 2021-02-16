@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./communication.nix
     ./direnv.nix
     ./haskell.nix
     ./java.nix
@@ -43,7 +44,7 @@
     
     # desktop applications
     libreoffice
+    octave
     rstudio
-    zoom
   ];
 }
