@@ -272,17 +272,18 @@ Update u2w README:
 - use `npm run start` for watcher; local app will be reachable under `localhost:3000`
 - after first start of the application, use `cp -r .stack-work .stack-work-run` to enable caching (for faster compilation)
 
-maybe include error cases:
+Troubleshooting:
 
 - `wellKnownBase is not a directory`: run `npm install` (e.g. before calling `./db.sf`)
-- `Not Found - GET https://registry.npmjs.org/@fortawesome%2ffontawesome-pro - Not found` when running `npm install`: remove `package-lock.json` and try again
+- `Not Found - GET https://registry.npmjs.org/@fortawesome%2ffontawesome-pro - Not found` when running `npm install`: add `$FONTAWESOME_NPM_AUTH_TOKEN` and try again (see `./.npmrc.gup`)
 - `no space left on device` (tested with 8GB RAM and 40GB swap)
-    - does not occur in nix shell, i.e. use `nix-shell --command "npx npm-run-all start"` instead for now
+    - does not occur in nix-shell, i.e. use `nix-shell` instead
 - `npm-run-all` command not found, even though installed (via prior `npm i`): 
     - `npx npm-run-all <command>` works around this issue
-    - running `npm install` in nix shell seems to fix this issue (TODO: verify)
-- `In nix shell but runExecL is False` (or sth like this):
-    - running build or start outside of nix-shell, use this instead: `nix-shell --comand "npx npm-run-all start"` (`npx npm-run-all start` instead of `npm run start` right now, see fix above)
+    - running `npm install` in `nix-shell` seems to fix this issue
+- `In nix shell but runExecL is False`:
+    - running `build` or `start` outside of nix-shell, use this instead: `nix-shell --comand "..."`
 - `npm run (build|start)` failed with exec code 1, no further errors reported => remove `.stack-work.lock` and try again
-- in nix shell, when running `npm run (start|build)`: `devel.hs: Network.Socket.connect: <socket: 13>: does not exist (Connection refused)`
-    - no idea yet...
+- In nix-shell, when running `npm run (start|build)`: `devel.hs: Network.Socket.connect: <socket: 13>: does not exist (Connection refused)`
+    - ideas:
+        - trying to clear memcached, but could not reach service at specified port, which seems to be 9000 instead of 11211, 11212 or 11213
