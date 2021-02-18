@@ -10,8 +10,6 @@
     ./u2w.nix
   ];
 
-  boot.tmpOnTmpfs = true;
-  
   programs = {
     gnupg.agent.enable = true;
   };

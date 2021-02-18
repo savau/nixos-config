@@ -33,6 +33,8 @@
       preLVM = true;
       allowDiscards = true;
     };
+
+    tmpOnTmpfs = true;
   };
 
   # supposedly better for SSDs
