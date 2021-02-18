@@ -286,4 +286,9 @@ Troubleshooting:
 - `npm run (build|start)` failed with exec code 1, no further errors reported => remove `.stack-work.lock` and try again
 - In nix-shell, when running `npm run (start|build)`: `devel.hs: Network.Socket.connect: [...] does not exist (Connection refused)`
     - ideas:
-        - trying to clear memcached, but could not reach service at specified port, which seems to be 9000 instead of 11211, 11212 or 11213
+        - `minio server` crashes on `nix-shell` startup:
+            ```
+            Unable to initialize backend: Unable to write to the backend
+            > Please ensure MinIO binary has write permissions for the backend
+            HINT: The disk size is less than 900MiB threshold
+            ```
