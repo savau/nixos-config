@@ -292,6 +292,8 @@ Troubleshooting:
             > Please ensure MinIO binary has write permissions for the backend
             HINT: The disk size is less than 900MiB threshold
             ```
+        - works with an auxiliary directory created beforehand in `nix-shell`, so I suspect a user permission issue (as suggested in the error message)
+        - the socket failing to connect issue persists even with manually started minio server though...
 - error when running `./db.sh -cf`: workflow testdata not present
     - you probably forgot to pull the workflows submodule:
     ```
