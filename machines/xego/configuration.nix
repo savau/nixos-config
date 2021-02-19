@@ -9,16 +9,16 @@
   ];
 
   hardware = {
-    bluetooth.enable = true;
+    #bluetooth.enable = true;
     pulseaudio = {
       enable = true;
       support32Bit = true;
       package = pkgs.pulseaudioFull;
-      extraConfig = ''
-        unload-module module-bluetooth-policy
-        load-module module-bluetooth-policy auto_switch=2
-        load-module module-switch-on-connect
-      '';  # reload with auto_switch=2 to make the module-bluetooth-policy switch to headset policy when an audio input stream appears
+      #extraConfig = ''
+      #  unload-module module-bluetooth-policy
+      #  load-module module-bluetooth-policy auto_switch=2
+      #  load-module module-switch-on-connect
+      #'';  # reload with auto_switch=2 to make the module-bluetooth-policy switch to headset policy when an audio input stream appears
     };
     opengl.driSupport32Bit = true;
     enableRedistributableFirmware = true;
@@ -47,7 +47,7 @@
     # override nixos-hardware profile
     thermald.enable = true;
 
-    blueman.enable = true;
+    #blueman.enable = true;
   };
 
   networking.hostName = "xego";
