@@ -36,27 +36,4 @@
       uid = 1000;
     };
   };
-
-  home-manager.users = let
-    myGitGlobalConfig = {
-      enable = true;
-      ignores = [
-        "*~"
-        "*.swp"
-      ];
-
-      userName = "Sarah Vaupel";
-
-      extraConfig = {
-        pull = { rebase = false; };
-      };
-    };
-  in {
-    root = {
-      programs.git = myGitGlobalConfig;
-    };
-    savau = {
-      programs.git = myGitGlobalConfig;
-    };
-  };
 }
