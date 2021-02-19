@@ -37,19 +37,38 @@
     };
   };
 
-  home-manager.users = {
+  home-manager.users = let
+    myGitGlobalIgnores = [
+      "*~"
+      "*.swp"
+    ];
+    myGitGlobalName = "Sarah Vaupel";
+    myGitGlobalPull = { rebase = false; };
+  in {
     root = {
       programs.git = {
         enable = true;
-        userName = "Sarah Vaupel";
+        ignores = myGitGlobalIgnores;
+
+        userName = myGitGlobalName;
         userEmail = "sarah.vaupel@protonmail.com";
+
+        extraConfig = {
+          pull = myGitGlobalPull;
+        };
       };
     };
     savau = {
       programs.git = {
         enable = true;
-        userName = "Sarah Vaupel";
+        ignores = myGitGlobalIgnores;
+
+        userName = myGitGlobalName;
         #userEmail = "sarah.vaupel@protonmail.com";
+
+        extraConfig = {
+          pull = myGitGlobalPull;
+        };
       };
     };
   };
