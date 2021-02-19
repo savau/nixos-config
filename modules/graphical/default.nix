@@ -65,6 +65,9 @@
       
       # set background to solid black:
       xsetroot -solid black
+
+      # start xscreensaver:
+      xscreensaver -no-splash &
     '';
   };
 
@@ -74,6 +77,9 @@
     # accessibility stuff
     at_spi2_atk at_spi2_core speechd
     orca
+
+    # screen saver and locker
+    xscreensaver
 
     # X-related stuff
     xorg.xmodmap

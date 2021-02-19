@@ -30,9 +30,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # xscreensaver and locker
-    xscreensaver
-
     # status bar
     xmobar
 
