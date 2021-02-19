@@ -17,13 +17,13 @@ let
   };
 in
 {
-  home-manager.users = {
-    root = {
-      programs.git = myGitGlobalConfig;
-    };
+  #home-manager.users = {
+  #  root = {
+  #    programs.git = myGitGlobalConfig;
+  #  };
 
-    savau = {
-      programs.git = myGitGlobalConfig;
-    };
-  };
+  #  savau = {
+  #    programs.git = myGitGlobalConfig;
+  #  };
+  #};
 }

@@ -7,6 +7,7 @@
     ./fonts.nix
     ./lightdm.nix
     ./randr.nix
+    ./xscreensaver.nix
   ];
 
   services.xserver = {
@@ -30,7 +31,7 @@
         ! Blinking cursor
         XTerm*cursorBlink: true
 
-        ! XScreenSaver Custom Style
+        ! XScreenSaver Custom Style (TODO: move to xscreensaver.nix)
         xscreensaver.splash: false
         xscreensaver.Dialog.background: #000000
         xscreensaver.Dialog.bottomShadowColor: #000000
@@ -77,9 +78,6 @@
     # accessibility stuff
     at_spi2_atk at_spi2_core speechd
     orca
-
-    # screen saver and locker
-    xscreensaver
 
     # X-related stuff
     xorg.xmodmap

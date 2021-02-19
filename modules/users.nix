@@ -9,10 +9,10 @@
 #  };
 #in
 {
-  imports = [
-    #(import "${home-manager}/nixos")
-    (import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
-  ];
+  #imports = [
+  #  #(import "${home-manager}/nixos")
+  #  (import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
+  #];
 
   security.sudo.enable = true;
   security.sudo.wheelNeedsPassword = true;
