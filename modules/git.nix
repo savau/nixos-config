@@ -3,6 +3,7 @@
 let
   myGitGlobalConfig = {
     enable = true;
+
     ignores = [
       "*~"
       "*.swp"
