@@ -26,4 +26,8 @@ in
   #    programs.git = myGitGlobalConfig;
   #  };
   #};
+
+  environment.systemPackages = with pkgs; [
+    git
+  ];
 }
