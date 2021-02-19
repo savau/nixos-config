@@ -9,10 +9,10 @@
 #  };
 #in
 {
-  #imports = [
-  #  #(import "${home-manager}/nixos")
-  #  (import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
-  #];
+  imports = [
+    #(import "${home-manager}/nixos")
+    (import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
+  ];
 
   security.sudo.enable = true;
   security.sudo.wheelNeedsPassword = true;
@@ -37,5 +37,20 @@
     };
   };
 
-  #home-manager.users.savau = {};
+  home-manager.users = {
+    root = {
+      programs.git = {
+        enable = true;
+        userName = "Sarah Vaupel";
+        userEmail = "sarah.vaupel@protonmail.com";
+      };
+    };
+    savau = {
+      programs.git = {
+        enable = true;
+        userName = "Sarah Vaupel";
+        #userEmail = "sarah.vaupel@protonmail.com";
+      };
+    };
+  };
 }
