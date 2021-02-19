@@ -6,6 +6,7 @@
     (import ./nixpkgs)
 
     ./basics.nix
+    ./git.nix
     (import ./graphical)
     ./i18n.nix
     ./laptop-battery.nix
