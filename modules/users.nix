@@ -38,38 +38,25 @@
   };
 
   home-manager.users = let
-    myGitGlobalIgnores = [
-      "*~"
-      "*.swp"
-    ];
-    myGitGlobalName = "Sarah Vaupel";
-    myGitGlobalPull = { rebase = false; };
-  in {
-    root = {
-      programs.git = {
-        enable = true;
-        ignores = myGitGlobalIgnores;
+    myGitGlobalConfig = {
+      enable = true;
+      ignores = [
+        "*~"
+        "*.swp"
+      ];
 
-        userName = myGitGlobalName;
-        userEmail = "sarah.vaupel@protonmail.com";
+      userName = "Sarah Vaupel";
 
-        extraConfig = {
-          pull = myGitGlobalPull;
-        };
+      extraConfig = {
+        pull = { rebase = false; };
       };
     };
+  in {
+    root = {
+      programs.git = myGitGlobalConfig;
+    };
     savau = {
-      programs.git = {
-        enable = true;
-        ignores = myGitGlobalIgnores;
-
-        userName = myGitGlobalName;
-        #userEmail = "sarah.vaupel@protonmail.com";
-
-        extraConfig = {
-          pull = myGitGlobalPull;
-        };
-      };
+      programs.git = myGitGlobalConfig;
     };
   };
 }
