@@ -292,3 +292,10 @@ Troubleshooting:
             > Please ensure MinIO binary has write permissions for the backend
             HINT: The disk size is less than 900MiB threshold
             ```
+- error when running `./db.sh -cf`: workflow testdata not present
+    - you probably forgot to pull the workflows submodule:
+    ```
+    $ git clone git@gitlab2.rz.ifi.lmu.de:uni2work/uni2work.git ~/uni2work/uni2work
+    $ vim .gitmodules  # workaround: change url of workflows submodule to `git@gitlab2.rz.ifi.lmu.de:uni2work/uni2work.git`
+    $ git submodule update --init  # pull submodules
+    ```
