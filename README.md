@@ -147,7 +147,7 @@ We clone our NixOS configuration directly to `/etc/nixos`, and then symlink the 
 We first delete the old configuration, clone our configuration and regenerate the `hardware-configuration.nix`:
 ```
 $ rm -rf /etc/nixos
-$ git clone git@github.com:savau/nixos-config.git /etc/nixos
+$ git clone --recurse-submodules git@github.com:savau/nixos-config.git /etc/nixos
 $ nixos-generate-config
 $ mv /etc/nixos/hardware-configuration.nix
      /etc/nixos/machines/MACHINE/hardware-configuration.nix
