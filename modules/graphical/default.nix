@@ -7,6 +7,7 @@
     ./fonts.nix
     ./lightdm.nix
     ./randr.nix
+    ./xmodmap.nix
     ./xscreensaver.nix
   ];
 

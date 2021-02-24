@@ -18,7 +18,6 @@
     ./ssh.nix
     ./users.nix
     (import ./work)
-    ./xmodmap.nix
     ./zsh.nix
   ];
 }
