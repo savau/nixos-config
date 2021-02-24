@@ -12,6 +12,7 @@
 
   services.xserver = {
     enable = true;
+
     layout = "us";
 
     displayManager.sessionCommands = let
