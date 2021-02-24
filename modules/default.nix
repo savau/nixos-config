@@ -5,6 +5,8 @@
     ./nix.nix
     (import ./nixpkgs)
 
+    (import ./home-manager)
+
     ./basics.nix
     ./git.nix
     (import ./graphical)
