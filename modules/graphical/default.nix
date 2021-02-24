@@ -13,16 +13,16 @@
   services.xserver = {
     enable = true;
     layout = "us";
-    #xkbOptions = "caps:escape";
 
     displayManager.sessionCommands = let
       myXresources = pkgs.writeText "Xresources" (builtins.readFile ../../dotfiles/.Xresources);
+      myXmodmap = pkgs.writeText "xkb-layout" (builtins.readFile ../../dotfiles/.Xmodmap);
     in ''
       # merge Xresources:
       ${pkgs.xorg.xrdb}/bin/xrdb -merge ${myXresources}
 
       # apply custom keyboard layout:
-      ${pkgs.xorg.xmodmap}/bin/xmodmap ~/.Xmodmap
+      ${pkgs.xorg.xmodmap}/bin/xmodmap ${myXmodmap}
 
       # set background to solid black:
       xsetroot -solid black
