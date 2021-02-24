@@ -16,24 +16,10 @@
     #xkbOptions = "caps:escape";
 
     displayManager.sessionCommands = let
-      myCustomXresources = pkgs.writeText "Xresources" ''
-        ! Copy selection to clipboard
-        XTerm*selectToClipboard: true
-
-        ! powerline face for agnoster zsh theme
-        XTerm*faceName: Liberation Mono for Powerline
-        XTerm*faceSize: 11
-
-        ! Dark colours for xterm
-        XTerm*background: black
-        XTerm*foreground: lightgray
-
-        ! Blinking cursor
-        XTerm*cursorBlink: true
-      '';
+      myXresources = pkgs.writeText "Xresources" (builtins.readFile ../../dotfiles/.Xresources);
     in ''
       # merge Xresources:
-      ${pkgs.xorg.xrdb}/bin/xrdb -merge ${myCustomXresources}
+      ${pkgs.xorg.xrdb}/bin/xrdb -merge ${myXresources}
 
       # apply custom keyboard layout:
       ${pkgs.xorg.xmodmap}/bin/xmodmap ~/.Xmodmap
