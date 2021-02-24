@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  myXmodmap = (builtins.readFile ./Xmodmap);
+  myXmodmap = (builtins.readFile ../dotfiles/.Xmodmap);
 in
 {
   home-manager.users = {
