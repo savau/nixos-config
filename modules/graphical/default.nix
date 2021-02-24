@@ -14,6 +14,7 @@
     enable = true;
 
     layout = "us";
+    xkbOptions = "";
 
     displayManager.sessionCommands = let
       myXresources = pkgs.writeText "Xresources" (builtins.readFile ../../dotfiles/.Xresources);
