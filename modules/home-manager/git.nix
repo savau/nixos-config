@@ -6,7 +6,7 @@ let
 
     ignores = [
       "*~"
-      "*.swp"
+      "*.swp"  # vi swap files
     ];
 
     userName = "Sarah Vaupel";
