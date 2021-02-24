@@ -196,6 +196,23 @@ When you're happy with the result and whenever you make changes to your NixOS co
 $ nixos-rebuild switch
 ```
 
+If you want to remove previous generations including boot entries, tell the nix package manager to collect garbage and then rebuild the new configuration and make it the new boot default:
+```
+$ # delete all previous garbage 
+$ # (warning: you will be unable 
+$ #  to rollback afterwards!): 
+$ nix-collect-garbage -d
+
+$ # alternatively, delete generations older than 
+$ # N days by using the following 
+$ # instead of the previous command: 
+$ nix-collect-garbage --delete-older-than ${N}d
+
+$ # finally, rebuild the new configuration 
+$ # and make it the new boot default: 
+$ nixos-rebuild boot
+```
+
 
 ## Uni2work Setup Guide
 Ad-hoc written guide to setup Uni2work productive environment under NixOS. Also contains comments how the README.md in the Uni2work repository should be updated at specific steps. Note that this part is currently a work in progress.
