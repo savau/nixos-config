@@ -30,23 +30,6 @@
 
         ! Blinking cursor
         XTerm*cursorBlink: true
-
-        ! XScreenSaver Custom Style (TODO: move to xscreensaver.nix)
-        xscreensaver.splash: false
-        xscreensaver.Dialog.background: #000000
-        xscreensaver.Dialog.bottomShadowColor: #000000
-        xscreensaver.Dialog.foreground: #dddddd
-        xscreensaver.Dialog.topShadowColor: #000000
-        xscreensaver.Dialog.Button.background: #222222
-        xscreensaver.Dialog.Button.foreground: #eeeeee
-        xscreensaver.Dialog.text.background: #222222
-        xscreensaver.Dialog.text.foreground: #eeeeee
-        xscreensaver.Dialog.borderWidth: 0
-        xscreensaver.Dialog.internalBorderWidth: 24
-        xscreensaver.Dialog.shadowThickness: 2
-        xscreensaver.passwd.thermometer.background: #000000
-        xscreensaver.passwd.thermometer.foreground: #ff0000
-        xscreensaver.dateFormat: %Y-%m-%d %H:%M
       '';
       myCustomKeyboardLayout = pkgs.writeText "xkb-layout" ''
         ! Map umlauts to ALT + <key>
