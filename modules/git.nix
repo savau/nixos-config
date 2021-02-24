@@ -1,15 +1,16 @@
 { config, pkgs, ... }:
 
 let
-  myGitGlobalConfig = {
+  myGitConfig = {
     enable = true;
 
     ignores = [
       "*~"
-      "*.swp"
+      "*.swp"  # vi swap files
     ];
 
     userName = "Sarah Vaupel";
+    userEmail = "";
 
     extraConfig = {
       pull = { rebase = false; };
@@ -17,17 +18,12 @@ let
   };
 in
 {
-  #home-manager.users = {
-  #  root = {
-  #    programs.git = myGitGlobalConfig;
-  #  };
-
-  #  savau = {
-  #    programs.git = myGitGlobalConfig;
-  #  };
-  #};
-
   environment.systemPackages = with pkgs; [
     git
   ];
+
+  home-manager.users = {
+    root.programs.git = myGitConfig;
+    savau.programs.git = myGitConfig;
+  };
 }

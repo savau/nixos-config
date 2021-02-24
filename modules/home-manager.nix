@@ -12,8 +12,5 @@
   imports = [
     #(import "${home-manager}/nixos")
     (import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
-    
-    ./git.nix
-    (import ./graphical)
   ];
 }

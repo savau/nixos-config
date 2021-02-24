@@ -5,7 +5,7 @@
     ./nix.nix
     (import ./nixpkgs)
 
-    (import ./home-manager)
+    ./home-manager.nix
 
     ./basics.nix
     ./git.nix
