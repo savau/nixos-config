@@ -1,11 +1,6 @@
 { config, pkgs, ... }:
 
 let
-  myGtkExtraConfig = ''
-    gtk-enable-event-sounds=0
-    gtk-enable-input-feedback-sounds=0
-  '';
-
   myGtkConfig = {
     enable = true;
 
@@ -21,8 +16,15 @@ let
       name = "Sans 10";
     };
 
-    gtk2.extraConfig = myGtkExtraConfig;
-    gtk3.extraConfig = myGtkExtraConfig;
+    # TODO: currently harcoded; how to share config definition with gtk2 and gtk3 extraConfig being of different types?
+    gtk2.extraConfig = ''
+      gtk-enable-event-sounds = 0
+      gtk-enable-input-feedback-sounds = 0
+    '';
+    gtk3.extraConfig = {
+      gtk-enable-event-sounds = 0;
+      gtk-enable-input-feedback-sounds = 0;
+    };
   };
 in
 {
