@@ -5,6 +5,7 @@
     ./display-manager.nix
 
     ./fonts.nix
+    ./gtk.nix
     ./lightdm.nix
     ./randr.nix
     ./xmodmap.nix
@@ -48,11 +49,6 @@
 
     # system-tool GUIs
     gparted
-
-    # system theme stuff
-    arc-theme
-    arc-icon-theme
-    lxappearance
 
     # system tray stuff
     volumeicon
