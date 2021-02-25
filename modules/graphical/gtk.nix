@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let  
-  myGtk = {
+  myGtkConfig = {
     enable = true;
 
     theme = null;
@@ -13,11 +13,10 @@ in
   environment.systemPackages = with pkgs; [
     arc-theme
     arc-icon-theme
-    #lxappearance
   ];
 
   home-manager.users = {
-    root.gtk = myGtk;
-    savau.gtk = myGtk;
+    root.gtk = myGtkConfig;
+    savau.gtk = myGtkConfig;
   };
 }
