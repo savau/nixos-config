@@ -1,6 +1,4 @@
-# TODO: define users per machine instead (i.e. move this definition to /machines/<MACHINENAME>/, import users in /machines/<MACHINENAME>/configuration.nix and pass them to the /modules/**/*.nix files as an argument)
-
-# TODO: define and use own user type with permission defaults
+# TODO: use user type with permission defaults
 let
   pkgs = import <nixpkgs> {};
 in

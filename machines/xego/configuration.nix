@@ -3,7 +3,7 @@
 let
   moduleArgs = { inherit config; inherit pkgs; inherit lib; inherit machine; };
   
-  # TODO: introduce machine type
+  # TODO: use machine type
   machine = {
     hostname = "xego";
     timezone = "Europe/Berlin";
