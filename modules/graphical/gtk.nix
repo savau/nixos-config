@@ -32,5 +32,5 @@ let
   };
 in
 {
-  home-manager.users = mkMerge [ { root = myGtkConfig; } (mapAttrs (_: _: myGtkConfig) (import ../../definitions/users.nix pkgs)) ];
+  home-manager.users = mkMerge [ { root = myGtkConfig; } (mapAttrs (_: _: myGtkConfig) (import ../../definitions/users.nix)) ];
 }

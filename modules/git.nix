@@ -23,5 +23,5 @@ in
     git
   ];
 
-  home-manager.users = mkMerge [ { root = myGitConfig; } (mapAttrs (_: _: myGitConfig) (import ../definitions/users.nix pkgs)) ];
+  home-manager.users = mkMerge [ { root = myGitConfig; } (mapAttrs (_: _: myGitConfig) (import ../definitions/users.nix)) ];
 }

@@ -3,8 +3,8 @@
 with lib;
 
 let
-  mySystemShell = import ../definitions/system-shell.nix pkgs;
-  myUsers = import ../definitions/users.nix pkgs;
+  mySystemShell = import ../definitions/system-shell.nix;
+  myUsers = import ../definitions/users.nix;
 
   # TODO: replace this with internal additionalGroups list once we have a user type in definitions/users.nix
   myUserAdditionalGroups = [

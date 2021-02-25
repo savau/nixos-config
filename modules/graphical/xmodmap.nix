@@ -8,5 +8,5 @@ let
   };
 in
 {
-  home-manager.users = mkMerge [ { root = myXmodmap; } (mapAttrs (_: _: myXmodmap) (import ../../definitions/users.nix pkgs)) ];
+  home-manager.users = mkMerge [ { root = myXmodmap; } (mapAttrs (_: _: myXmodmap) (import ../../definitions/users.nix)) ];
 }
