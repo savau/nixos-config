@@ -1,9 +1,13 @@
 { config, pkgs, lib, ... }:
 
 let
+  moduleArgs = { inherit config; inherit pkgs; inherit lib; inherit machine; };
   machine = {
     hostname = "xego";
     timezone = "Europe/Berlin";
+
+    systemShell = import ./system-shell.nix;
+    users = import ./users.nix;
   };
 in
 {
@@ -11,7 +15,7 @@ in
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
-    (import ../../modules)
+    (import ../../modules moduleArgs)
   ];
 
   hardware = {

@@ -1,15 +1,18 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, machine, ... }:
 
+let
+  moduleArgs = { inherit config; inherit pkgs; inherit lib; inherit machine; };
+in
 {
   imports = [
     ./display-manager.nix
 
     ./fonts.nix
-    ./gtk.nix
+    (import ./gtk.nix moduleArgs)
     ./lightdm.nix
     ./randr.nix
-    ./xmodmap.nix
-    ./xscreensaver.nix
+    (import ./xmodmap.nix moduleArgs)
+    (import ./xscreensaver.nix moduleArgs)
   ];
 
   services.xserver = {

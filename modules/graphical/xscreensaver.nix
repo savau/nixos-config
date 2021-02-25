@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, machine, ... }:
 
 with lib;
 
@@ -48,5 +48,5 @@ in
     xscreensaver
   ];
 
-  home-manager.users = mkMerge [ { root = myXScreenSaverConfig; } (mapAttrs (_: _: myXScreenSaverConfig) (import ../../definitions/users.nix)) ];
+  home-manager.users = mkMerge [ { root = myXScreenSaverConfig; } (mapAttrs (_: _: myXScreenSaverConfig) machine.users) ];
 }

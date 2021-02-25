@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, machine, ... }:
 
+let
+  moduleArgs = { inherit config; inherit pkgs; inherit lib; inherit machine; };
+in
 {
   imports = [
     ./nix.nix
@@ -8,15 +11,15 @@
     ./home-manager.nix
 
     ./basics.nix
-    ./git.nix
-    (import ./graphical)
+    (import ./git.nix moduleArgs)
+    (import ./graphical moduleArgs)
     ./i18n.nix
     ./laptop-battery.nix
     ./media.nix
     ./networking.nix
     ./security.nix
     ./ssh.nix
-    ./users.nix
+    (import ./users.nix moduleArgs)
     (import ./work)
     ./zsh.nix
   ];

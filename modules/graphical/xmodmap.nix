@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, machine, ... }:
 
 with lib;
 
@@ -8,5 +8,5 @@ let
   };
 in
 {
-  home-manager.users = mkMerge [ { root = myXmodmap; } (mapAttrs (_: _: myXmodmap) (import ../../definitions/users.nix)) ];
+  home-manager.users = mkMerge [ { root = myXmodmap; } (mapAttrs (_: _: myXmodmap) machine.users) ];
 }

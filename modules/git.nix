@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, machine, ... }:
 
 with lib;
 
@@ -23,5 +23,5 @@ in
     git
   ];
 
-  home-manager.users = mkMerge [ { root = myGitConfig; } (mapAttrs (_: _: myGitConfig) (import ../definitions/users.nix)) ];
+  home-manager.users = mkMerge [ { root = myGitConfig; } (mapAttrs (_: _: myGitConfig) machine.users) ];
 }

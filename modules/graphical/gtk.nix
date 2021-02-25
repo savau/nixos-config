@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, machine, ... }:
 
 with lib;
 
@@ -32,5 +32,5 @@ let
   };
 in
 {
-  home-manager.users = mkMerge [ { root = myGtkConfig; } (mapAttrs (_: _: myGtkConfig) (import ../../definitions/users.nix)) ];
+  home-manager.users = mkMerge [ { root = myGtkConfig; } (mapAttrs (_: _: myGtkConfig) machine.users) ];
 }
