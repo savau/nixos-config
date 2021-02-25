@@ -1,11 +1,12 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
+
+with lib;
 
 let
-  myXmodmap = (builtins.readFile ../../dotfiles/.Xmodmap);
+  myXmodmap = {
+    home.file.".Xmodmap".text = (builtins.readFile ../../dotfiles/.Xmodmap);
+  };
 in
 {
-  home-manager.users = {
-    root.home.file.".Xmodmap".text = myXmodmap;
-    savau.home.file.".Xmodmap".text = myXmodmap;
-  };
+  home-manager.users = mkMerge [ { root = myXmodmap; } (mapAttrs (_: _: myXmodmap) (import ../../definitions/users.nix pkgs)) ];
 }

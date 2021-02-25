@@ -1,26 +1,39 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
+with lib;
+
+let
+  mySystemShell = import ../definitions/system-shell.nix pkgs;
+  myUsers = import ../definitions/users.nix pkgs;
+
+  # TODO: replace this with internal additionalGroups list once we have a user type in definitions/users.nix
+  myUserAdditionalGroups = [
+    "wheel"
+    "systemd-journal"
+    "vboxusers"
+    "libvirtd"
+    "docker"
+  ];
+in
 {
   security.sudo.enable = true;
   security.sudo.wheelNeedsPassword = true;
 
   users = {
-    extraUsers.root.shell = pkgs.zsh;
+    extraUsers.root.shell = mySystemShell;
     
-    users.savau = {
-      description = "Sarah Vaupel";
+    users = mapAttrs (_: user: {
+      uid = user.id;
+      description = user.displayName;
       isNormalUser = true;
+      shell = if user.shell == null then mySystemShell else user.shell;
       extraGroups = [
-        "wheel"
         "audio" "video"
-        "systemd-journal"
         "networkmanager"
-        "vboxusers"
-        "libvirtd"
-        "docker"
-      ];
-      shell = pkgs.zsh;
-      uid = 1000;
-    };
+      ] ++ (
+        # TODO: move this logic to user type definition in definition/users.nix
+        filter (grp: user.permissions.all || user.permissions."${grp}") myUserAdditionalGroups
+      );
+    }) myUsers;
   };
 }

@@ -1,19 +1,20 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
+
+with lib;
 
 let
   myGitConfig = {
-    enable = true;
+    programs.git = {
+      enable = true;
 
-    ignores = [
-      "*~"
-      "*.swp"  # vi swap files
-    ];
+      ignores = [
+        "*~"
+        "*.swp"  # vi swap files
+      ];
 
-    userName = "Sarah Vaupel";
-    userEmail = "";
-
-    extraConfig = {
-      pull = { rebase = false; };
+      extraConfig = {
+        pull = { rebase = false; };
+      };
     };
   };
 in
@@ -22,8 +23,5 @@ in
     git
   ];
 
-  home-manager.users = {
-    root.programs.git = myGitConfig;
-    savau.programs.git = myGitConfig;
-  };
+  home-manager.users = mkMerge [ { root = myGitConfig; } (mapAttrs (_: _: myGitConfig) (import ../definitions/users.nix pkgs)) ];
 }
