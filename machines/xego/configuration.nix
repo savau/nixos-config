@@ -1,5 +1,11 @@
 { config, pkgs, lib, ... }:
 
+let
+  machine = {
+    hostname = "xego";
+    timezone = "Europe/Berlin";
+  };
+in
 {
   imports = [
     # Include the results of the hardware scan.
@@ -50,7 +56,7 @@
     #blueman.enable = true;
   };
 
-  networking.hostName = "xego";
+  networking.hostName = machine.hostname;
 
-  time.timeZone = "Europe/Berlin";
+  time.timeZone = machine.timezone;
 }
