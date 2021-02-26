@@ -53,6 +53,9 @@ vim_configurable.customize {
       " Set update interval to 100ms instead of 4000ms (reduce gitgutter update time)
       set updatetime=100
 
+      " Stop vim from automatically adding a linebreak at the end of a file
+      set nofixendofline
+
 
       """ CUSTOM VMAPS
 
