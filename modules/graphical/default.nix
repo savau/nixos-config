@@ -1,18 +1,15 @@
-{ config, pkgs, callPackage, lib, machine, ... }:
+args@{ config, pkgs, ... }:
 
-let
-  moduleArgs = { inherit config; inherit pkgs; inherit callPackage; inherit lib; inherit machine; };
-in
 {
   imports = [
-    (import ./display-manager.nix moduleArgs)
+    (import ./display-manager.nix args)
 
-    (import ./fonts.nix moduleArgs)
-    (import ./gtk.nix moduleArgs)
-    (import ./lightdm.nix moduleArgs)
-    (import ./randr.nix moduleArgs)
-    (import ./xmodmap.nix moduleArgs)
-    (import ./xscreensaver.nix moduleArgs)
+    (import ./fonts.nix args)
+    (import ./gtk.nix args)
+    (import ./lightdm.nix args)
+    (import ./randr.nix args)
+    (import ./xmodmap.nix args)
+    (import ./xscreensaver.nix args)
   ];
 
   services.xserver = {

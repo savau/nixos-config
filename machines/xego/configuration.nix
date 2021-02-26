@@ -1,10 +1,8 @@
-{ config, pkgs, callPackage, lib, ... }:
+args'@{ config, pkgs, lib, ... }:
 
 with lib;
 
 let
-  moduleArgs = { inherit config; inherit pkgs; inherit callPackage; inherit lib; inherit machine; };
-  
   # TODO: use machine type
   machine = {
     hostname = "xego";
@@ -29,13 +27,15 @@ let
     # Enables SSD optimizations (enable if NixOS is installed on a SSD)
     ssdOptimized = true;
   };
+
+  args = args' // { inherit machine; };
 in
 {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
-    (import ../../modules moduleArgs)
+    (import ../../modules args)
   ];
 
   hardware = {
