@@ -138,42 +138,41 @@ $ curl -i -u GITHUB_USER:GITHUB_PATOKEN --data
     https://api.github.com/user/keys
 ```
 
-Repeat this process for your main user later on (generate a fresh token for this purpose, if needed).
+Repeat this process for your main user later on (better generate a fresh token for this purpose).
 
 #### 5.1 NixOS configuration
 
-We clone our NixOS configuration directly to `/etc/nixos`, and then symlink the machine-specific configurations from `/etc/nixos/machines/MACHINE`.
+We clone our NixOS configuration directly to `/etc/nixos`. The main configuration file, `<git:>/configuration.nix`, (like all its modules in `<git:>/modules`) is machine-independent and fetches (= imports) all machine-dependent options from `<git:>/machines/<HOSTNAME>`.
 
-We first delete the old configuration, clone our configuration and regenerate the `hardware-configuration.nix`:
+We first delete the old configuration, clone our configuration from GitHub and regenerate the `hardware-configuration.nix`:
 ```
 $ rm -rf /etc/nixos
 $ git clone --recurse-submodules git@github.com:savau/nixos-config.git /etc/nixos
 $ nixos-generate-config
 $ mv /etc/nixos/hardware-configuration.nix
-     /etc/nixos/machines/MACHINE/hardware-configuration.nix
+     /etc/nixos/machines/<HOSTNAME>/hardware-configuration.nix
 ```
 
-Now that we have our configuration files, symlink the relevant config for this machine (under `machines/MACHINE/configuration.nix`) to `/etc/nixos/configuration.nix`:
+Now that we have our configuration, we need to specify which machine-specific options to use. Each supported machine has its own options directory under `<git>:/machines/<HOSTNAME>`.
+This NixOS configuration expects the name of the machine to load specific options for in the `<git>:/host` file:
 ```
-$ cd /etc/nixos
-$ ln -sf "machines/MACHINE/configuration.nix" .
+$ echo <HOSTNAME> > /etc/nixos/host
 ```
 
-Finally, restore the UUID of `/dev/nvme0n1p2` (see `blkid /dev/nvme0n1p2`) in `/etc/nixos/configuration.nix`:
+Make sure that the UUID of your LUKS root partition (see `blkid /dev/nvme0n1p2`) is the same as `luksRootUUID` in the machine-specific options. If this is not the case, change `luksRootUUID` in `<git:>/machines/<HOSTNAME>/machine.nix` to the output UUID of `blkid /dev/nvme0n1p2`:
 ```
-...
-  boot.initrd.luks.devices.luksroot = {
-    device = "/dev/disk/by-uuid/UUID";
-    ...
-  };
-...
+{
+  ...
+  luksRootUUID = "<UUID>";
+  ...
+}
 ```
 
 #### 5.2 Miscellanenous configuration
 
 - [XMonad config](https://github.com/savau/xmonad-config)
-- [X config](https://github.com/savau/x-config)
-- [Miscellaneous utilities](https://github.com/savau/misc-utils)
+- ([X config](https://github.com/savau/x-config))
+- ([Miscellaneous utilities](https://github.com/savau/misc-utils))
 
 ### 6 Switch to `nixos-unstable`
 
