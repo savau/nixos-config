@@ -70,7 +70,7 @@ in
   fileSystems."/".options = optionals machine.ssdOptimized [ "noatime" "nodiratime" "discard" ];
 
   services = {
-    fstrim.enable = true;
+    fstrim.enable = machine.ssdOptimized;
     fwupd.enable = true;
 
     # override nixos-hardware profile
