@@ -23,5 +23,5 @@ in
     git
   ];
 
-  home-manager.users = mkMerge [ { root = myGitConfig; } (mapAttrs (_: _: myGitConfig) machine.users) ];
+  home-manager.users = (mapAttrs (_: _: myGitConfig) machine.users) // { root = myGitConfig; };
 }

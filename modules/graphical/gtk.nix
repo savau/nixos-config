@@ -32,5 +32,5 @@ let
   };
 in
 {
-  home-manager.users = mkMerge [ { root = myGtkConfig; } (mapAttrs (_: _: myGtkConfig) machine.users) ];
+  home-manager.users = (mapAttrs (_: _: myGtkConfig) machine.users) // { root = myGtkConfig; };
 }

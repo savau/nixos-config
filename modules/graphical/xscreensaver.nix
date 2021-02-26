@@ -48,5 +48,5 @@ in
     xscreensaver
   ];
 
-  home-manager.users = mkMerge [ { root = myXScreenSaverConfig; } (mapAttrs (_: _: myXScreenSaverConfig) machine.users) ];
+  home-manager.users = (mapAttrs (_: _: myXScreenSaverConfig) machine.users) // { root = myXScreenSaverConfig; };
 }

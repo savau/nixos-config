@@ -8,5 +8,5 @@ let
   };
 in
 {
-  home-manager.users = mkMerge [ { root = myXmodmap; } (mapAttrs (_: _: myXmodmap) machine.users) ];
+  home-manager.users = (mapAttrs (_: _: myXmodmap) machine.users) // { root = myXmodmap; };
 }
