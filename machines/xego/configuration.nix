@@ -57,7 +57,7 @@ in
     loader.efi.canTouchEfiVariables = true;
 
     initrd.luks.devices.luksroot = {
-      device = "/dev/disk/by-uuid/fd90341e-768c-43c8-b725-855d71ea7722";
+      device = "/dev/disk/by-uuid" + "/${machine.luksRootUUID}";
       preLVM = true;
       allowDiscards = true;
     };
