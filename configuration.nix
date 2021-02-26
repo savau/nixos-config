@@ -4,13 +4,14 @@ with lib;
 
 let
   hostname = builtins.readFile ./host;
-  machine = import (./machines/. + "/${hostname}");
+  hostdir = ./machines/. + "/${hostname}";
+  machine = import hostdir;
   args = args' // { inherit machine; };
 in
 {
   imports = [
     # Include the results of the hardware scan.
-    (./machines/. + "/${hostname}/hardware-configuration.nix")
+    (hostdir + "/hardware-configuration.nix")
 
     (import ./modules args)
   ];
