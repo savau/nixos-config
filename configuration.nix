@@ -4,7 +4,7 @@ with lib;
 
 let
   machineName = import ./machine.nix;
-  machine = import (./machines/. + "/${machineName}/machine.nix");
+  machine = import (./machines/. + "/${machineName}");
   args = args' // { inherit machine; };
 in
 {
