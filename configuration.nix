@@ -3,13 +3,14 @@ args'@{ config, pkgs, lib, ... }:
 with lib;
 
 let
-  machine = import ./machines/xego/machine.nix;
+  machineName = import ./machine.nix;
+  machine = import (./machines/. + "/${machineName}/machine.nix");
   args = args' // { inherit machine; };
 in
 {
   imports = [
     # Include the results of the hardware scan.
-    ./machines/xego/hardware-configuration.nix
+    (./machines/. + "/${machineName}/hardware-configuration.nix")
 
     (import ./modules args)
   ];
