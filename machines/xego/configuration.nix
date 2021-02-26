@@ -1,5 +1,7 @@
 { config, pkgs, lib, ... }:
 
+with lib;
+
 let
   moduleArgs = { inherit config; inherit pkgs; inherit lib; inherit machine; };
   
@@ -65,8 +67,7 @@ in
     tmpOnTmpfs = true;
   };
 
-  # supposedly better for SSDs
-  fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
+  fileSystems."/".options = optionals machine.ssdOptimized [ "noatime" "nodiratime" "discard" ];
 
   services = {
     fstrim.enable = true;
