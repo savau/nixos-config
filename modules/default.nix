@@ -14,7 +14,7 @@ in
     (import ./git.nix moduleArgs)
     (import ./graphical moduleArgs)
     ./i18n.nix
-    ./laptop-battery.nix
+    (import ./laptop-battery.nix moduleArgs)
     ./media.nix
     ./networking.nix
     ./security.nix

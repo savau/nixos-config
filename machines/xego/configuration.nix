@@ -74,7 +74,7 @@ in
     fwupd.enable = true;
 
     # override nixos-hardware profile
-    thermald.enable = true;
+    thermald.enable = machine.isLaptop;
 
     blueman.enable = machine.bluetoothEnabled;
   };

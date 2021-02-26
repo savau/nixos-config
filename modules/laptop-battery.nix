@@ -1,10 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, machine, ... }:
 
 {
   powerManagement = {
-    enable = true;
-    powertop.enable = true;
+    enable = machine.isLaptop;
+    powertop.enable = machine.isLaptop;
   };
   
-  services.tlp.enable = true;
+  services.tlp.enable = machine.isLaptop;
 }
