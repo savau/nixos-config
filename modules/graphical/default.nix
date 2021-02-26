@@ -2,7 +2,7 @@ args@{ config, pkgs, ... }:
 
 {
   imports = [
-    (import ./display-manager.nix args)
+    (import ./display-manager args)
 
     (import ./fonts.nix args)
     (import ./gtk.nix args)
