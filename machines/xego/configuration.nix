@@ -1,9 +1,9 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, callPackage, lib, ... }:
 
 with lib;
 
 let
-  moduleArgs = { inherit config; inherit pkgs; inherit lib; inherit machine; };
+  moduleArgs = { inherit config; inherit pkgs; inherit callPackage; inherit lib; inherit machine; };
   
   # TODO: use machine type
   machine = {

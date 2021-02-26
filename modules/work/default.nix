@@ -1,13 +1,16 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, machine, ... }:
 
+let
+  moduleArgs = { inherit config; inherit pkgs; inherit lib; inherit machine; };
+in
 {
   imports = [
-    ./communication.nix
-    ./direnv.nix
-    ./haskell.nix
-    ./java.nix
-    ./tex.nix
-    ./u2w.nix
+    (import ./communication.nix moduleArgs)
+    (import ./direnv.nix moduleArgs)
+    (import ./haskell.nix moduleArgs)
+    (import ./java.nix moduleArgs)
+    (import ./tex.nix moduleArgs)
+    (import ./u2w.nix moduleArgs)
   ];
 
   programs = {

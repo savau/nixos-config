@@ -1,26 +1,26 @@
-{ config, pkgs, lib, machine, ... }:
+{ config, pkgs, callPackage, lib, machine, ... }:
 
 let
-  moduleArgs = { inherit config; inherit pkgs; inherit lib; inherit machine; };
+  moduleArgs = { inherit config; inherit pkgs; inherit callPackage; inherit lib; inherit machine; };
 in
 {
   imports = [
     ./nix.nix
     (import ./nixpkgs)
 
-    ./home-manager.nix
+    (import ./home-manager.nix moduleArgs)
 
-    ./basics.nix
+    (import ./basics.nix moduleArgs)
     (import ./git.nix moduleArgs)
     (import ./graphical moduleArgs)
-    ./i18n.nix
+    (import ./i18n.nix moduleArgs)
     (import ./laptop-battery.nix moduleArgs)
-    ./media.nix
-    ./networking.nix
-    ./security.nix
-    ./ssh.nix
+    (import ./media.nix moduleArgs)
+    (import ./networking.nix moduleArgs)
+    (import ./security.nix moduleArgs)
+    (import ./ssh.nix moduleArgs)
     (import ./users.nix moduleArgs)
-    (import ./work)
-    ./zsh.nix
+    (import ./work moduleArgs)
+    (import ./zsh.nix moduleArgs)
   ];
 }

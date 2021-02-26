@@ -1,16 +1,16 @@
-{ config, pkgs, lib, machine, ... }:
+{ config, pkgs, callPackage, lib, machine, ... }:
 
 let
-  moduleArgs = { inherit config; inherit pkgs; inherit lib; inherit machine; };
+  moduleArgs = { inherit config; inherit pkgs; inherit callPackage; inherit lib; inherit machine; };
 in
 {
   imports = [
-    ./display-manager.nix
+    (import ./display-manager.nix moduleArgs)
 
-    ./fonts.nix
+    (import ./fonts.nix moduleArgs)
     (import ./gtk.nix moduleArgs)
-    ./lightdm.nix
-    ./randr.nix
+    (import ./lightdm.nix moduleArgs)
+    (import ./randr.nix moduleArgs)
     (import ./xmodmap.nix moduleArgs)
     (import ./xscreensaver.nix moduleArgs)
   ];
