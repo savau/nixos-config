@@ -61,7 +61,7 @@ in
     initrd.luks.devices.luksroot = {
       device = "/dev/disk/by-uuid" + "/${machine.luksRootUUID}";
       preLVM = true;
-      allowDiscards = true;
+      allowDiscards = machine.ssdOptimized;
     };
 
     tmpOnTmpfs = true;
