@@ -3,7 +3,7 @@ args'@{ config, pkgs, lib, ... }:
 with lib;
 
 let
-  hostname = builtins.readFile ./host;
+  hostname = removeSuffix "\n" (builtins.readFile ./host);
   hostdir = ./machines/. + "/${hostname}";
   machine = import hostdir;
   args = args' // { inherit machine; };
