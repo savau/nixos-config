@@ -3,39 +3,15 @@ args'@{ config, pkgs, lib, ... }:
 with lib;
 
 let
-  # TODO: use machine type
-  machine = {
-    hostname = "xego";
-
-    # UUID of the luks root partition
-    luksRootUUID = "fd90341e-768c-43c8-b725-855d71ea7722";
-
-    # Time zone this machine typically resides in
-    timezone = "Europe/Berlin";
-
-    # Machine users
-    users = import ./users.nix;
-    # System shell to use for all machine users including root. May be overriden per user via users.<user>.shell
-    systemShell = import ./system-shell.nix;
-
-    # Enables bluetooth services on this device
-    bluetoothEnabled = true;
-
-    # Enables battery-management services on this device
-    isLaptop = true;
-
-    # Enables SSD optimizations (enable if NixOS is installed on a SSD)
-    ssdOptimized = true;
-  };
-
+  machine = import ./machines/xego/machine.nix;
   args = args' // { inherit machine; };
 in
 {
   imports = [
     # Include the results of the hardware scan.
-    ./hardware-configuration.nix
+    ./machines/xego/hardware-configuration.nix
 
-    (import ../../modules args)
+    (import ./modules args)
   ];
 
   hardware = {
