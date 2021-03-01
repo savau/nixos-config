@@ -5,12 +5,12 @@ let
   
   # loaded on launch:
   pluginsStart = with pkgs.vimPlugins; [
-    airline     # fancy bottom status line
-    "coc.nvim"  # conquer of completion language server
-    fugitive    # allows git operations within vim (via `:Git <command>`)
-    gitgutter   # displays a git diff in the sign column
-    #supertab   # insert completions via the tab key
-    vim-nix     # Nix language support
+    airline    # fancy bottom status line
+    coc-nvim   # conquer of completion language server
+    fugitive   # allows git operations within vim (via `:Git <command>`)
+    gitgutter  # displays a git diff in the sign column
+    #supertab  # insert completions via the tab key
+    vim-nix    # Nix language support
   ];
   
   # manually loadable via `:packadd $plugin-name`:
