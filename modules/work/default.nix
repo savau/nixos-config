@@ -27,6 +27,7 @@ args@{ config, pkgs, ... }:
     # build-essentials
     binutils
     gcc
+    ghc
     gnumake
     gup
     nodejs
