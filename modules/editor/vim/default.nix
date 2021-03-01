@@ -19,6 +19,8 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
+    nodejs  # coc requirement
+
     (vim_configurable.customize {
       name = "vim";
       vimrcConfig = {
