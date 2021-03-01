@@ -9,7 +9,7 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    ghc
+    (haskell.packages.ghc8104.ghcWithPackages (pkgs: with pkgs; [ xmonad xmonad-contrib ]))
     haskell.packages.ghc8104.haskell-language-server
   ];
 
