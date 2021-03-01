@@ -9,7 +9,7 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    ghc
+    haskell.compiler.ghc8103
     haskell-language-server
   ];
 
