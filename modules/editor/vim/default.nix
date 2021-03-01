@@ -5,10 +5,11 @@ let
   
   # loaded on launch:
   pluginsStart = with pkgs.vimPlugins; [
-    supertab   # insert completions via the tab key
     airline    # fancy bottom status line
     fugitive   # allows git operations within vim (via `:Git <command>`)
     gitgutter  # displays a git diff in the sign column
+    #supertab   # insert completions via the tab key
+    vim-nix    # Nix language support
   ];
   
   # manually loadable via `:packadd $plugin-name`:
