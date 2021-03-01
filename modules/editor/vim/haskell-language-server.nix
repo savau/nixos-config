@@ -9,8 +9,8 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    haskell.compiler.ghc8103
-    haskell-language-server
+    ghc
+    haskell.packages.ghc8104.haskell-language-server
   ];
 
   home-manager.users = (mapAttrs (_: _: myCocConfig) machine.users) // { root = myCocConfig; };
