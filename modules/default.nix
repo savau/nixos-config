@@ -8,6 +8,7 @@ args:
     (import ./home-manager.nix args)
 
     (import ./basics.nix args)
+    (import ./editor args)
     (import ./git.nix args)
     (import ./graphical args)
     (import ./i18n.nix args)
