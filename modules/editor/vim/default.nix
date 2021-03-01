@@ -7,9 +7,8 @@ let
   pluginsStart = with pkgs.vimPlugins; [
     airline    # fancy bottom status line
     coc-nvim   # conquer of completion language server
+    coc-git    # git integration for coc
     fugitive   # allows git operations within vim (via `:Git <command>`)
-    gitgutter  # displays a git diff in the sign column
-    #supertab  # insert completions via the tab key
     vim-nix    # Nix language support
   ];
   
