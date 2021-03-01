@@ -2,7 +2,6 @@
 
 {
   services = {
-    # TODO: do I need this?
     #openldap = {
     #  enable = true;
     #};
