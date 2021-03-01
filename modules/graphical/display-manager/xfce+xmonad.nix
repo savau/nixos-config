@@ -19,10 +19,10 @@
         enable = true;
         enableContribAndExtras = true;
         extraPackages = haskellPackages : [
+          haskellPackages.xmonad
           haskellPackages.xmonad-contrib
           haskellPackages.xmonad-extras
-          haskellPackages.xmonad
-          #haskellPackages.dbus  # needed for xmonad integration with xfce4-panel
+          #haskellPackages.dbus  # needed for integration with xfce4-panel
         ];
       };
     };
