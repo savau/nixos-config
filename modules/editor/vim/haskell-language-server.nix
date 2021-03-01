@@ -1,4 +1,4 @@
-{ lib, machine, ... }:
+{ pkgs, lib, machine, ... }:
 
 with lib;
 
@@ -8,5 +8,10 @@ let
   };
 in
 {
+  environment.systemPackages = with pkgs; [
+    ghc
+    haskell-language-server
+  ];
+
   home-manager.users = (mapAttrs (_: _: myCocConfig) machine.users) // { root = myCocConfig; };
 }
