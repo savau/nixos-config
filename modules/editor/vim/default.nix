@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+args@{ pkgs, ... }:
 
 let
   rc = builtins.readFile ../../../dotfiles/.vimrc;
@@ -18,6 +18,10 @@ let
   ];
 in
 {
+  imports = [
+    (import ./haskell-language-server.nix args)
+  ];
+
   environment.systemPackages = with pkgs; [
     nodejs  # coc requirement
 

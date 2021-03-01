@@ -1,8 +1,8 @@
-{ config, pkgs, ... }:
+args@{ config, pkgs, ... }:
 
 {
   imports = [
-    (import ./vim)
+    (import ./vim args)
   ];
 
   environment.variables = {
