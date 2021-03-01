@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  rc = builtins.readFile ./vimrc;
+  rc = builtins.readFile ../../../dotfiles/.vimrc;
   
   # loaded on launch:
   pluginsStart = with pkgs.vimPlugins; [
