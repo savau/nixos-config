@@ -1,10 +1,10 @@
-{ config, pkgs, lib, machine, ... }:
+{ lib, machine, ... }:
 
 with lib;
 
 let
   myXmodmap = {
-    home.file.".Xmodmap".text = (builtins.readFile ../../dotfiles/.Xmodmap);
+    home.file.".Xmodmap".text = builtins.readFile ../../dotfiles/.Xmodmap;
   };
 in
 {
