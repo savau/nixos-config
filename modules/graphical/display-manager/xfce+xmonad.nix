@@ -47,5 +47,8 @@
 
     # file manager
     xfce.thunar
+
+    # xfce4-panel to allow manual launch if needed
+    xfce.xfce4-panel
   ];
 }
