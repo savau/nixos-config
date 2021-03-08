@@ -3,8 +3,12 @@
 with lib;
 
 let
-  # TODO: replace this with internal additionalGroups list once we have a user type in definitions/users.nix
-  myUserAdditionalGroups = [
+  basicPermissions = [
+    "audio"
+    "video"
+    "networkmanager"
+  ];
+  additionalPermissions = [
     "wheel"
     "systemd-journal"
     "vboxusers"
@@ -24,12 +28,16 @@ in
       description = user.displayName;
       isNormalUser = true;
       shell = if user.shell == null then machine.systemShell else user.shell;
-      extraGroups = [
-        "audio" "video"
-        "networkmanager"
-      ] ++ (
-        # TODO: move this logic to user type definition in definition/users.nix
-        filter (grp: user.permissions.all || user.permissions."${grp}") myUserAdditionalGroups
+      extraGroups = basicPermissions ++ (
+        if user ? permissions
+        then
+          if user.permissions ? all && user.permissions.all
+          then additionalPermissions
+          else
+            if user.permissions ? additional
+            then filter (perm: elem perm user.permissions.additional) user.permissions.additional
+            else []
+        else []
       );
     }) machine.users;
   };

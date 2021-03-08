@@ -1,4 +1,3 @@
-# TODO: use machine type
 {
   hostname = "xego";
 
@@ -10,6 +9,7 @@
 
   # Machine users
   users = import ./users.nix;
+
   # System shell to use for all machine users including root. May be overriden per user via users.<user>.shell
   systemShell = import ./system-shell.nix;
 
