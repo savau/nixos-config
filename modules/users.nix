@@ -23,9 +23,9 @@ in
   users = {
     extraUsers.root.shell = machine.systemShell;
     
-    users = mapAttrs (_: user: {
+    users = mapAttrs (username: user: {
       uid = user.id;
-      description = user.displayName;
+      description = if user ? displayName then user.displayName else username;
       isNormalUser = true;
       shell = if user ? shell && user.shell != null then user.shell else machine.systemShell;
       extraGroups = basicPermissions ++ (
