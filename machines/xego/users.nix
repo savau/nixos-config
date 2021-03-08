@@ -5,7 +5,6 @@ in
   savau = {
     id = 1000;
     displayName = "Sarah Vaupel";
-    shell = null;
     permissions.all = true;
   };
 
@@ -31,6 +30,5 @@ in
   #pleb = {
   #  id = 1044;
   #  displayName = "Unworthy Pleb";
-  #  shell = null;
   #};
 }

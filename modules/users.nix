@@ -27,7 +27,7 @@ in
       uid = user.id;
       description = user.displayName;
       isNormalUser = true;
-      shell = if user.shell == null then machine.systemShell else user.shell;
+      shell = if user ? shell && user.shell != null then user.shell else machine.systemShell;
       extraGroups = basicPermissions ++ (
         if user ? permissions
         then
