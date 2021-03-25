@@ -22,9 +22,9 @@ Full guide to install NixOS with UEFI and LVM on LUKS
 - Enable Launch CSM
 
 ### 3. Partitioning
-(Assuming a 256GB NVMe SSD and 16GB physical RAM)
+(Assuming an NVMe SSD drive called `nvme0n1` as our main device and 16GB physical RAM)
 
-Use `gdisk /dev/nvme0n1` to write the following partition table:
+Use `gdisk /dev/nvme0n1` to write the following partition table to your main device:
 ```
 Number      Size  Code
      1      500M  ef00
@@ -34,11 +34,11 @@ Number      Size  Code
 - One partition of size 500M in FAT32 (EFI partition)
 - One partition with LVM on LUKS, containing both the swap and the root filesystem
     - (Note: only works with LUKS1 in case of Grub!)
-- As a rule of thumb: The amount of swap space should be double the amount of physical RAM available on your machine
+- General rule of thumb: The amount of swap space should be double the amount of physical RAM available on your machine
 
 Set up the encrypted LUKS partition and open it:
 ```
-$ cryptsetup luksFormat /dev/nvme0n1p2
+$ cryptsetup luksFormat /dev/
 $ cryptsetup luksOpen /dev/nvme0n1p2 enc-pv
 ```
 
