@@ -12,6 +12,7 @@
   # $ flatpak update
   # $ flatpak search zoom
   # $ flatpak install flathub us.zoom.Zoom
+  # $ flatpak run us.zoom.Zoom
   #
   # (See also: https://blog.laxu.de/2020/04/02/how-use-zoom-sandbox/)
 }
