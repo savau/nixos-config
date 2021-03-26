@@ -62,6 +62,7 @@ args@{ config, pkgs, ... }:
 
     # applications
     firefox
+    chromium
     thunderbird
     evince
     #megasync
