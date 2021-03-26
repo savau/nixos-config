@@ -65,6 +65,7 @@ args@{ config, pkgs, ... }:
     chromium
     thunderbird
     evince
+    nomacs
     #megasync
     OLDMEGASYNC.megasync
   ];
