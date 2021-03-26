@@ -15,6 +15,7 @@ args:
     (import ./i18n.nix args)
     (import ./laptop-battery.nix args)
     (import ./networking.nix args)
+    (import ./printing.nix args)
     (import ./security.nix args)
     (import ./ssh.nix args)
     (import ./users.nix args)
