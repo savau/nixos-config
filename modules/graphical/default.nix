@@ -38,7 +38,13 @@ args@{ config, pkgs, ... }:
 
   programs.qt5ct.enable = true;
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages =
+    let
+      # https://github.com/NixOS/nixpkgs/issues/112572#issuecomment-787204254
+      OLDMEGASYNC = import (pkgs.fetchzip {
+        url = "https://github.com/NixOS/nixpkgs/archive/4a7f99d55d299453a9c2397f90b33d1120669775.tar.gz";
+        sha256 = "14sdgw2am5k66im2vwb8139k5zxiywh3wy6bgfqbrqx2p4zlc3m7"; }) { config = { allowUnfree=true; }; };
+    in with pkgs; [
     # accessibility stuff
     at_spi2_atk at_spi2_core speechd
     orca
@@ -58,6 +64,34 @@ args@{ config, pkgs, ... }:
     firefox
     thunderbird
     evince
-    megasync
+    #megasync
+    OLDMEGASYNC.megasync
   ];
+
+  # https://github.com/NixOS/nixpkgs/issues/112572#issuecomment-780317989
+  #nixpkgs.overlays = [
+  #  (self: super:
+  #  let
+  #    version = "4.3.9.0";
+  #    srcFlavor = "Win";
+  #  in
+  #  {
+  #    megasync = super.megasync.overrideAttrs (
+  #      attrs: {
+  #        version = version;
+
+  #        src = super.fetchFromGitHub {
+  #          owner = "meganz";
+  #          repo = "MEGAsync";
+  #          rev = "v${version}_${srcFlavor}";
+  #          sha256 = "0lnm71hcda0lljfs12p8zw78d8a6xfb5xg5q9vxf2dsvgyniqq4p";
+  #          fetchSubmodules = true;
+  #        };
+
+  #        buildInputs = attrs.buildInputs ++ [ super.qt514.qtx11extras ];
+  #      }
+  #    );
+  #  })
+  #];
+
 }
