@@ -41,6 +41,7 @@ args@{ config, pkgs, ... }:
     nix-prefetch-git
     
     # desktop applications
+    audacity
     gimp
     libreoffice
     octave
