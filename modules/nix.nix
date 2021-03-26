@@ -13,4 +13,8 @@
       builders-use-substitutes = true
     '';  # enable the builder to use caches
   };
+
+  environment.systemPackages = with pkgs; [
+    nix-prefetch-git
+  ];
 }

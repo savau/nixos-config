@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+  programs.gnupg.agent.enable = true;
+
   # https://flatpak.org/setup/NixOS/
   # https://nixos.org/manual/nixos/stable/index.html#module-services-flatpak
   services.flatpak.enable = true;

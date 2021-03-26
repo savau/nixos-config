@@ -7,6 +7,7 @@ args:
 
     (import ./home-manager.nix args)
 
+    (import ./direnv.nix args)
     (import ./editor args)
     (import ./entertainment args)
     (import ./git.nix args)
@@ -19,6 +20,7 @@ args:
     (import ./ssh.nix args)
     (import ./system-administration.nix args)
     (import ./users.nix args)
+    (import ./virtualisation.nix args)
     (import ./work args)
     (import ./zsh.nix args)
   ];
