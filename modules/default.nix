@@ -7,7 +7,6 @@ args:
 
     (import ./home-manager.nix args)
 
-    (import ./basics.nix args)
     (import ./editor args)
     (import ./entertainment args)
     (import ./git.nix args)
@@ -18,6 +17,7 @@ args:
     (import ./printing.nix args)
     (import ./security.nix args)
     (import ./ssh.nix args)
+    (import ./system-administration.nix args)
     (import ./users.nix args)
     (import ./work args)
     (import ./zsh.nix args)
