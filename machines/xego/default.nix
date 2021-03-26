@@ -19,6 +19,6 @@
   # Enables battery-management services on this device
   isLaptop = true;
 
-  # Enables SSD optimizations (enable if NixOS is installed on a SSD)
+  # Enables SSD optimizations (enable if NixOS is installed on an SSD drive)
   ssdOptimized = true;
 }
