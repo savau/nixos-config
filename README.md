@@ -37,7 +37,7 @@ Number      Size  Code
 
 Set up the encrypted LUKS partition and open it:
 ```
-$ cryptsetup luksFormat /dev/
+$ cryptsetup luksFormat /dev/nvme0n1p2
 $ cryptsetup luksOpen /dev/nvme0n1p2 enc-pv
 ```
 
