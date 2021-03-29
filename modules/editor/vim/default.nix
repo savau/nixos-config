@@ -19,7 +19,7 @@ let
 in
 {
   imports = [
-    (import ./haskell-language-server.nix args)
+    (import ./coc args)
   ];
 
   environment.systemPackages = with pkgs; [

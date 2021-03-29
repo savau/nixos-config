@@ -4,7 +4,7 @@ with lib;
 
 let
   myCocConfig = {
-    home.file.".config/nvim/coc-settings.json".text = builtins.readFile ../../../dotfiles/.config/nvim/coc-settings.json;
+    home.file.".config/nvim/coc-settings.json".text = builtins.readFile ../../../../dotfiles/.config/nvim/coc-settings/haskell-language-server.json;
   };
 in
 {
