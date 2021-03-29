@@ -34,7 +34,6 @@ Number      Size  Code
 - One partition of size 500M in FAT32 (EFI partition)
 - One partition with LVM on LUKS, containing both the swap and the root filesystem
     - (Note: only works with LUKS1 in case of Grub!)
-- General rule of thumb: The amount of swap space should be double the amount of physical RAM available on your machine
 
 Set up the encrypted LUKS partition and open it:
 ```
@@ -49,6 +48,8 @@ $ vgcreate vg /dev/mapper/enc-pv
 $ lvcreate -L 32G -n swap vg
 $ lvcreate -l '100%FREE' -n root vg
 ```
+
+(General rule of thumb: The amount of swap space should be double the amount of physical RAM available on your machine)
 
 Format the partitions:
 ```
