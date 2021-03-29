@@ -2,7 +2,7 @@
   hostname = "xego";
 
   # UUID of the luks root partition
-  luksRootUUID = "fd90341e-768c-43c8-b725-855d71ea7722";
+  luksRootUUID = "d62c89b0-55b9-44a9-8d25-5fb5762ba422";
 
   # Time zone this machine typically resides in
   timezone = "Europe/Berlin";
