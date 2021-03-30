@@ -200,9 +200,3 @@ $ # alternatively, delete generations older than
 $ # N days by using the following 
 $ # instead of the previous command: 
 $ nix-collect-garbage --delete-older-than ${N}d
-
-$ # finally, rebuild the new configuration 
-$ # and make it the new boot default: 
-$ nixos-rebuild boot
-```
-
