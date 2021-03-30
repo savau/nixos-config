@@ -26,7 +26,7 @@
         ];
       };
     };
-    displayManager.defaultSession = "none+xmonad";
+    displayManager.defaultSession = "xfce+xmonad";
   };
 
   environment.systemPackages = with pkgs; [
