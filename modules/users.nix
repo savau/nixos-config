@@ -7,6 +7,8 @@ let
     "audio"
     "video"
     "networkmanager"
+    "scanner"
+    "lp"
   ];
   additionalPermissions = [
     "wheel"
