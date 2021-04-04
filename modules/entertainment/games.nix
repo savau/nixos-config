@@ -1,5 +1,7 @@
-{ config, pkgs, ... }:
+{ config, pkgs, machine, ... }:
 
+if machine.gameEnabled
+then
 {
   programs.steam.enable = true;
 
@@ -7,3 +9,4 @@
     minetest
   ];
 }
+else {}

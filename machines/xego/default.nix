@@ -21,4 +21,7 @@
 
   # Enables SSD optimizations (enable if NixOS is installed on an SSD drive)
   ssdOptimized = true;
+
+  # Enables game services on this device
+  gameEnabled = false;
 }
