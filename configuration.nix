@@ -15,24 +15,26 @@ in
     (import ./modules args)
   ];
 
-  hardware = {
-    enableRedistributableFirmware = true;
-  };
-
   boot = {
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
-
     initrd.luks.devices.luksroot = {
       device = "/dev/disk/by-uuid" + "/${machine.luksRootUUID}";
       preLVM = true;
       allowDiscards = machine.ssdOptimized;
     };
 
+    loader = {
+      efi.canTouchEfiVariables = true;
+      systemd-boot.enable = true;
+    };
+
     tmpOnTmpfs = true;
   };
 
   fileSystems."/".options = optionals machine.ssdOptimized [ "noatime" "nodiratime" "discard" ];
+
+  hardware = {
+    enableRedistributableFirmware = true;
+  };
 
   services = {
     fstrim.enable = machine.ssdOptimized;
@@ -43,6 +45,5 @@ in
   };
 
   networking.hostName = machine.hostname;
-
   time.timeZone = machine.timezone;
 }
