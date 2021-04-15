@@ -13,6 +13,9 @@
   # System shell to use for all machine users including root. May be overriden per user via users.<user>.shell
   systemShell = import ./system-shell.nix;
 
+  # Enables audio services on this device
+  audioEnabled = true;
+
   # Enables bluetooth services on this device
   bluetoothEnabled = true;
 
