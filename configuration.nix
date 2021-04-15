@@ -16,7 +16,6 @@ in
   ];
 
   hardware = {
-    bluetooth.enable = machine.bluetoothEnabled;
     opengl.driSupport32Bit = true;
     enableRedistributableFirmware = true;
   };
@@ -42,8 +41,6 @@ in
 
     # override nixos-hardware profile
     thermald.enable = machine.isLaptop;
-
-    blueman.enable = machine.bluetoothEnabled;
   };
 
   networking.hostName = machine.hostname;
