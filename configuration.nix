@@ -16,7 +16,6 @@ in
   ];
 
   hardware = {
-    opengl.driSupport32Bit = true;
     enableRedistributableFirmware = true;
   };
 

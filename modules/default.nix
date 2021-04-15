@@ -22,6 +22,7 @@ args:
     (import ./ssh.nix args)
     (import ./system-administration.nix args)
     (import ./users.nix args)
+    (import ./video.nix args)
     (import ./virtualisation.nix args)
     (import ./work args)
     (import ./zsh.nix args)
