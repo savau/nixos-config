@@ -2,6 +2,7 @@ args:
 
 {
   imports = [
+    (import ./agda.nix args)
     (import ./haskell.nix args)
     (import ./java.nix args)
     (import ./javascript.nix args)
