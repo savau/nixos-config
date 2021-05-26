@@ -9,7 +9,7 @@ args:
 
     (import ./audio.nix args)
     (import ./bluetooth.nix args)
-    (import ./direnv.nix args)
+  # (import ./direnv.nix args)
     (import ./editor args)
     (import ./entertainment args)
     (import ./git.nix args)
