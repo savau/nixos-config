@@ -60,6 +60,8 @@ args@{ config, pkgs, ... }:
     volumeicon
     birdtray
 
+    libnotify
+
     # applications
     firefox
     chromium
