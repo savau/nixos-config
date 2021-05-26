@@ -8,7 +8,7 @@
   services.flatpak.enable = true;
   xdg.portal.enable = true;
 
-  services.gnome3.gnome-keyring.enable = true;
+  services.gnome.gnome-keyring.enable = true;
   security.pam.services.lightdm.enableGnomeKeyring = true;
   programs.seahorse.enable = true;
 
