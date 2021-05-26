@@ -21,6 +21,7 @@ args:
     (import ./security.nix args)
     (import ./ssh.nix args)
     (import ./system-administration.nix args)
+    (import ./tmux.nix args)
     (import ./users.nix args)
     (import ./video.nix args)
     (import ./virtualisation.nix args)
