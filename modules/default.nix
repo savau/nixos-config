@@ -19,6 +19,7 @@ args:
     (import ./networking.nix args)
     (import ./printing.nix args)
     (import ./security.nix args)
+    (import ./sh args)
     (import ./ssh.nix args)
     (import ./system-administration.nix args)
     (import ./tmux.nix args)
@@ -26,6 +27,5 @@ args:
     (import ./video.nix args)
     (import ./virtualisation.nix args)
     (import ./work args)
-    (import ./zsh.nix args)
   ];
 }
