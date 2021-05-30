@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    exfat-utils
+    exfat exfat-utils
     htop
     ntfs3g
     parted
