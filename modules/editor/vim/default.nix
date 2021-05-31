@@ -6,7 +6,7 @@ let
   # loaded on launch:
   pluginsStart = with pkgs.vimPlugins; [
     airline    # fancy bottom status line
-    #ale       # asynchronous lint engine
+  # ale        # asynchronous lint engine
     coc-nvim   # conquer of completion language server
     coc-git    # git integration for coc
     fugitive   # allows git operations within vim (via `:Git <command>`)
