@@ -62,6 +62,9 @@ args@{ config, pkgs, ... }:
 
     libnotify
 
+    # add missing icons
+    arc-icon-theme
+
     # applications
     firefox
     chromium
