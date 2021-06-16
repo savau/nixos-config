@@ -1,10 +1,10 @@
-{ pkgs, lib, machine, ... }:
+{ pkgs, lib, machine, cocConfigDir, ... }:
 
 with lib;
 
 let
   myCocConfig = {
-    home.file.".config/nvim/coc-settings.json".text = builtins.readFile ../../../../dotfiles/.config/nvim/coc-settings/basic.json;
+    home.file.".config/nvim/coc-settings.json".text = builtins.readFile "${cocConfigDir}/basic.json";
   };
 in
 {

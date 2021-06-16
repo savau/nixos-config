@@ -1,5 +1,10 @@
-args@{ pkgs, ... }:
+args'@{ pkgs, vimConfigDir, ... }:
 
+let
+  args = args' // {
+    cocConfigDir = "${vimConfigDir}/nvim/coc-settings";
+  };
+in
 {
   imports = [
   # choose ONE *.nix file in this directory

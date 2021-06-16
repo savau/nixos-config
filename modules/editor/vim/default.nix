@@ -1,8 +1,12 @@
-args@{ pkgs, lib, machine, ... }:
+args'@{ pkgs, lib, machine, ... }:
 
 with lib;
 
 let
+  args = args' // {
+    vimConfigDir = ../../../dotfiles/vim;
+  };
+
   myVimPrograms.programs.neovim = {
     enable = true;
 
@@ -17,7 +21,7 @@ let
       fugitive   # allows git operations within vim (via `:Git <command>`)
       vim-nix    # Nix language support
     ];
-    extraConfig = builtins.readFile ../../../dotfiles/.vimrc;
+    extraConfig = builtins.readFile "${args.vimConfigDir}/.vimrc";
   };
 in
 {
