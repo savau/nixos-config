@@ -13,11 +13,11 @@ let
     ] else [];
   };
   additionalPermissions = [
-    "docker"           # use docker command without sudo
-    "libvirtd"         # can run virtual machines
-    "systemd-journal"  # can access systemd journal
-    "vboxusers"        # can use VirtualBox
-    "wheel"            # system administrator privileges
+    "docker"               # use docker command without sudo
+    "libvirtd"             # can run virtual machines
+    "systemd-journal"      # can access systemd journal
+    "vboxusers"            # can use VirtualBox
+    "wheel"                # system administrator privileges
   ];
 in
 {
