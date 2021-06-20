@@ -3,19 +3,22 @@
 with lib;
 
 let
-  basicPermissions = [
-    "audio"
-    "video"
-    "networkmanager"
-    "scanner"
-    "lp"
-  ];
+  defaultUser = rec {
+    isNormalUser = true;  # is this user a human? (i.e. create home, show in login dialog, etc.)
+    extraGroups  = if defaultUser.isNormalUser then [
+      "audio"             # access the PulseAudio server
+      "lp"                # enable and use printers
+      "networkmanager"    # configure networks
+      "scanner"           # enable and use scanners
+      "video"             # control screen brightness
+    ] else [];
+  };
   additionalPermissions = [
-    "wheel"
-    "systemd-journal"
-    "vboxusers"
-    "libvirtd"
-    "docker"
+    "docker"           # use docker command without sudo; TODO: add flag
+    "libvirtd"         # can run virtual machines; TODO: add flag
+    "systemd-journal"  # can access systemd journal; TODO: add to admin flag
+    "vboxusers"        # can use VirtualBox; TODO: add flag
+    "wheel"            # su; TODO: add admin flag
   ];
 in
 {
@@ -26,11 +29,12 @@ in
     extraUsers.root.shell = machine.systemShell;
     
     users = mapAttrs (username: user: {
-      uid = user.id;
+      uid = if user ? id then user.id else null;
       description = if user ? displayName then user.displayName else username;
-      isNormalUser = true;
+      isNormalUser = user ? type && user.type == "normal" ||  defaultUser.isNormalUser;
+      isSystemUser = user ? type && user.type == "system" || !defaultUser.isNormalUser;
       shell = if user ? shell && user.shell != null then user.shell else machine.systemShell;
-      extraGroups = basicPermissions ++ (
+      extraGroups = defaultUser.extraGroups ++ (
         if user ? permissions
         then
           if user.permissions ? all && user.permissions.all
