@@ -14,18 +14,19 @@
 #     # optional, default: "normal"
 #     type = "normal";
 # 
-#     # is this user a system administrator?
-#     # optional, default: false
-#     isWheel = false;
-# 
 #     # user permissions
 #     permissions = {
-#       # should this user be granted all permissions available on this machine?
-#       all = false;  # TODO: replace with separate wheel flag
+#       # should this user be granted all available permissions?
+#       # optional, default: false
+#       all = false;
 # 
 #       # additional user permissions by group name
 #       # for a list of possible options, refer to /modules/users.nix
-#       additional = [];
+#       groups = [];
+#
+#       # user permissions by group name to be excluded
+#       # the user will not be added to groups in this list; overrides permissions.all, permissions.groups and basic groups for normal users
+#       exclude = [];
 #     };
 # 
 #     # default shell
@@ -35,9 +36,6 @@
 # Refactor user logic:
 # TODO: add global git config
 # TODO: add local-ish git config? (i.e. for u2w)
-# TODO: replace permissions.all with separate wheel/superuser flag
-# TODO: implement user group blacklist (i.e. to exclude a user from specific user groups)
-# TODO: replace additional permissions list with separate flags
 
 let
   pkgs = import <nixpkgs> {};
@@ -54,14 +52,14 @@ in
   #   uid = 1042;
   #   displayName = "Anne Onymous";
   #   shell = null;
-  #   permissions.additional = [
+  #   permissions.groups = [
   #     "systemd-journal"
   #   ];
   # };
   # mlem = {
   #   displayName = "Mike Lembo";
   #   shell = pkgs.bash;
-  #   permissions.additional = [
+  #   permissions.groups = [
   #     "vboxusers"
   #     "libvirtd"
   #     "docker"

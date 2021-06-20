@@ -13,11 +13,11 @@ let
     ] else [];
   };
   additionalPermissions = [
-    "docker"           # use docker command without sudo; TODO: add flag
-    "libvirtd"         # can run virtual machines; TODO: add flag
-    "systemd-journal"  # can access systemd journal; TODO: add to admin flag
-    "vboxusers"        # can use VirtualBox; TODO: add flag
-    "wheel"            # su; TODO: add admin flag
+    "docker"           # use docker command without sudo
+    "libvirtd"         # can run virtual machines
+    "systemd-journal"  # can access systemd journal
+    "vboxusers"        # can use VirtualBox
+    "wheel"            # system administrator privileges
   ];
 in
 {
@@ -33,16 +33,18 @@ in
       isNormalUser = user ? type && user.type == "normal" || defaultUser.isNormalUser;
       isSystemUser = user ? type && user.type == "system" || defaultUser.isSystemUser;
       shell = if user ? shell && user.shell != null then user.shell else machine.systemShell;
-      extraGroups = defaultUser.extraGroups ++ (
-        if user ? permissions
-        then
-          if user.permissions ? all && user.permissions.all
-          then additionalPermissions
-          else
-            if user.permissions ? additional
-            then lib.filter (perm: lib.elem perm user.permissions.additional) user.permissions.additional
-            else []
-        else []
+      extraGroups = lib.filter (perm: !(lib.elem perm (if user?permissions && user.permissions?exclude then user.permissions.exclude else []))) (
+        defaultUser.extraGroups ++ (
+          if user ? permissions
+          then
+            if user.permissions ? all && user.permissions.all
+            then additionalPermissions
+            else
+              if user.permissions ? groups
+              then lib.filter (perm: lib.elem perm user.permissions.groups) additionalPermissions
+              else []
+          else []
+        )
       );
     }) machine.users;
   };
