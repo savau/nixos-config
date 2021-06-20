@@ -3,7 +3,8 @@ args'@{ config, pkgs, lib, ... }:
 with lib;
 
 let
-  hostdir = ./machines/. + "/${removeSuffix "\n" (builtins.readFile ./host)}";
+  hostname = fileContents ./host;
+  hostdir = ./machines/. + "/${hostname}";
   machine = import hostdir;
   args = args' // { inherit machine; };
 in
@@ -46,6 +47,6 @@ in
     thermald.enable = machine.batteryManagement.enable;
   };
 
-  networking.hostName = machine.hostname;
+  networking.hostName = hostname;
   time.timeZone = machine.timezone;
 }
