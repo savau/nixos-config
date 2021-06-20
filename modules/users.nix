@@ -1,7 +1,5 @@
 { config, pkgs, lib, machine, ... }:
 
-with lib;
-
 let
   defaultUser = rec {
     isNormalUser = true;  # is this user a human? (i.e. uid >= 1000: create home, show in login dialog, etc.)
@@ -28,7 +26,7 @@ in
   users = {
     extraUsers.root.shell = machine.systemShell;
     
-    users = mapAttrs (username: user: {
+    users = lib.mapAttrs (username: user: {
       uid = if user ? uid then user.uid else null;
       description = if user ? displayName then user.displayName else username;
       isNormalUser = user ? type && user.type == "normal" ||  defaultUser.isNormalUser;
@@ -41,7 +39,7 @@ in
           then additionalPermissions
           else
             if user.permissions ? additional
-            then filter (perm: elem perm user.permissions.additional) user.permissions.additional
+            then lib.filter (perm: lib.elem perm user.permissions.additional) user.permissions.additional
             else []
         else []
       );
