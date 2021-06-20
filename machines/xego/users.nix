@@ -1,11 +1,11 @@
 # Full user specification:
 #   <username> = {
 #     # account UID override
-#     # optional, defaults to next free UID
+#     # optional, default: next free UID
 #     uid = 1000;
 # 
 #     # display name
-#     # optional, defaults to <username>
+#     # optional, default: <username>
 #     displayName = "Default User";
 # 
 #     # user type to determine isNormalUser and isSystemUser
