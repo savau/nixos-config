@@ -53,9 +53,14 @@ in
   #   uid = 1042;
   #   displayName = "Anne Onymous";
   #   shell = null;
-  #   permissions.groups = [
-  #     "systemd-journal"
-  #   ];
+  #   permissions = {
+  #     groups = [
+  #       "systemd-journal"
+  #     ];
+  #     exclude = [
+  #       "lp" "scanner"
+  #     ];
+  #   };
   # };
   # mlem = {
   #   displayName = "Mike Lembo";
