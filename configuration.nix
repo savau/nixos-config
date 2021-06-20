@@ -1,9 +1,7 @@
 args'@{ config, pkgs, lib, ... }:
 
-with lib;
-
 let
-  hostname = fileContents ./host;
+  hostname = lib.fileContents ./host;
   hostdir = ./machines/. + "/${hostname}";
   machine = import hostdir;
   args = args' // { inherit machine; };
@@ -33,7 +31,7 @@ in
     tmpOnTmpfs = true;
   };
 
-  fileSystems."/".options = optionals machine.ssdOptimizations.enable [ "noatime" "nodiratime" "discard" ];
+  fileSystems."/".options = lib.optionals machine.ssdOptimizations.enable [ "noatime" "nodiratime" "discard" ];
 
   hardware = {
     enableRedistributableFirmware = true;
