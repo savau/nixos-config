@@ -1,9 +1,9 @@
 { config, pkgs, lib, machine, ... }:
 
-with lib;
-
 let
-  myGitConfig = {
+# system-wide default configuration
+# can be overriden per user via machine.users.<username>.git
+  gitConfig = {
     programs.git = {
       enable = true;
 
@@ -13,15 +13,12 @@ let
       ];
 
       extraConfig = {
-        pull = { rebase = false; };
+        pull.rebase       = false;
+        submodule.recurse = true;
       };
     };
   };
 in
 {
-  environment.systemPackages = with pkgs; [
-    git
-  ];
-
-  home-manager.users = (mapAttrs (_: _: myGitConfig) machine.users) // { root = myGitConfig; };
+  home-manager.users = (lib.mapAttrs (_: user: if user?git then { programs.git = gitConfig.programs.git // user.git; } else gitConfig) machine.users) // { root = gitConfig; };
 }
