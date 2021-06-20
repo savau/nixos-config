@@ -8,12 +8,10 @@
 
   timezone = "Europe/Berlin";
 
-  # Machine users
-  # TODO: remove, use ./users.nix directly in config
   users = import ./users.nix;
 
-  # System shell to use for all machine users including root. May be overriden per user via users.<user>.shell
-  # TODO: remove, use ./system-shell.nix directly in config
+  # system shell to use for all users on this machine including root
+  # can be overriden per user via users.<username>.shell
   systemShell = import ./system-shell.nix;
 
   audio = {
