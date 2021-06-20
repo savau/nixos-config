@@ -1,6 +1,3 @@
-# TODO: Refactor user logic:
-#   TODO: add global git config
-#   TODO: add local-ish git config? (i.e. for u2w)
 let
   exampleUser = {
     # account UID override
@@ -9,7 +6,7 @@ let
 
     # display name
     # optional, default: <username>
-    displayName = "Default User";
+    displayName = "Example User";
 
     # user type to determine isNormalUser and isSystemUser
     # options: "normal" for humans, "system" for system users
@@ -37,6 +34,16 @@ let
       # optional, default: []
       exclude = [];
     };
+
+    # user-specific git configuration options
+    git = {
+      userName  = "Example User";
+      userEmail = "example-user@example.com";
+      extraConfig = {
+        pull.rebase       = false;
+        submodule.recurse = true;
+      };
+    };
   };
 
   pkgs = import <nixpkgs> {};
@@ -46,6 +53,11 @@ in
     uid = 1000;
     displayName = "Sarah Vaupel";
     permissions.all = true;
+
+    git = {
+      userName  = "Sarah Vaupel";
+      userEmail = "sarah.vaupel@protonmail.com";
+    };
   };
 
   # for debugging purposes:
@@ -60,6 +72,10 @@ in
   #     exclude = [
   #       "lp" "scanner"
   #     ];
+  #   };
+  #   git = {
+  #     userName  = "Anne Onymous";
+  #     userEmail = "anne-onymous@example.com";
   #   };
   # };
   # mlem = {
