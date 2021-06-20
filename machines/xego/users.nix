@@ -2,7 +2,7 @@
 #   <username> = {
 #     # account UID override
 #     # optional, defaults to next free UID
-#     id = 1000;
+#     uid = 1000;
 # 
 #     # display name
 #     # optional, defaults to <username>
@@ -34,7 +34,6 @@
 # TODO: add global git config
 # TODO: add local-ish git config? (i.e. for u2w)
 # TODO: replace permissions.all with separate wheel/superuser flag
-# TODO: rename id -> uid
 # TODO: implement user group blacklist (i.e. to exclude a user from specific user groups)
 # TODO: replace additional permissions list with separate flags
 
@@ -43,32 +42,30 @@ let
 in
 {
   savau = {
-    id = 1000;
+    uid = 1000;
     displayName = "Sarah Vaupel";
     permissions.all = true;
   };
 
   # for debugging purposes:
-  #anneo = {
-  #  id = 1042;
-  #  displayName = "Anne Onymous";
-  #  shell = null;
-  #  permissions.additional = [
-  #    "systemd-journal"
-  #  ];
-  #};
-  #mlem = {
-  #  id = 1043;
-  #  displayName = "Mike Lembo";
-  #  shell = pkgs.bash;
-  #  permissions.additional = [
-  #    "vboxusers"
-  #    "libvirtd"
-  #    "docker"
-  #  ];
-  #};
-  #pleb = {
-  #  id = 1044;
-  #  displayName = "Unworthy Pleb";
-  #};
+  # anneo = {
+  #   uid = 1042;
+  #   displayName = "Anne Onymous";
+  #   shell = null;
+  #   permissions.additional = [
+  #     "systemd-journal"
+  #   ];
+  # };
+  # mlem = {
+  #   displayName = "Mike Lembo";
+  #   shell = pkgs.bash;
+  #   permissions.additional = [
+  #     "vboxusers"
+  #     "libvirtd"
+  #     "docker"
+  #   ];
+  # };
+  # pleb = {
+  #   displayName = "Unworthy Pleb";
+  # };
 }

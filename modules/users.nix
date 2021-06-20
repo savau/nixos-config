@@ -29,7 +29,7 @@ in
     extraUsers.root.shell = machine.systemShell;
     
     users = mapAttrs (username: user: {
-      uid = if user ? id then user.id else null;
+      uid = if user ? uid then user.uid else null;
       description = if user ? displayName then user.displayName else username;
       isNormalUser = user ? type && user.type == "normal" ||  defaultUser.isNormalUser;
       isSystemUser = user ? type && user.type == "system" || !defaultUser.isNormalUser;
