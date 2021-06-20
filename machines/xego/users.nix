@@ -1,4 +1,5 @@
 # Full user specification:
+# TODO: move documentation to /modules/users.nix
 #   <username> = {
 #     # account UID override
 #     # optional, default: next free UID
@@ -13,8 +14,9 @@
 #     # optional, default: "normal"
 #     type = "normal";
 # 
-#     # should this user be a super user?
-#     isSuperUser = false;
+#     # is this user a system administrator?
+#     # optional, default: false
+#     isWheel = false;
 # 
 #     # user permissions
 #     permissions = {
