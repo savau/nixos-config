@@ -19,7 +19,7 @@ in
     initrd.luks.devices.luksroot = {
       device = "/dev/disk/by-uuid" + "/${machine.luksRootUUID}";
       preLVM = true;
-      allowDiscards = machine.ssdOptimized;
+      allowDiscards = machine.ssdOptimizations.enable;
     };
 
     kernelPackages = pkgs.linuxPackages_zen;
@@ -32,18 +32,18 @@ in
     tmpOnTmpfs = true;
   };
 
-  fileSystems."/".options = optionals machine.ssdOptimized [ "noatime" "nodiratime" "discard" ];
+  fileSystems."/".options = optionals machine.ssdOptimizations.enable [ "noatime" "nodiratime" "discard" ];
 
   hardware = {
     enableRedistributableFirmware = true;
   };
 
   services = {
-    fstrim.enable = machine.ssdOptimized;
+    fstrim.enable = machine.ssdOptimizations.enable;
     fwupd.enable = true;
 
     # override nixos-hardware profile
-    thermald.enable = machine.isLaptop;
+    thermald.enable = machine.batteryManagement.enable;
   };
 
   networking.hostName = machine.hostname;

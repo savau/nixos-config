@@ -13,18 +13,29 @@
   # System shell to use for all machine users including root. May be overriden per user via users.<user>.shell
   systemShell = import ./system-shell.nix;
 
-  # Enables audio services on this device
-  audioEnabled = true;
+  # Audio services on this machine
+  audio = {
+    enable = true;
+  };
 
-  # Enables bluetooth services on this device
-  bluetoothEnabled = true;
+  # Bluetooth services on this machine
+  bluetooth = {
+    enable = true;
+  };
 
-  # Enables battery-management services on this device
-  isLaptop = true;
+  # Battery-management services on this machine
+  batteryManagement = {
+    enable = true;
+  };
 
-  # Enables SSD optimizations (enable if NixOS is installed on an SSD drive)
-  ssdOptimized = true;
+  # SSD optimizations on this machine
+  # enable if NixOS is installed on an SSD drive
+  ssdOptimizations = {
+    enable = true;
+  };
 
-  # Enables game services on this device
-  gameEnabled = false;
+  # Game services on this machine
+  games = {
+    enable = false;
+  };
 }

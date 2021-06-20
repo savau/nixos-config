@@ -1,11 +1,11 @@
 { config, pkgs, machine, ... }:
 
-{
+if machine.batteryManagement.enable then {
   powerManagement = {
-    enable = machine.isLaptop;
-    powertop.enable = machine.isLaptop;
+    enable = true;
+    powertop.enable = true;
     cpuFreqGovernor = "schedutil";
   };
   
-  services.tlp.enable = machine.isLaptop;
-}
+  services.tlp.enable = true;
+} else {}

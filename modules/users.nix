@@ -4,7 +4,7 @@ with lib;
 
 let
   defaultUser = rec {
-    isNormalUser = true;  # is this user a human? (i.e. create home, show in login dialog, etc.)
+    isNormalUser = true;  # is this user a human? (i.e. uid >= 1000: create home, show in login dialog, etc.)
     extraGroups  = if defaultUser.isNormalUser then [
       "audio"             # access the PulseAudio server
       "lp"                # enable and use printers

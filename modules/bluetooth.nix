@@ -1,6 +1,6 @@
 { config, pkgs, machine, ... }:
 
-{
-  hardware.bluetooth.enable = machine.bluetoothEnabled;
-  services.blueman.enable = machine.bluetoothEnabled;
-}
+if machine.bluetooth.enable then {
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+} else {}
