@@ -16,6 +16,7 @@ args:
     (import ./graphical args)
     (import ./i18n.nix args)
     (import ./laptop-battery.nix args)
+    (import ./luks.nix args)
     (import ./networking.nix args)
     (import ./printing.nix args)
     (import ./security.nix args)

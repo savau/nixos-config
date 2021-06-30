@@ -15,12 +15,6 @@ in
   ];
 
   boot = {
-    initrd.luks.devices.luksroot = {
-      device = "/dev/disk/by-uuid" + "/${machine.luksRootUUID}";
-      preLVM = true;
-      allowDiscards = machine.ssdOptimizations.enable;
-    };
-
     kernelPackages = pkgs.linuxPackages_zen;
 
     loader = {

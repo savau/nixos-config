@@ -1,7 +1,17 @@
 {
-  # UUID of the luks root partition
-  # TODO: add more customization, i.e. option to disable LUKS all together
-  luksRootUUID = "d62c89b0-55b9-44a9-8d25-5fb5762ba422";
+  # configuration options for Linux Unified Key Setup (LUKS) disk encryption
+  luks = {
+    # options for full disk encryption
+    fullDiskEncryption = {
+      enable = true;
+
+      # LUKS root partition
+      root = {
+        uuid = "d62c89b0-55b9-44a9-8d25-5fb5762ba422";
+      };
+    };
+    # TODO: implement options for partial disk encryption
+  };
 
   # time zone this machine typically resides in
   timezone = "Europe/Berlin";
