@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   # configuration options for Linux Unified Key Setup (LUKS) disk encryption
   luks = {
@@ -21,8 +23,7 @@
 
   # system shell to use for all users on this machine including root
   # can be overriden per user via users.<username>.shell
-  systemShell = import ./system-shell.nix;
-
+  systemShell = pkgs.zsh;
 
   # configuration options for audio services
   audio = {

@@ -3,7 +3,7 @@ args'@{ config, pkgs, lib, ... }:
 let
   hostname = lib.fileContents ./host;
   hostdir = ./machines/. + "/${hostname}";
-  machine = import hostdir;
+  machine = import hostdir args';
   args = args' // { inherit machine; };
 in
 {
