@@ -157,11 +157,12 @@ This NixOS configuration expects the name of the machine to load specific option
 $ echo <HOSTNAME> > /etc/nixos/host
 ```
 
-Make sure that the UUID of your LUKS root partition (see `blkid /dev/nvme0n1p2`) is the same as `luksRootUUID` in the machine-specific options. If this is not the case, change `luksRootUUID` in `<git:>/machines/<HOSTNAME>/machine.nix` to the output UUID of `blkid /dev/nvme0n1p2`:
+Make sure that the UUID of your LUKS root partition (see `blkid /dev/nvme0n1p2`) is the same as `luks.fullDiskEncryption.root.uuid` in the machine-specific options. If this is not the case, change `luks.fullDiskEncryption.root.uuid` in `<git:>/machines/<HOSTNAME>/machine.nix` to the output UUID of `blkid /dev/nvme0n1p2`:
 ```
 {
   ...
-  luksRootUUID = "<UUID>";
+  luks.fullDiskEncryption.enable = true;
+  luks.fullDiskEncryption.root.uuid = "<UUID>";
   ...
 }
 ```
