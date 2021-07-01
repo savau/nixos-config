@@ -15,15 +15,16 @@
     # TODO: implement options for partial disk encryption
   };
 
+  # system shell to use for all users on this machine including root
+  # can be overriden per user via users.<username>.shell
+  systemShell = pkgs.zsh;
+
   # time zone this machine typically resides in
   timezone = "Europe/Berlin";
 
   # users on this machine
   users = import ./users.nix;
 
-  # system shell to use for all users on this machine including root
-  # can be overriden per user via users.<username>.shell
-  systemShell = pkgs.zsh;
 
   # configuration options for audio services
   audio = {
