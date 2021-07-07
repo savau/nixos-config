@@ -15,7 +15,5 @@ in
     (import ./modules args)
   ];
 
-  boot.tmpOnTmpfs = true;
-
   networking.hostName = hostname;
 }
