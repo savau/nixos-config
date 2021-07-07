@@ -18,5 +18,4 @@ in
   boot.tmpOnTmpfs = true;
 
   networking.hostName = hostname;
-  time.timeZone = machine.timezone;
 }

@@ -27,6 +27,7 @@ args:
     (import ./ssd-optimizations.nix args)
     (import ./ssh.nix args)
     (import ./system-administration.nix args)
+    (import ./time.nix args)
     (import ./tmux.nix args)
     (import ./users.nix args)
     (import ./video.nix args)
