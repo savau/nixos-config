@@ -3,7 +3,7 @@ args'@{ config, pkgs, lib, ... }:
 let
   hostname = lib.fileContents ./host;
   hostdir = ./machines/. + "/${hostname}";
-  machine = import hostdir args';
+  machine = import hostdir args' // { inherit hostname; };
   args = args' // { inherit machine; };
 in
 {
@@ -14,6 +14,4 @@ in
     # TODO: for each module in ./modules, import module with args instead
     (import ./modules args)
   ];
-
-  networking.hostName = hostname;
 }

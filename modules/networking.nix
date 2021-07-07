@@ -1,7 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, machine, ... }:
 
 {
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = machine.hostname;
+    networkmanager.enable = true;
+  };
 
   environment.systemPackages = with pkgs; [
     wget
