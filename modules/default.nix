@@ -16,6 +16,7 @@ args:
     (import ./git.nix args)
     (import ./graphical args)
     (import ./i18n.nix args)
+    (import ./kernel.nix args)
     (import ./laptop-battery.nix args)
     (import ./luks.nix args)
     (import ./networking.nix args)
