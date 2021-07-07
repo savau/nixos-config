@@ -15,14 +15,7 @@ in
     (import ./modules args)
   ];
 
-  boot = {
-    loader = {
-      efi.canTouchEfiVariables = true;
-      systemd-boot.enable = true;
-    };
-
-    tmpOnTmpfs = true;
-  };
+  boot.tmpOnTmpfs = true;
 
   networking.hostName = hostname;
   time.timeZone = machine.timezone;
