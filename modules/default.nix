@@ -2,8 +2,8 @@ args:
 
 {
   imports = [
-    ./nix.nix
-    (import ./nixpkgs)
+    (import ./nix.nix args)
+    (import ./nixpkgs args)
 
     (import ./home-manager.nix args)
 
@@ -11,7 +11,7 @@ args:
     (import ./audio.nix args)
     (import ./bluetooth.nix args)
     (import ./boot-loader.nix args)
-  # (import ./direnv.nix args)
+    (import ./direnv.nix args)
     (import ./editor args)
     (import ./entertainment args)
     (import ./file-systems args)
