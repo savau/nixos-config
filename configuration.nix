@@ -11,6 +11,7 @@ in
     # Include the results of the hardware scan.
     (hostdir + "/hardware-configuration.nix")
 
+    # TODO: for each module in ./modules, import module with args instead
     (import ./modules args)
   ];
 
@@ -25,14 +26,11 @@ in
     tmpOnTmpfs = true;
   };
 
-  fileSystems."/".options = lib.optionals machine.ssdOptimizations.enable [ "noatime" "nodiratime" "discard" ];
-
   hardware = {
     enableRedistributableFirmware = true;
   };
 
   services = {
-    fstrim.enable = machine.ssdOptimizations.enable;
     fwupd.enable = true;
 
     # override nixos-hardware profile

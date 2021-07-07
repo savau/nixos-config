@@ -21,6 +21,7 @@ args:
     (import ./printing.nix args)
     (import ./security.nix args)
     (import ./sh args)
+    (import ./ssd-optimizations.nix args)
     (import ./ssh.nix args)
     (import ./system-administration.nix args)
     (import ./tmux.nix args)
