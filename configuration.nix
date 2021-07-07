@@ -26,10 +26,6 @@ in
     tmpOnTmpfs = true;
   };
 
-  hardware.enableRedistributableFirmware = true;
-
-  services.fwupd.enable = true;
-
   networking.hostName = hostname;
   time.timeZone = machine.timezone;
 }

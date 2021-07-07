@@ -12,6 +12,7 @@ args:
   # (import ./direnv.nix args)
     (import ./editor args)
     (import ./entertainment args)
+    (import ./firmware.nix args)
     (import ./git.nix args)
     (import ./graphical args)
     (import ./i18n.nix args)
