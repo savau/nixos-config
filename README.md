@@ -102,19 +102,18 @@ $ nixos-install
 $ reboot
 ```
 
-### 5. Fetching configurations
+### 5. Fetching Configurations
 
-I maintain various configurations (NixOS, XMonad, ZSH, Vim, ...) on GitHub repositories, so I want to clone my configurations from there. 
-To be able to do so, I first need to generate a new key pair to use git with SSH.
+If you (like me) maintain your configurations (e.g. NixOS, XMonad, ZSH, Vim/Neovim, ...) on GitHub repositories, you might want to clone your configuration files from there. 
+To be able to do so, you first need to generate a new key pair to use git with SSH.
 
 #### 5.0 Preparation
 
-To be able to get your NixOS config (i.e. to clone this repository), you first need to generate an SSH key and add it to your GitHub account.
+To be able to fetch your NixOS config (i.e. to clone this repository), you first need to generate an SSH key and add it to your GitHub account.
 
-On `github.com`, generate a personal access token for this purpose:
+On [`github.com/settings/tokens/new`](https://github.com/settings/tokens/new), generate a new personal access token for this purpose:
 
-- Using the web interface, go to "Settings" -> "Developer settings" -> "Personal access token"
-- Click "Generate new token"
+- (Navigating to the page using the web interface: Go to "Settings" -> "Developer settings" -> "Personal access tokens", and hit "Generate new token")
 - Give the token a descriptive name (e.g. "USER@MACHINE")
 - Grant `write:public_key` and `read:public_key` permissions
 
@@ -140,16 +139,15 @@ $ curl -i -u GITHUB_USER:GITHUB_PATOKEN --data
 
 #### 5.1 NixOS Configuration
 
-We clone our NixOS configuration directly to `/etc/nixos`. The main configuration file, `<git:>/configuration.nix`, (like all its modules in `<git:>/modules`) is machine-independent and imports all machine-dependent options from `<git:>/machines/<HOSTNAME>`.
+We will clone our NixOS configuration directly to `/etc/nixos`. The main configuration file, `<git:>/configuration.nix`, (like all its modules in `<git:>/modules`) is machine-independent and imports all machine-dependent options from `<git:>/machines/<HOSTNAME>`.
 
-First delete the old configuration, clone your configuration from GitHub and regenerate the `hardware-configuration.nix`:
+First delete the old configuration, and clone your configuration from GitHub:
 ```
 $ rm -rf /etc/nixos
 $ git clone --recurse-submodules git@github.com:savau/nixos-config.git /etc/nixos
-$ nixos-generate-config
-$ mv /etc/nixos/hardware-configuration.nix
-     /etc/nixos/machines/<HOSTNAME>/hardware-configuration.nix
 ```
+
+If there is no `hardware-configuration.nix` for your machine yet, or if you want to update your existing `hardware-configuration.nix`, please follow the steps described in [the wiki page on (re)generating the `hardware-configuration.nix`](https://github.com/savau/nixos-config/wiki/(Re)generating-%60hardware-configuration.nix%60).
 
 Now that we have our configuration, we need to specify which machine-specific options to use. Each supported machine has its own options directory under `<git>:/machines/<HOSTNAME>`.
 This NixOS configuration expects the name of the machine to load specific options for in the `<git>:/host` file:
