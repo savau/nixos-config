@@ -2,8 +2,6 @@
 
 {
   environment.systemPackages = with pkgs; [
-    htop
-    parted
-    wget
+    ntfs3g
   ];
 }
