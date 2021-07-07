@@ -3,9 +3,9 @@ My personal NixOS configuration
 
 
 ## NixOS Installation Guide
-Full guide to install NixOS with UEFI and LVM on LUKS
+Full guide to install NixOS with UEFI and full disk encryption using LVM on LUKS
 
-### 1. Create Bootable USB Stick
+### 1. Creating a Bootable USB Stick
 
 1. Download NixOS Minimal ISO image from https://nixos.org/download.html
 
@@ -15,7 +15,7 @@ Full guide to install NixOS with UEFI and LVM on LUKS
     - `status=progress && sync` to show progress info while writing data
     - `oflag=direct` as a workaround for the `dd` process remaining in D state indefinitely: `oflag=direct` avoids `dd` finishing writing data too quickly for kernel buffers waiting for the (slow) device, i.e. makes `dd` avoid buffering (see [this linuxquestions.org thread](https://www.linuxquestions.org/questions/slackware-14/dd-and-status%3Dprogress-4175581355/#post5555338) for further details)
 
-### 2. Boot the Installer
+### 2. Booting the Installer
 
 - Disable Secure Boot Control
 - Disable USB legacy boot
@@ -56,7 +56,7 @@ $ mkfs.ext4 -L root /dev/vg/root
 $ mkswap -L swap /dev/vg/swap
 ```
 
-### 4. Install NixOS
+### 4. Installing NixOS
 
 Mount the newly created partitions under `/mnt`:
 ```
@@ -102,7 +102,7 @@ $ nixos-install
 $ reboot
 ```
 
-### 5. Fetch configurations
+### 5. Fetching configurations
 
 I maintain various configurations (NixOS, XMonad, ZSH, Vim, ...) on GitHub repositories, so I want to clone my configurations from there. 
 To be able to do so, I first need to generate a new key pair to use git with SSH.
@@ -138,7 +138,7 @@ $ curl -i -u GITHUB_USER:GITHUB_PATOKEN --data
     https://api.github.com/user/keys
 ```
 
-#### 5.1 NixOS configuration
+#### 5.1 NixOS Configuration
 
 We clone our NixOS configuration directly to `/etc/nixos`. The main configuration file, `<git:>/configuration.nix`, (like all its modules in `<git:>/modules`) is machine-independent and imports all machine-dependent options from `<git:>/machines/<HOSTNAME>`.
 
@@ -167,7 +167,7 @@ Make sure that the UUID of your LUKS root partition (see `blkid /dev/nvme0n1p2`)
 }
 ```
 
-#### 5.2 Other configurations
+#### 5.2 Other Configurations
 
 - [XMonad config](https://github.com/savau/xmonad-config)
 
