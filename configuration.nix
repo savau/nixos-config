@@ -26,16 +26,9 @@ in
     tmpOnTmpfs = true;
   };
 
-  hardware = {
-    enableRedistributableFirmware = true;
-  };
+  hardware.enableRedistributableFirmware = true;
 
-  services = {
-    fwupd.enable = true;
-
-    # override nixos-hardware profile
-    thermald.enable = machine.batteryManagement.enable;
-  };
+  services.fwupd.enable = true;
 
   networking.hostName = hostname;
   time.timeZone = machine.timezone;
