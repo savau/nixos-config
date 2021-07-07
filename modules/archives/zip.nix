@@ -2,10 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    exfat exfat-utils
-    htop
-    ntfs3g
-    parted
-    wget
+    unzip
+    zip
   ];
 }

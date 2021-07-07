@@ -7,6 +7,7 @@ args:
 
     (import ./home-manager.nix args)
 
+    (import ./archives args)
     (import ./audio.nix args)
     (import ./bluetooth.nix args)
     (import ./boot-loader.nix args)
