@@ -4,6 +4,5 @@
   environment.systemPackages = with pkgs; [
     htop
     parted
-    wget
   ];
 }
