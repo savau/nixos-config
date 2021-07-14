@@ -23,6 +23,7 @@
           haskellPackages.xmonad-contrib
           haskellPackages.xmonad-extras
           #haskellPackages.dbus  # needed for integration with xfce4-panel
+          haskellPackages.tuple
         ];
       };
     };
