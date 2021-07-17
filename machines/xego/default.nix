@@ -43,7 +43,7 @@
 
   # configuration options for game services
   games = {
-    enable = false;
+    enable = true;
   };
 
   # configuration options for SSD optimizations
