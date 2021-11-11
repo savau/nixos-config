@@ -13,8 +13,9 @@ let
       ];
 
       extraConfig = {
-        pull.rebase       = false;
-        submodule.recurse = true;
+        pull.rebase           = false;
+        submodule.recurse     = true;
+        advice.addIgnoredFile = false;
       };
     };
   };
