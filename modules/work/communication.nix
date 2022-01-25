@@ -2,8 +2,9 @@
 
 {
   environment.systemPackages = with pkgs; [
-    zulip
+    jitsi-meet
     magic-wormhole
+    zulip
   ];
 
   # Not adding zoom-us to systemPackages due to security concerns.
