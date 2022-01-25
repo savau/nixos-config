@@ -5,6 +5,7 @@ if machine.games.enable then {
 
   environment.systemPackages = with pkgs; [
     minetest
-  #   openmw  # FIXME: currently crashes with error: qt.qpa.plugin: Could not find the Qt platform plugin "xcb" in ""
+#   openmw  # FIXME: currently crashes with error: qt.qpa.plugin: Could not find the Qt platform plugin "xcb" in ""
+    wesnoth
   ];
 } else {}
