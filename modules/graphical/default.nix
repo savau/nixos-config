@@ -46,7 +46,7 @@ args@{ config, pkgs, ... }:
         sha256 = "14sdgw2am5k66im2vwb8139k5zxiywh3wy6bgfqbrqx2p4zlc3m7"; }) { config = { allowUnfree=true; }; };
     in with pkgs; [
     # accessibility stuff
-    at_spi2_atk at_spi2_core speechd
+    at-spi2-atk at-spi2-core speechd
     orca
 
     # X-related stuff
