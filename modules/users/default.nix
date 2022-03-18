@@ -21,6 +21,10 @@ let
   ];
 in
 {
+  imports = [
+    ./data.nix
+  ];
+
   security.sudo.enable = true;
   security.sudo.wheelNeedsPassword = true;
 

@@ -44,6 +44,16 @@ let
         submodule.recurse = true;
       };
     };
+
+    # user-specific additional (stateful) data cloned from git repositories
+    # source: https://github.com/shanesveller/nix-dotfiles-public-snapshot/blob/55acba39b60272546382834a64ad7992bed1b795/host-skadi/config/nixpkgs/host.nix#L48
+    data = {
+      someRepo = {
+        branch = "main";
+        source = "https://github.com/example-user/some-repo.git";
+        target = "/home/example-user/some-target";
+      };
+    };
   };
 
   pkgs = import <nixpkgs> {};
@@ -57,6 +67,14 @@ in
     git = {
       userName  = "Sarah Vaupel";
       userEmail = "sarah.vaupel@protonmail.com";
+    };
+
+    data = {
+      xmonad = {
+        branch = "master";
+        source = "https://github.com/savau/xmonad-config.git";
+        target = "/home/savau/.xmonad";
+      };
     };
   };
 
