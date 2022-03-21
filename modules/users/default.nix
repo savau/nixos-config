@@ -22,7 +22,7 @@ let
 in
 {
   imports = [
-    ./data.nix
+    #./data.nix
   ];
 
   security.sudo.enable = true;
