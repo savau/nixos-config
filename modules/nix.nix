@@ -15,7 +15,8 @@
 
     extraOptions = ''
       builders-use-substitutes = true
-    '';  # enable the builder to use caches
+      experimental-features = nix-command flakes
+    '';
   };
 
   environment.systemPackages = with pkgs; [
