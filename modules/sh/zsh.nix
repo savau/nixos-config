@@ -4,7 +4,7 @@ with lib;
 
 let
   myZshRC = {
-    home.file.".zshrc".text = "";
+    home.file.".zshrc".text = builtins.readFile ../../dotfiles/.zshrc;
   };
 in
 {
