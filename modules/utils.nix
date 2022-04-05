@@ -1,9 +1,11 @@
 { lib, machine, ... }:
 
 let
-  myDictCCCli = {
-    home.file.".utils/" = builtins.readDir ../dotfiles/dictcc-cli;
+  myUtils.home.file = {
+    ".utils/bin/dictcc".text     = builtins.readFile ../dotfiles/dictcc-cli/dictcc;
+    ".utils/bin/dictcc-cli".text = builtins.readFile ../dotfiles/dictcc-cli/dictcc-cli;
   };
+in
 {
-  home-manager.users = (lib.mapAttrs (_: _: myDictCCCli) machine.users) // { root = myDictCCCli; };
+  home-manager.users = (lib.mapAttrs (_: _: myUtils) machine.users) // { root = myUtils; };
 }
