@@ -5,8 +5,8 @@
     stack
     
     # Prerequisites for Haskell Language Server
-    icu.dev
-    ncurses
-    zlib
+    #icu.dev
+    #ncurses
+    #zlib
   ];
 }
