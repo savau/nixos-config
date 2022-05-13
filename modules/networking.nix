@@ -3,10 +3,14 @@
 {
   networking = {
     hostName = machine.hostname;
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      # plugins = [ NetworkManager-openconnect ];
+    };
   };
 
   environment.systemPackages = with pkgs; [
     wget
+    openconnect
   ];
 }
