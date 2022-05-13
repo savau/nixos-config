@@ -5,6 +5,7 @@
     jitsi-meet
     magic-wormhole
     zulip
+    zoom-us
   ];
 
   # Not adding zoom-us to systemPackages due to security concerns.
