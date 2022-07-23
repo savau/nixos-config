@@ -19,6 +19,12 @@
   # can be overriden per user via users.<username>.shell
   systemShell = pkgs.zsh;
 
+  # the physical keyboard layout on this machine
+  keyboardLayout = {
+    layout = "de,us";
+    xkbOptions = "grp:rctrl_rshift_toggle";
+  };
+
   # time zone this machine typically resides in
   timezone = "Europe/Berlin";
 

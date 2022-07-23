@@ -1,4 +1,4 @@
-args@{ config, pkgs, ... }:
+args@{ config, pkgs, machine, ... }:
 
 {
   imports = [
@@ -15,8 +15,9 @@ args@{ config, pkgs, ... }:
   services.xserver = {
     enable = true;
 
-    layout = "us";
-    xkbOptions = "";
+    layout     = if builtins.hasAttr "layout"     machine.keyboardLayout then machine.keyboardLayout.layout     else "us";
+    xkbVariant = if builtins.hasAttr "xkbVariant" machine.keyboardLayout then machine.keyboardLayout.xkbVariant else "";
+    xkbOptions = if builtins.hasAttr "xkbOptions" machine.keyboardLayout then machine.keyboardLayout.xkbOptions else "";
 
     displayManager.sessionCommands = let
       myXresources = pkgs.writeText "Xresources" (builtins.readFile ../../dotfiles/.Xresources);
