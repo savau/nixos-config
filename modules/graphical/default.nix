@@ -33,7 +33,7 @@ args@{ config, pkgs, machine, ... }:
       xsetroot -solid black
 
       # start xscreensaver:
-      xscreensaver -no-splash &
+      #xscreensaver -no-splash &
     '';
   };
 
@@ -47,8 +47,8 @@ args@{ config, pkgs, machine, ... }:
         sha256 = "14sdgw2am5k66im2vwb8139k5zxiywh3wy6bgfqbrqx2p4zlc3m7"; }) { config = { allowUnfree=true; }; };
     in with pkgs; [
     # accessibility stuff
-    at-spi2-atk at-spi2-core speechd
-    orca
+    #at-spi2-atk at-spi2-core speechd
+    #orca
 
     # X-related stuff
     xorg.xmodmap
@@ -58,10 +58,10 @@ args@{ config, pkgs, machine, ... }:
     gparted
 
     # system tray stuff
-    volumeicon
-    birdtray
+    #volumeicon
+    #birdtray
 
-    libnotify
+    #libnotify
 
     # add missing icons
     arc-icon-theme
