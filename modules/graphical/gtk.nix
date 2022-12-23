@@ -15,6 +15,7 @@ let
         name = "Arc";
         package = pkgs.arc-icon-theme;
       };
+      iconCache.enable = true;
       font = {
         name = "Sans 10";
       };

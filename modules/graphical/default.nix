@@ -19,6 +19,8 @@ args@{ config, pkgs, machine, ... }:
     xkbVariant = if builtins.hasAttr "xkbVariant" machine.keyboardLayout then machine.keyboardLayout.xkbVariant else "";
     xkbOptions = if builtins.hasAttr "xkbOptions" machine.keyboardLayout then machine.keyboardLayout.xkbOptions else "";
 
+    gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
+
     displayManager.sessionCommands = let
       myXresources = pkgs.writeText "Xresources" (builtins.readFile ../../dotfiles/.Xresources);
       myXmodmap = pkgs.writeText "xkb-layout" (builtins.readFile ../../dotfiles/.Xmodmap);
