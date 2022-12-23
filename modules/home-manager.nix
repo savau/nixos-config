@@ -12,7 +12,8 @@ in
 {
   imports = [
     #(import "${home-manager}/nixos")
-    (import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
+    #(import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
+    <home-manager/nixos>
   ];
 
   system.stateVersion = "22.11";
