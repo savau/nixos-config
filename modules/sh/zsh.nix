@@ -13,7 +13,7 @@ in
     ohMyZsh = {
       enable = true;
       theme = "agnoster";
-      plugins = [ "git" ];
+      plugins = [ "git" "tmux" ];
     };
   };
 
