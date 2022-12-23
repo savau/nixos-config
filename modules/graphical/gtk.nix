@@ -15,7 +15,6 @@ let
         name = "Arc";
         package = pkgs.arc-icon-theme;
       };
-      iconCache.enable = true;
       font = {
         name = "Sans 10";
       };
@@ -33,5 +32,6 @@ let
   };
 in
 {
+  gtk.iconCache.enable = true;
   home-manager.users = (mapAttrs (_: _: myGtkConfig) machine.users) // { root = myGtkConfig; };
 }
