@@ -27,7 +27,7 @@
         ];
       };
     };
-    displayManager.defaultSession = "xfce+xmonad";
+    displayManager.defaultSession = "xfce";
   };
 
   programs.thunar.plugins = with pkgs.xfce; [
