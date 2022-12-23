@@ -70,6 +70,7 @@ args@{ config, pkgs, machine, ... }:
     firefox
     chromium
     thunderbird
+    birdtray
     evince
     nomacs
     #megasync
