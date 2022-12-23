@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+  nixpkgs.config.pulseaudio = true;
+
   services.xserver = {
     desktopManager = {
       xterm.enable = false;
