@@ -18,8 +18,8 @@ let
         dpmsEnabled = true;
         dpmsQuickOff = true;
         dpmsStandby = "0:15:00";
-        dpmsSuspend = "0:30:00";
-        dpmsOff = "1:00:00";
+        dpmsSuspend = "0:15:00";
+        dpmsOff = "0:30:00";
 
         "Dialog.background" = "#000000";
         "Dialog.foreground" = "#dddddd";
