@@ -75,6 +75,11 @@ in
         source = "https://github.com/savau/xmonad-config.git";
         target = "/home/savau/.xmonad";
       };
+      utilsU2w = {
+        branch = "master";
+        source = "https://github.com/savau/u2w-utils.git";
+        target = "/home/savau/.utils/u2w";
+      };
     };
   };
 }
