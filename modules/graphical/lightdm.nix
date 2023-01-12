@@ -14,9 +14,9 @@
       clock-format = "%Y-%m-%d %H:%M:%S";
       indicators = [ "~host" "~spacer" "~clock" "~separator" "~session" "~a11y" "~power" ];
       extraConfig = ''
-        user-background = false
-        hide-user-image = true
-        reader = orca
+        background=#000000
+        user-background=false
+        hide-user-image=true
       '';
     };
   };
