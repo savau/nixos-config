@@ -2,9 +2,9 @@
 
 {
   environment.systemPackages = with pkgs; [
-    # jitsi-meet
+    #jitsi-meet
     magic-wormhole
-    tdesktop
+    #tdesktop
     zulip
     zoom-us
   ];
