@@ -1,5 +1,6 @@
 { lib, machine, ... }:
 
+# FIXME: make files executable for respective users
 let
   myUtils.home.file = {
     ".utils/bin/dictcc".text     = builtins.readFile ../dotfiles/dictcc-cli/dictcc;
