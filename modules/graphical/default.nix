@@ -39,7 +39,7 @@ args@{ config, pkgs, machine, ... }:
     '';
   };
 
-  qt5.platformTheme = "qt5ct";
+  qt.platformTheme = "qt5ct";
 
   environment.systemPackages =
     let
