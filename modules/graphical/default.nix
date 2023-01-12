@@ -75,8 +75,8 @@ args@{ config, pkgs, machine, ... }:
     birdtray
     evince
     nomacs
-    #megasync
-    OLDMEGASYNC.megasync
+    megasync
+    #OLDMEGASYNC.megasync
   ];
 
   # https://github.com/NixOS/nixpkgs/issues/112572#issuecomment-780317989
