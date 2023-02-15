@@ -9,7 +9,7 @@
 
       # LUKS root partition
       root = {
-        uuid = "869d3b66-b638-48cf-aee5-594cc5de9b4b";
+        uuid = "ab7d1ab2-14d3-4bc9-98c4-a1f5f9a91028";
       };
     };
     # TODO: implement options for partial disk encryption
@@ -18,6 +18,12 @@
   # system shell to use for all users on this machine including root
   # can be overriden per user via users.<username>.shell
   systemShell = pkgs.zsh;
+
+  # the physical keyboard layout on this machine
+  keyboardLayout = {
+    layout = "us";
+  # xkbOptions = "grp:rctrl_rshift_toggle";
+  };
 
   # time zone this machine typically resides in
   timezone = "Europe/Berlin";
