@@ -2,8 +2,8 @@
 
 let
   myTaffybarConfig = {
-    home.file.".config/taffybar/taffybar.css" = builtins.readFile ../../../dotfiles/.config/taffybar/taffybar.css;
-    home.file.".config/taffybar/taffybar.hs" = builtins.readFile ../../../dotfiles/.config/taffybar/taffybar.hs;
+    home.file.".config/taffybar/taffybar.css".text = builtins.readFile ../../../dotfiles/.config/taffybar/taffybar.css;
+    home.file.".config/taffybar/taffybar.hs".text = builtins.readFile ../../../dotfiles/.config/taffybar/taffybar.hs;
   };
 in {
   nixpkgs.config.pulseaudio = true;
