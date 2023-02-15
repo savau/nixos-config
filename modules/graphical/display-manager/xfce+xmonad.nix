@@ -1,6 +1,11 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, machine, ... }:
 
-{
+let
+  myTaffybarConfig = {
+    home.file.".config/taffybar/taffybar.css" = builtins.readFile ../../../dotfiles/.config/taffybar/taffybar.css;
+    home.file.".config/taffybar/taffybar.hs" = builtins.readFile ../../../dotfiles/.config/taffybar/taffybar.hs;
+  };
+in {
   nixpkgs.config.pulseaudio = true;
 
   services.xserver = {
@@ -28,7 +33,7 @@
         ];
       };
     };
-    displayManager.defaultSession = "xfce+xmonad";
+    displayManager.defaultSession = "none+xmonad";
   };
 
   programs.thunar.plugins = with pkgs.xfce; [
@@ -51,4 +56,6 @@
     # xfce4-panel to allow manual launch if needed
     xfce.xfce4-panel
   ];
+
+  home-manager.users = (lib.mapAttrs (_: _: myTaffybarConfig) machine.users) // { root = myTaffybarConfig };
 }
