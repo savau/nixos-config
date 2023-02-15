@@ -9,7 +9,7 @@
 
       # LUKS root partition
       root = {
-        uuid = "d62c89b0-55b9-44a9-8d25-5fb5762ba422";
+        uuid = "869d3b66-b638-48cf-aee5-594cc5de9b4b";
       };
     };
     # TODO: implement options for partial disk encryption
