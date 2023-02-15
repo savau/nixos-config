@@ -2,13 +2,13 @@ args@{ config, pkgs, ... }:
 
 {
   virtualisation = {
-    docker.enable = true;
-    libvirtd.enable = true;
+    docker.enable = false;
+    libvirtd.enable = false;
   };
 
   programs.dconf.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    virt-manager
-  ];
+  # environment.systemPackages = with pkgs; [
+  #   virt-manager
+  # ];
 }
