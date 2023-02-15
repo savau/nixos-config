@@ -57,5 +57,5 @@ in {
     xfce.xfce4-panel
   ];
 
-  home-manager.users = (lib.mapAttrs (_: _: myTaffybarConfig) machine.users) // { root = myTaffybarConfig };
+  home-manager.users = (lib.mapAttrs (_: _: myTaffybarConfig) machine.users) // { root = myTaffybarConfig; };
 }
