@@ -1,6 +1,16 @@
 args@{ config, pkgs, machine, ... }:
 
-{
+let
+  keyboardAttrOrDef = attrName: defVal: (
+    if builtins.hasAttr "keyboardLayout" machine
+    then (
+      if builtins.hasAttr attrName machine.keyboardLayout.${attrName}
+      then machine.keyboardLayout.${attrName}
+      else defVal
+    )
+    else defVal
+  );
+in {
   imports = [
     (import ./display-manager args)
 
@@ -15,9 +25,9 @@ args@{ config, pkgs, machine, ... }:
   services.xserver = {
     enable = true;
 
-    layout     = if builtins.hasAttr "layout"     machine.keyboardLayout then machine.keyboardLayout.layout     else "us";
-    xkbVariant = if builtins.hasAttr "xkbVariant" machine.keyboardLayout then machine.keyboardLayout.xkbVariant else "";
-    xkbOptions = if builtins.hasAttr "xkbOptions" machine.keyboardLayout then machine.keyboardLayout.xkbOptions else "";
+    layout     = keyboardAttrOrDef "layout"     "us";
+    xkbVariant = keyboardAttrOrDef "xkbVariant" "";
+    xkbOptions = keyboardAttrOrDef "xkbOptions" "";
 
     gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
 
