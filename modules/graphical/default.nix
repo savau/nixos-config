@@ -4,7 +4,7 @@ let
   keyboardAttrOrDef = attrName: defVal: (
     if builtins.hasAttr "keyboardLayout" machine
     then (
-      if builtins.hasAttr attrName machine.keyboardLayout.${attrName}
+      if builtins.hasAttr attrName machine.keyboardLayout
       then machine.keyboardLayout.${attrName}
       else defVal
     )
