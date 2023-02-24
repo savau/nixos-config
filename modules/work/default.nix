@@ -2,7 +2,6 @@ args@{ config, pkgs, ... }:
 
 {
   imports = [
-    (import ./communication.nix args)
     (import ./multimedia.nix args)
     (import ./office.nix args)
 
