@@ -5,7 +5,7 @@
     #jitsi-meet
     magic-wormhole
     #tdesktop
-    zulip
+    #zulip
     zoom-us
   ];
 
