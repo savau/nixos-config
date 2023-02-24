@@ -44,9 +44,5 @@ let
   };
 in
 {
-  environment.systemPackages = with pkgs; [
-    xscreensaver
-  ];
-
   home-manager.users = (mapAttrs (_: _: myXScreenSaverConfig) machine.users) // { root = myXScreenSaverConfig; };
 }
