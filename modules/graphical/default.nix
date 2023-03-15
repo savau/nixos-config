@@ -65,7 +65,7 @@ in {
 
     # system tray stuff
     #volumeicon
-    #birdtray
+    birdtray
 
     #libnotify
 
@@ -76,9 +76,8 @@ in {
     firefox
     chromium
     thunderbird
-    birdtray
     evince
-    nomacs
+    # TODO picture viewer
   ];
 
 }
