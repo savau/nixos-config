@@ -7,7 +7,7 @@ let
 #    rev = "55030c83024bf2d10ff86f3874b91794b9d32722";
 #    ref = "master";
 #  };
-  stateVersion = { home.stateVersion = "22.11"; };
+  stateVersion = { home.stateVersion = "23.05"; };
 in
 {
   imports = [
@@ -16,6 +16,6 @@ in
     <home-manager/nixos>
   ];
 
-  system.stateVersion = "22.11";
+  system.stateVersion = "23.05";
   home-manager.users = (lib.mapAttrs (_: _: stateVersion) machine.users) // { root = stateVersion; };
 }
