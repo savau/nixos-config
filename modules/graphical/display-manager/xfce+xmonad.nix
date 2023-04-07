@@ -6,6 +6,12 @@ let
     home.file.".config/taffybar/taffybar.hs".text = builtins.readFile ../../../dotfiles/.config/taffybar/taffybar.hs;
   };
 in {
+  nixpkgs.config.packageOverrides = pkgs: {
+    xfce = pkgs.xfce // {
+      xfce4panel = pkgs.xfce.xfce4panel_gtk3; # required for pulseaudio, see https://github.com/NixOS/nixpkgs/issues/18724
+    };
+  };
+
   nixpkgs.config.pulseaudio = true;
 
   services.xserver = {
