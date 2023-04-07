@@ -65,7 +65,7 @@ in {
 
     # system tray stuff
     #volumeicon
-    birdtray
+    #birdtray
 
     #libnotify
 
