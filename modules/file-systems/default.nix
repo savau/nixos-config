@@ -6,5 +6,5 @@ args@{ config, ... }:
     (import ./ntfs.nix args)
   ];
 
-  boot.tmpOnTmpfs = true;
+  boot.tmp.useTmpfs = true;
 }
