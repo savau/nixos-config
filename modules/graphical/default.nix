@@ -75,7 +75,6 @@ in {
     # applications
     firefox
     chromium
-    thunderbird
     evince
     # TODO picture viewer
   ];

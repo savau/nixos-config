@@ -5,6 +5,7 @@
     #jitsi-meet
     magic-wormhole
     #tdesktop
+    thunderbird
     #zulip
     zoom-us
   ];
