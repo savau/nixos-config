@@ -120,13 +120,21 @@
     };
   };
 
-  xsession.enable = true;
-  xsession.windowManager.command =
-    let
-      xmonad = pkgs.xmonad-with-packages.override {
-        packages = self: [ self.xmonad-contrib ];
-      };
-    in "${xmonad}/bin/xmonad";
+  xsession = {
+    enable = true;
+    windowManager.xmonad = {
+      enable = true;
+      extraPackages = haskellPackages: with haskellPackages; [
+        xmonad
+        xmonad-contrib
+        xmonad-extras
+        dbus
+        status-notifier-item
+        gtk-sni-tray
+        tuple
+      ];
+    };
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
