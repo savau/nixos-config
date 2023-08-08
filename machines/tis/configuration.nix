@@ -32,6 +32,10 @@
   services.xserver.layout = "de";
   # Enable touchpad support
   services.xserver.libinput.enable = true;
+  services.xserver.displayManager = {
+    defaultSession = "xterm";
+    lightdm.enable = true;
+  };
 
   # Enable CUPS to print documents
   services.printing.enable = true;
