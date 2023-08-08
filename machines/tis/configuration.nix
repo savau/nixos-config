@@ -24,7 +24,7 @@
   };
 
   # Enable sound
-  sounds.enable = true;
+  sound.enable = true;
   hardware.pulseaudio.enable = true;
 
   services.xserver.enable = true;
