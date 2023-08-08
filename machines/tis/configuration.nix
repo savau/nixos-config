@@ -36,6 +36,16 @@
   # Enable CUPS to print documents
   services.printing.enable = true;
 
+
+  # System packages
+  environment.systemPackages = with pkgs; [
+    curl
+    htop
+    vim
+    wget
+  ];
+
+
   home-manager.useGlobalPkgs = true;
 
   home-manager.users.savau = import ./../../users/savau/home.nix;
