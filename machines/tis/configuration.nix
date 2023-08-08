@@ -49,7 +49,7 @@
   home-manager.useGlobalPkgs = true;
 
   home-manager.users.savau = import ./../../users/savau/home.nix;
-  users.users.savau {
+  users.users.savau = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
   };
