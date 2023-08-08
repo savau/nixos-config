@@ -19,7 +19,7 @@
   i18n.defaultLocale = "de_DE.UTF-8";
   console = {
     font = "Lat2-Terminus16";
-    keyMap = "de";
+    keyMap = lib.mkForce "de";
     useXkbConfig = true; # use xkbOptions in tty
   };
 
