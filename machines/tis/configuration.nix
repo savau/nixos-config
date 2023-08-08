@@ -4,6 +4,8 @@
   imports = [
     # Include the results of the hardware scan
     ./hardware-configuration.nix
+
+    <home-manager/nixos>
   ];
 
   # Use the systemd-boot EFI loader
@@ -21,28 +23,28 @@
     useXkbConfig = true; # use xkbOptions in tty
   };
 
-  services.xserver.enable = true;
+  # Enable sound
+  sounds.enable = true;
+  hardware.pulseaudio.enable = true;
 
+  services.xserver.enable = true;
   # Configure keymap in X11
   services.xserver.layout = "de";
-
   # Enable touchpad support
   services.xserver.libinput.enable = true;
 
   # Enable CUPS to print documents
   services.printing.enable = true;
 
-  # Enable sound
-  sounds.enable = true;
-  hardware.pulseaudio.enable = true;
+  home-manager.useGlobalPkgs = true;
 
-  system.stateVersion = "23.11";
-
+  home-manager.users.savau = import ./../../users/savau/home.nix;
   users.users.savau {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
   };
-  home-manager.users.savau = import ./../../users/savau/home.nix;
+
+  system.stateVersion = "23.05";
 
   # TODO: replace below config options with module contents
 
