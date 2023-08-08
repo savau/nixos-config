@@ -106,8 +106,8 @@
 
     zsh = {
       enable = true;
-      initExtra = ;
-      initExtraFirst = ;
+      # initExtra = ;
+      # initExtraFirst = ;
       oh-my-zsh = {
         enable = true;
         theme = "agnoster";
