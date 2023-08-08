@@ -49,6 +49,10 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    ".xmonad".source = {
+      source = ./dotfiles/xmonad;
+      recursive = true;
+    };
   };
 
   # You can also manage environment variables but you will have to manually
