@@ -1,0 +1,3 @@
+[submodule "users/savau/dotfiles"]
+	path = users/savau/dotfiles
+	url = git@github.com:savau/dotfiles.git
