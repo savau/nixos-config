@@ -33,5 +33,5 @@ let
 in
 {
   gtk.iconCache.enable = true;
-  home-manager.users = (mapAttrs (_: _: myGtkConfig) machine.users) // { root = myGtkConfig; };
+  # home-manager.users = (mapAttrs (_: _: myGtkConfig) machine.users) // { root = myGtkConfig; };
 }

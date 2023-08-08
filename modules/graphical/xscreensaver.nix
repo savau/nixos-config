@@ -44,5 +44,5 @@ let
   };
 in
 {
-  home-manager.users = (mapAttrs (_: _: myXScreenSaverConfig) machine.users) // { root = myXScreenSaverConfig; };
+  # home-manager.users = (mapAttrs (_: _: myXScreenSaverConfig) machine.users) // { root = myXScreenSaverConfig; };
 }

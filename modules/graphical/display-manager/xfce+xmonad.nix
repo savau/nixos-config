@@ -1,11 +1,12 @@
 { config, pkgs, lib, machine, ... }:
 
-let
-  myTaffybarConfig = {
-    home.file.".config/taffybar/taffybar.css".text = builtins.readFile ../../../dotfiles/.config/taffybar/taffybar.css;
-    home.file.".config/taffybar/taffybar.hs".text = builtins.readFile ../../../dotfiles/.config/taffybar/taffybar.hs;
-  };
-in {
+# let
+#   myTaffybarConfig = {
+#     home.file.".config/taffybar/taffybar.css".text = builtins.readFile ../../../dotfiles/.config/taffybar/taffybar.css;
+#     home.file.".config/taffybar/taffybar.hs".text = builtins.readFile ../../../dotfiles/.config/taffybar/taffybar.hs;
+#   };
+# in
+{
   nixpkgs.config.packageOverrides = pkgs: {
     xfce = pkgs.xfce // {
       xfce4panel = pkgs.xfce.xfce4panel_gtk3; # required for pulseaudio, see https://github.com/NixOS/nixpkgs/issues/18724
@@ -49,7 +50,7 @@ in {
 
   environment.systemPackages = with pkgs; [
     # status bar
-    taffybar
+    # taffybar
 
     # dynamic menu
     dmenu
@@ -63,5 +64,5 @@ in {
     xfce.xfce4-panel
   ];
 
-  home-manager.users = (lib.mapAttrs (_: _: myTaffybarConfig) machine.users) // { root = myTaffybarConfig; };
+  # home-manager.users = (lib.mapAttrs (_: _: myTaffybarConfig) machine.users) // { root = myTaffybarConfig; };
 }
