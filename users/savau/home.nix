@@ -116,8 +116,13 @@
     };
   };
 
-  # xsession.enable = true;
-  # xsession.windowManager.command = "exec xmonad";
+  xsession.enable = true;
+  xsession.windowManager.command =
+    let
+      xmonad = pkgs.xmonad-with-packages.override {
+        packages = self: [ self.xmonad-contrib ];
+      };
+    in "${xmonad}/bin/xmonad";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
