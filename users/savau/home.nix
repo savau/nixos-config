@@ -49,7 +49,7 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-    ".xmonad".source = {
+    ".xmonad" = {
       source = ./dotfiles/xmonad;
       recursive = true;
     };
