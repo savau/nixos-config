@@ -41,6 +41,7 @@
   # System packages
   environment.systemPackages = with pkgs; [
     curl
+    git
     htop
     vim
     wget
