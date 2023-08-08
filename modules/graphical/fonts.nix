@@ -3,7 +3,7 @@
 {
   fonts = {
     enableGhostscriptFonts = true;
-    fonts = with pkgs; [
+    packages = with pkgs; [
       corefonts
       source-code-pro
       source-sans-pro
