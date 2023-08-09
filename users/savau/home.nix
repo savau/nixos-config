@@ -122,8 +122,18 @@
 
   xsession = {
     enable = true;
+    desktopManager = {
+      xterm.enable = false;
+      xfce = {
+        enable = true;
+        noDesktop = true;
+        enableXfwm = false;
+        enableScreensaver = false;
+      };
+    };
     windowManager.xmonad = {
       enable = true;
+      enableContribAndExtras = true;
       extraPackages = haskellPackages: with haskellPackages; [
         xmonad
         xmonad-contrib
