@@ -33,6 +33,14 @@
   # Enable touchpad support
   services.xserver.libinput.enable = true;
   services.xserver.desktopManager.xterm.enable = true;
+  services.xserver.desktopManager.xfce.enable = true;
+  services.xserver.displayManager.lightdm = {
+    enable = true;
+    greeters.slick = {
+      enable = true;
+      theme.name = "Arc-Dark";
+    };
+  };
 
   # Enable CUPS to print documents
   services.printing.enable = true;

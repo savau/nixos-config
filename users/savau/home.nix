@@ -69,20 +69,6 @@
     # EDITOR = "emacs";
   };
 
-  services.xserver = {
-    enable = true;
-    displayManager = {
-      lightdm = {
-        enable = true;
-        greeters.slick = {
-          enable = true;
-          theme.name = "Zukitre-dark";
-        };
-      };
-    };
-    desktopManager.xfce.enable = true;
-  };
-
   programs = {
     git = {
       enable = true;
