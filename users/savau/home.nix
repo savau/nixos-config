@@ -122,7 +122,6 @@
 
   xsession = {
     enable = true;
-    windowManager.command = "exec xmonad";
     windowManager.xmonad = {
       enable = true;
       enableContribAndExtras = true;
@@ -136,6 +135,9 @@
         tuple
       ];
     };
+    initExtra = ''
+      xmonad --recompile
+    '';
   };
 
   gtk = {
