@@ -57,6 +57,7 @@ args@{ config, lib, pkgs, ... }:
 
 
   home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = false;
 
   home-manager.users.savau = import ./../../users/savau/home.nix args;
   users.users.savau = {
