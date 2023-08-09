@@ -30,8 +30,8 @@ args@{ config, lib, pkgs, ... }:
   services.xserver = {
     enable = true;
 
-    layout = "de";         # Configure keymap in X11
-    libinput.enable = true # Enable touchpad support
+    layout = "de";          # Configure keymap in X11
+    libinput.enable = true; # Enable touchpad support
 
     displayManager.lightdm = {
       enable = true;
