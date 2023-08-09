@@ -55,6 +55,7 @@ args@{ config, lib, pkgs, ... }:
     };
 
     windowManager = {
+      windowmaker.enable = true;
     };
   };
 
