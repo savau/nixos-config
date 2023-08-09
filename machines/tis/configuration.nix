@@ -27,18 +27,29 @@ args@{ config, lib, pkgs, ... }:
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
-  services.xserver.enable = true;
-  # Configure keymap in X11
-  services.xserver.layout = "de";
-  # Enable touchpad support
-  services.xserver.libinput.enable = true;
-  services.xserver.desktopManager.xterm.enable = true;
-  services.xserver.desktopManager.xfce.enable = true;
-  services.xserver.displayManager.lightdm = {
+  services.xserver = {
     enable = true;
-    greeters.slick = {
+
+    # Configure keymap in X11
+    layout = "de";
+
+    # Enable touchpad support
+    libinput.enable = true
+
+    displayManager.lightdm = {
       enable = true;
-      theme.name = "Arc-Dark";
+      greeters.slick = {
+        enable = true;
+        theme.name = "Arc-Dark";
+      };
+    };
+
+    desktopManager = {
+      xterm.enable = true;
+      xfce.enable = true;
+    };
+
+    windowManager = {
     };
   };
 
