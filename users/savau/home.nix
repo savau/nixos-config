@@ -122,12 +122,6 @@
 
   xsession = {
     enable = true;
-    desktopManager.xfce = {
-      enable = true;
-      noDesktop = true;
-      enableXfwm = false;
-      enableScreensaver = false;
-    };
     windowManager.xmonad = {
       enable = true;
       enableContribAndExtras = true;
@@ -140,7 +134,6 @@
       ];
       config = ./dotfiles/xmonad/xmonad.hs;
     };
-    # scriptPath = ".hm-xsession";
   };
 
   gtk = {

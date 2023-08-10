@@ -52,18 +52,6 @@ args@{ config, lib, pkgs, ... }:
     desktopManager = {
       xterm.enable = true;
       xfce.enable = true;
-      #  noDesktop = true;
-      #  enableXfwm = false;
-      #  enableScreensaver = false;
-      # session = [
-      #   {
-      #     name = "home-manager";
-      #     start = ''
-      #       ${pkgs.runtimeShell} $HOME/.hm-xsession &
-      #       waitPID=$!
-      #     '';
-      #   }
-      # ];
     };
 
     windowManager = {
