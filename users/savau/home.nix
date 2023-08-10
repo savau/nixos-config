@@ -132,10 +132,7 @@
         status-notifier-item
         tuple
       ];
-      config = {
-        source = ./dotfiles/xmonad;
-        recursive = true;
-      };
+      config = ./dotfiles/xmonad/xmonad.hs;
     };
     scriptPath = ".xsession";
   };
