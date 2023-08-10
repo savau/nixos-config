@@ -189,13 +189,13 @@ myXMonadRestart :: String
 myXMonadRestart = (concatMap (\Application{..} -> "pkill " <> appName <> "; ") $ Set.toList myStartupApplications) <> "xmonad --restart"
 -- myXMonadRestart = (concatMap (\Application{..} -> "pkill " <> appName <> "; ") $ Set.toList myStartupApplications) <> "pkill " <> mySystemTray <> "; pkill taffybar; xmonad --restart"
 
-myXMobarConfig :: String -> Int -> String
-myXMobarConfig randrConfig nScreens = statusBar <> "xmobar/" <> show randrConfig <> "/xmobar-" <> show nScreens <> ".hs"
+-- myXMobarConfig :: String -> Int -> String
+-- myXMobarConfig randrConfig nScreens = statusBar <> "xmobar/" <> show randrConfig <> "/xmobar-" <> show nScreens <> ".hs"
 
-mySystemTray :: String
-mySystemTray = "stalonetray"
-mySysTrayConf :: Int -> String
-mySysTrayConf n = systemTray <> "stalonetray/stalonetrayrc-" <> show n
+-- mySystemTray :: String
+-- mySystemTray = "stalonetray"
+-- mySysTrayConf :: Int -> String
+-- mySysTrayConf n = systemTray <> "stalonetray/stalonetrayrc-" <> show n
 
 myLockScreenKeys :: Set KeySym
 myLockScreenKeys = Set.fromList
@@ -363,7 +363,7 @@ noMask :: KeyMask
 noMask = 0
 
 
-xMonad, statusBar, systemTray :: String
-xMonad     = "~/.xmonad/"
-statusBar  = xMonad <> "status-bar/"
-systemTray = xMonad <> "system-tray/"
+-- xMonad, statusBar, systemTray :: String
+-- xMonad     = "~/.xmonad/"
+-- statusBar  = xMonad <> "status-bar/"
+-- systemTray = xMonad <> "system-tray/"
