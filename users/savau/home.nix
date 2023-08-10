@@ -134,7 +134,7 @@
       ];
       config = ./dotfiles/xmonad/xmonad.hs;
     };
-    scriptPath = ".hm-xsession";
+    # scriptPath = ".hm-xsession";
   };
 
   gtk = {

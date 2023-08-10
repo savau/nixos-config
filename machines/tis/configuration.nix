@@ -55,15 +55,15 @@ args@{ config, lib, pkgs, ... }:
       #  noDesktop = true;
       #  enableXfwm = false;
       #  enableScreensaver = false;
-      session = [
-        {
-          name = "home-manager";
-          start = ''
-            ${pkgs.runtimeShell} $HOME/.hm-xsession &
-            waitPID=$!
-          '';
-        }
-      ];
+      # session = [
+      #   {
+      #     name = "home-manager";
+      #     start = ''
+      #       ${pkgs.runtimeShell} $HOME/.hm-xsession &
+      #       waitPID=$!
+      #     '';
+      #   }
+      # ];
     };
 
     windowManager = {
