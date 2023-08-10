@@ -34,6 +34,13 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+
+    dmenu
+
+    autoconf automake pkg-config # needed for xmonad integration with xfce4-panel
+
+    xfce.xfce4-panel
+    xfce.thunar
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -134,6 +141,9 @@
       ];
       config = ./dotfiles/xmonad/xmonad.hs;
     };
+    initExtra = ''
+      exec xfce4-panel
+    '';
   };
 
   gtk = {
