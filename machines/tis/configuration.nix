@@ -51,29 +51,24 @@ args@{ config, lib, pkgs, ... }:
 
     desktopManager = {
       xterm.enable = true;
-      xfce = {
-        enable = true;
-        noDesktop = true;
-        enableXfwm = false;
-        enableScreensaver = false;
-      };
+      xfce.enable = true;
+      #  noDesktop = true;
+      #  enableXfwm = false;
+      #  enableScreensaver = false;
+      # session = [
+      #   {
+      #     name = "home-manager";
+      #     start = ''
+      #       ${pkgs.runtimeShell} $HOME/.hm-xsession &
+      #       waitPID=$!
+      #     '';
+      #   }
+      # ];
     };
 
     windowManager = {
       windowmaker.enable = true;
-      xmonad = {
-        enable = true;
-        enableContribAndExtras = true;
-        extraPackages = haskellPackages : [
-          haskellPackages.xmonad
-          haskellPackages.xmonad-contrib
-          haskellPackages.xmonad-extras
-          haskellPackages.dbus
-          haskellPackages.status-notifier-item
-          haskellPackages.gtk-sni-tray
-          haskellPackages.tuple
-        ];
-      };
+      xmonad.enable = true;
     };
   };
 
