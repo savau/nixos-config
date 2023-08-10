@@ -57,9 +57,9 @@ args@{ config, lib, pkgs, ... }:
       #  enableScreensaver = false;
       session = [
         {
-          name = "xsession";
+          name = "home-manager";
           start = ''
-            ${pkgs.runtimeShell} $HOME/.xsession &
+            ${pkgs.runtimeShell} $HOME/.hm-xsession &
             waitPID=$!
           '';
         }
