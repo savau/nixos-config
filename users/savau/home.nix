@@ -122,6 +122,12 @@
 
   xsession = {
     enable = true;
+    desktopManager.xfce = {
+      enable = true;
+      noDesktop = true;
+      enableXfwm = false;
+      enableScreensaver = false;
+    };
     windowManager.xmonad = {
       enable = true;
       enableContribAndExtras = true;
