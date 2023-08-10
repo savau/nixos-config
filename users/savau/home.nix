@@ -49,10 +49,10 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-    ".xmonad" = {
-      source = ./dotfiles/xmonad;
-      recursive = true;
-    };
+    # ".xmonad" = {
+    #   source = ./dotfiles/xmonad;
+    #   recursive = true;
+    # };
   };
 
   # You can also manage environment variables but you will have to manually
@@ -126,18 +126,18 @@
       enable = true;
       enableContribAndExtras = true;
       extraPackages = haskellPackages: with haskellPackages; [
-        xmonad
-        xmonad-contrib
-        xmonad-extras
+        xmonad xmonad-contrib xmonad-extras
         dbus
-        status-notifier-item
         gtk-sni-tray
+        status-notifier-item
         tuple
       ];
+      config = {
+        source = ./dotfiles/xmonad;
+        recursive = true;
+      };
     };
-    initExtra = ''
-      xmonad --recompile
-    '';
+    scriptPath = ".xsession";
   };
 
   gtk = {
