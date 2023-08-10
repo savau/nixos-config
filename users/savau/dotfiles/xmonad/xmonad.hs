@@ -3,11 +3,13 @@
 
 import Control.Monad
 
+import Data.List (intercalate)
 import qualified Data.Map as Map
 import Data.Map (Map)
 import Data.Maybe
 import qualified Data.Set as Set
 import Data.Set (Set)
+import Data.Tuple.Curry
 
 import DBus.Client
 
@@ -18,7 +20,7 @@ import System.Log.Logger
 
 import XMonad
 
-import XMonad.Actions.SpawnOn (manageSpawn)
+import XMonad.Actions.SpawnOn (manageSpawn, spawnOn)
 
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops (ewmh)
