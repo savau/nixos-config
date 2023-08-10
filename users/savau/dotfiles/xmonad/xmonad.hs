@@ -49,7 +49,7 @@ import XMonad.Util.SpawnOnce (spawnOnce)
 
 main = do
   nScreens <- countScreens
-  randrConfig <- fromMaybe "main" . listToMaybe . lines <$> runProcessWithInput "autorandr" ["--current"] mempty
+  -- randrConfig <- fromMaybe "main" . listToMaybe . lines <$> runProcessWithInput "autorandr" ["--current"] mempty
   -- spawn "taffybar"
   xmonad . docks . ewmh $ def
     { modMask            = myModMask
