@@ -40,9 +40,9 @@ import XMonad.Util.EZConfig (additionalKeys)
 import XMonad.Util.Run (runProcessWithInput, spawnPipe)
 import XMonad.Util.SpawnOnce (spawnOnce)
 
-import Applications
-import qualified Utils.Dir     as Dir
-import qualified Utils.KeyMask as KeyMask
+-- import Applications
+-- import qualified Utils.Dir     as Dir
+-- import qualified Utils.KeyMask as KeyMask
 
 
 main = do
@@ -92,7 +92,7 @@ myKeys conf = Map.fromList $
 
 --, ((myModMask .|. KeyMask.altMask, xK_Up   ), spawn "~/.utils/backlight/backlight.sh 1")
 --, ((myModMask .|. KeyMask.altMask, xK_Down ), spawn "~/.utils/backlight/backlight.sh 0")
-  , ((myModMask .|. KeyMask.altMask, xK_space), xmonadPromptC myScreenLayouts' myXPromptConf{ defaultPrompter = const "Screen layout: " })
+  , ((myModMask .|. altMask, xK_space), xmonadPromptC myScreenLayouts' myXPromptConf{ defaultPrompter = const "Screen layout: " })
   ] ++
   ((\key -> ((myModMask .|. controlMask, key), spawn "xscreensaver-command -lock")) <$> myLockScreenKeys') ++
   ((\key -> ((myModMask, key), myXMonadSysPrompt)) <$> Set.toList mySystemKeys) ++
@@ -190,12 +190,12 @@ myXMonadRestart = (concatMap (\Application{..} -> "pkill " <> appName <> "; ") $
 -- myXMonadRestart = (concatMap (\Application{..} -> "pkill " <> appName <> "; ") $ Set.toList myStartupApplications) <> "pkill " <> mySystemTray <> "; pkill taffybar; xmonad --restart"
 
 myXMobarConfig :: String -> Int -> String
-myXMobarConfig randrConfig nScreens = Dir.statusBar <> "xmobar/" <> show randrConfig <> "/xmobar-" <> show nScreens <> ".hs"
+myXMobarConfig randrConfig nScreens = statusBar <> "xmobar/" <> show randrConfig <> "/xmobar-" <> show nScreens <> ".hs"
 
 mySystemTray :: String
 mySystemTray = "stalonetray"
 mySysTrayConf :: Int -> String
-mySysTrayConf n = Dir.systemTray <> "stalonetray/stalonetrayrc-" <> show n
+mySysTrayConf n = systemTray <> "stalonetray/stalonetrayrc-" <> show n
 
 myLockScreenKeys :: Set KeySym
 myLockScreenKeys = Set.fromList
@@ -237,3 +237,133 @@ myXPromptConf    = def
   , bgHLight = myMainColorDark
   , fgHLight = myUrgentColor
   }
+
+
+data Application = Application
+                   { appName        :: String
+                   , appEnvironment :: Map String String
+                   , appOptions     :: [String]
+                   , appWorkspace   :: Maybe WorkspaceId
+                   }
+                   deriving (Eq, Ord, Show, Read)
+
+-- | Spawns a given application with the given environment and options, if given on a specific workspace
+spawnApplication :: Application -> X ()
+spawnApplication Application{..} = maybe spawn spawnOn appWorkspace $ intercalate " " $ (fmap (\(k,v) -> k<>"="<>v<>" ") $ Map.toList appEnvironment) <> (appName : appOptions)
+
+
+-- | Applications that will be automatically launched after starting XMonad
+myStartupApplications :: Set Application
+myStartupApplications = (Set.fromList . fmap (uncurryN Application))
+  [
+--  ( "xfce4-power-manager"
+--  , mempty, mempty, mempty
+--  )
+--, ( "volumeicon"
+--  , mempty, mempty, mempty
+--  )
+    ( "nm-applet"
+    , mempty, mempty, mempty
+    )
+  , ( "blueman-applet"
+    , mempty, mempty, mempty
+    )
+--, ( "pamac-tray"  -- TODO: launch this iff on Arch Linux
+--  , mempty, mempty, mempty
+--  )
+--, ( "keepassxc"
+--  , mempty, mempty, mempty
+--  )
+--, ( "megasync"
+--  , Map.fromList [ ("QT_SCALE_FACTOR","1") ], mempty, mempty  -- setting QT_SCALE_FACTOR=1 as a workaround to avoid immediate segfault, see https://github.com/meganz/MEGAsync/issues/443
+--  )
+--, ( "birdtray"
+--  , Map.fromList [ ("LC_TIME","root.UTF-8") ], mempty, mempty
+--  )
+--, ( "zulip"
+--  , mempty, mempty, mempty
+--  )
+--, ( "signal-desktop-beta"
+--  , mempty, mempty, Just "8"
+--  )
+  ]
+
+-- | Frequently used applications that can be launched via Mod+Shift+<key>
+myFUAs :: Map KeySym Application
+myFUAs = Map.fromList
+  [ ( xK_f  -- [F]ile manager
+    , Application "thunar"
+      mempty mempty mempty
+    )
+  , ( xK_k  -- [K]eepassxc password manager
+    , Application "keepassxc"
+      mempty mempty mempty
+    )
+
+-- web applications
+  , ( xK_w  -- [W]eb browser
+    , Application "firefox"
+      mempty mempty mempty
+    )
+  , ( xK_c  -- [C]hromium
+    , Application "chromium"
+      mempty mempty mempty
+    )
+  , ( xK_m  -- -[M]ail client
+    , Application "thunderbird"
+      (Map.singleton "LC_TIME" "root.UTF-8") mempty mempty
+    )
+
+-- development and system administration applications
+--, ( xK_g  -- [G]rafana
+--  , Application "firefox"
+--    mempty ["-P grafana", "-kiosk"] mempty
+--  )
+
+-- chat applications
+--, ( xK_e  -- [E]lement (matrix)
+--  , Application "firefox"
+--    mempty ["-P matrix", "-kiosk"] mempty
+--  )
+--, ( xK_z  -- [Z]ulip chat client
+--  , Application "zulip"
+--    mempty mempty mempty
+--  )
+--, ( xK_s  -- [S]ignal messenger client
+--  , Application "signal-desktop"
+--    mempty ["--use-tray-icon"] mempty
+--  )
+--, ( xK_p  -- [P]idgin XMPP client
+--  , Application "pidgin"
+--    mempty mempty mempty
+--  )
+
+-- IDEs
+  , ( xK_t  -- [T]eX IDE
+    , Application "texstudio"
+      mempty mempty mempty
+    )
+--, ( xK_i  -- IntelliJ [I]DEA
+--  , Application "idea"
+--    mempty mempty mempty
+--  )
+--, ( xK_o  -- GNU [O]ctave
+--  , Application "octave"
+--    mempty ["--gui"] mempty
+--  )
+  ]
+
+
+-- | Convenience definition for Mod1 (== Alt) key mask
+altMask :: KeyMask
+altMask = mod1Mask
+
+-- | Convenience definition for the "no" key mask (i.e. no key pressed)
+noMask :: KeyMask
+noMask = 0
+
+
+xMonad, statusBar, systemTray :: String
+xMonad     = "~/.xmonad/"
+statusBar  = xMonad <> "status-bar/"
+systemTray = xMonad <> "system-tray/"
