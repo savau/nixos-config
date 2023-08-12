@@ -176,6 +176,7 @@
       };
     };
     initExtra = ''
+      xmodmap ~/.Xmodmap
       exec xfce4-panel &
       exec xmonad
     '';
