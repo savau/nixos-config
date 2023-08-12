@@ -5,6 +5,10 @@ args@{ config, lib, pkgs, ... }:
     # Include the results of the hardware scan
     ./hardware-configuration.nix
 
+    # Plug-ins
+    ./../../plugins/audio.nix
+    ./../../plugins/bluetooth.nix
+
     <home-manager/nixos>
   ];
 
