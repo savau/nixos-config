@@ -109,7 +109,12 @@
   home-manager.users.savau = import ./../../users/savau/home.nix;
   users.users.savau = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [
+      "audio" "video"
+      "networkmanager"
+      "lp" "scanner"
+      "wheel"
+    ];
   };
 
   system.stateVersion = "23.05";
