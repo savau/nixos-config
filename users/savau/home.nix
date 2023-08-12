@@ -52,8 +52,15 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+
+    # TODO: fetch xmonad-config in "workable" state, i.e. with .git and over ssh with pubkey
     # ".xmonad" = {
-    #   source = ./dotfiles/xmonad;
+    #   source = pkgs.fetchFromGitHub {
+    #     owner = "savau";
+    #     repo = "xmonad-config";
+    #     leaveDotGit = true;
+    #     fetchSubmodules = true;
+    #   };
     #   recursive = true;
     # };
   };
@@ -144,7 +151,7 @@
       };
     };
     initExtra = ''
-      exec xfce4-panel
+      exec xmonad
     '';
   };
 
