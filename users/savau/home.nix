@@ -3,6 +3,8 @@
 {
   imports = [
     ./../../home-plugins/direnv.nix
+    ./../../home-plugins/games.nix
+    ./../../home-plugins/i18n.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -58,6 +60,7 @@
     arandr
     audacity
     gimp
+    keepassxc
     libreoffice
     okular
     vlc
