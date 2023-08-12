@@ -13,7 +13,7 @@
       package = pkgs.arc-icon-theme;
     };
     font = {
-      name = "Sans 10"
+      name = "Sans 10";
     };
 
     gtk2.extraConfig = ''
