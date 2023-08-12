@@ -38,7 +38,7 @@
 
   console = {
     font = "Lat2-Terminus16";
-    keyMap = lib.mkForce "en";
+    keyMap = lib.mkForce "us";
     useXkbConfig = true;  # use xkbOptions in tty
   };
 
