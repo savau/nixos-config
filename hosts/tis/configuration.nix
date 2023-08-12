@@ -37,8 +37,14 @@ args@{ config, lib, pkgs, ... }:
       enable = true;
       greeters.gtk = {
         enable = true;
-        theme.name = "Arc-Dark";
-        iconTheme.name = "Arc";
+        theme = {
+          package = pkgs.arc-theme;
+          name    = "Arc-Dark";
+        };
+        iconTheme = {
+          package = pkgs.arc-theme;
+          name    = "Arc";
+        };
         clock-format = "%Y-%m-%d %H:%M:%S";
         indicators = [ "~host" "~spacer" "~clock" "~separator" "~session" "~a11y" "~power" ];
         extraConfig = ''
