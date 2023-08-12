@@ -103,15 +103,9 @@
 
   # System packages
   environment.systemPackages = with pkgs; [
-    gparted
-    htop
-
-    vim
-
-    curl wget
-    git
-
     arc-icon-theme  # add missing icons
+    gparted
+    vim
   ];
 
 
