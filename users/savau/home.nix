@@ -139,7 +139,10 @@
         status-notifier-item
         tuple
       ];
-      config = ./dotfiles/xmonad/xmonad.hs;
+      config = pkgs.writeText "xmonad.hs" (builtins.fetchGit {
+        url = "https://github.com/savau/xmonad-config.git";
+        ref = "master";
+      } + "/xmonad-monolith.hs");
     };
     initExtra = ''
       exec xfce4-panel
