@@ -151,6 +151,7 @@
       };
     };
     initExtra = ''
+      exec xfce4-panel
       exec xmonad
     '';
   };
