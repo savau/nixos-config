@@ -49,6 +49,7 @@
 
     # XFCE packages
     autoconf automake pkg-config # needed for xmonad integration with xfce4-panel # TODO: maybe move to xmonad nix file and integrate that one?
+    xfce.xfce4-session
     xfce.xfce4-panel
     xfce.thunar
 
@@ -232,6 +233,7 @@
     };
     initExtra = ''
       xmodmap ~/.Xmodmap
+      exec xfce4-session &
       exec xfce4-panel &
       exec xmonad
     '';
