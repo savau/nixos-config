@@ -62,6 +62,7 @@
     xournal
 
     # GUI web packages
+    element-desktop
     firefox
     nextcloud-client
     thunderbird
