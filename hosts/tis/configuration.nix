@@ -113,6 +113,7 @@
       "audio" "video"
       "networkmanager"
       "lp" "scanner"
+      "systemd-journal"
       "wheel"
     ];
   };
