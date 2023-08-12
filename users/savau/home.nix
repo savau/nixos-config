@@ -35,6 +35,9 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
 
+    stack
+    texlive.combined.scheme-full
+
     # Terminal packages
     magic-wormhole
     screen
@@ -54,10 +57,12 @@
     gimp
     libreoffice
     okular
+    vlc
     xournal
 
     # GUI web packages
     firefox
+    nextcloud-client
     thunderbird
   ];
 
