@@ -141,10 +141,10 @@
       ];
       config = pkgs.writeTextFile {
         name = "xmonad.hs";
-        text = builtins.fetchGit {
+        text = builtins.readFile (builtins.fetchGit {
           url = "https://github.com/savau/xmonad-config.git";
           ref = "master";
-        } + "/xmonad-monolith.hs";
+        } + "/xmonad-monolith.hs");
       };
     };
     initExtra = ''
