@@ -171,6 +171,10 @@
       gtk-enable-event-sounds = 0;
       gtk-enable-input-feedback-sounds = 0;
     };
+    gtk4.extraConfig = {
+      gtk-enable-event-sounds = 0;
+      gtk-enable-input-feedback-sounds = 0;
+    };
   };
 
   # Let Home Manager install and manage itself.
