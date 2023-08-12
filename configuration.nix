@@ -1,4 +1,4 @@
-args'@{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   hostname = lib.fileContents ./host;
@@ -18,7 +18,7 @@ in
        if   moduleFileType == "regular" && builtins.match "[^ ]+.nix" moduleName == []
          || moduleFileType == "directory"
        then
-         import (./modules/. + "/${moduleName}") args
+         import (./modules/. + "/${moduleName}")
        else
          # if the module is neither a regular nix file nor a directory, it is either a regular non-nix file, a symlink or an unknown file type
          # in this case, abort expression evaluation with error
