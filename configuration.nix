@@ -1,10 +1,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  hostname = lib.fileContents ./host;
-  # hostdir = ./machines/. + "/${hostname}";
-  # machine = import hostdir args' // { inherit hostname; };
-  # args = args' // { inherit machine; };
+  hostname = lib.fileContents ./host;  # TODO: make this obsolete by using flakes in the future
 in
 {
   imports = [
