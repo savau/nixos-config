@@ -23,6 +23,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # SSD optimizations
+  fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
+  services.fstrim.enable = true;
+
   networking.hostName = "tis";
 
   time.timeZone = "Europe/Berlin";
