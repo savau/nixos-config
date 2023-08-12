@@ -48,6 +48,7 @@ args@{ config, lib, pkgs, ... }:
         '';
       };
     };
+    displayManager.defaultSession = "xfce+xmonad";
 
     desktopManager = {
       xterm.enable = true;
