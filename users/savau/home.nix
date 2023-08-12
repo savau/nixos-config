@@ -45,6 +45,7 @@
     # X-related packages
     xorg.xmodmap
     xclip
+    xrandr
 
     # XFCE packages
     autoconf automake pkg-config # needed for xmonad integration with xfce4-panel # TODO: maybe move to xmonad nix file and integrate that one?
@@ -53,6 +54,7 @@
 
     # GUI packages
     dmenu # TODO: maybe move this to xmonad nix file and integrate that one?
+    arandr
     audacity
     gimp
     libreoffice
@@ -109,6 +111,12 @@
   };
 
   programs = {
+    autorandr = {
+      enable = true;
+      hooks = {}; # TODO: maybe configure
+      profiles = {}; # TODO: configure (caution: partially host-specific!)
+    };
+
     git = {
       enable = true;
       userName = "Sarah Vaupel";
