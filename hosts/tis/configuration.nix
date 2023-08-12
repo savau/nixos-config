@@ -105,6 +105,8 @@ args@{ config, lib, pkgs, ... }:
 
     curl wget
     git
+
+    arc-icon-theme  # add missing icons
   ];
 
 
