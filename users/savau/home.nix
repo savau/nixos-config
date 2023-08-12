@@ -74,7 +74,7 @@
     ".Xmodmap".source = ./dotfiles/.Xmodmap;
 
     ".config/xfce4" = {
-      source    = ./dotfiles/.config/xfce4;
+      source    = ./. + "/dotfiles/.config/xfce4";
       recursive = true;
     }
 
