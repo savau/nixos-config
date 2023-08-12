@@ -9,11 +9,13 @@
     ./../../plugins/audio.nix
     ./../../plugins/bluetooth.nix
     ./../../plugins/fonts/powerline.nix
+    ./../../plugins/gtk.nix
     ./../../plugins/laptop-battery.nix
     ./../../plugins/lightdm.nix
     ./../../plugins/printing.nix
     ./../../plugins/ssh.nix
     ./../../plugins/video.nix
+    ./../../plugins/xfce.nix
 
     <home-manager/nixos>
   ];

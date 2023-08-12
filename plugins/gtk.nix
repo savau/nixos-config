@@ -1,7 +1,7 @@
 { lib, pkgs, home, ... }:
 
 {
-  gtk = {
+  programs.gtk = {
     enable = true;
 
     theme = {
