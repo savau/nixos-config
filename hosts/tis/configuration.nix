@@ -10,6 +10,7 @@
     ./../../plugins/bluetooth.nix
     ./../../plugins/fonts/powerline.nix
     ./../../plugins/laptop-battery.nix
+    ./../../plugins/printing.nix
 
     <home-manager/nixos>
   ];
@@ -97,9 +98,6 @@
       xmonad.enable = true;
     };
   };
-
-  # Enable CUPS to print documents
-  services.printing.enable = true;
 
 
   # System packages
