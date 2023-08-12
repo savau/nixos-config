@@ -58,7 +58,12 @@ args@{ config, lib, pkgs, ... }:
 
     desktopManager = {
       xterm.enable = true;
-      xfce.enable = true;
+      xfce = {
+        enable = true;
+        noDesktop = true;
+        enableXfwm = false;
+        enableScreensaver = false;
+      };
     };
 
     windowManager = {
