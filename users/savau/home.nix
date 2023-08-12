@@ -4,6 +4,7 @@
   imports = [
     ./../../home-plugins/direnv.nix
     ./../../home-plugins/games.nix
+    ./../../home-plugins/gtk.nix
     ./../../home-plugins/i18n.nix
   ];
 
