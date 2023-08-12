@@ -53,8 +53,13 @@
     # XFCE packages
     autoconf automake pkg-config # needed for xmonad integration with xfce4-panel # TODO: maybe move to xmonad nix file and integrate that one?
     xfce.xfce4-session
-    xfce.xfce4-panel
+    xfce.xfce4panel_gtk3  # required for pulseaudio, see https://github.com/NixOS/nixpkgs/issues/18724
+    xfce.xfce4-volumed-pulse
     xfce.thunar
+    xfce.thunar-archive-plugin
+    xfce.thunar-volman
+    xfce.tumbler # thunar thumbnails
+    xfce.xfconf  # thunar save settings
 
     # GUI packages
     dmenu # TODO: maybe move this to xmonad nix file and integrate that one?
