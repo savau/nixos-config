@@ -11,6 +11,7 @@
     ./../../plugins/fonts/powerline.nix
     ./../../plugins/laptop-battery.nix
     ./../../plugins/printing.nix
+    ./../../plugins/video.nix
 
     <home-manager/nixos>
   ];
