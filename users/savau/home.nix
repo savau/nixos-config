@@ -4,6 +4,7 @@
   imports = [
     ./../../home-plugins/direnv.nix
     ./../../home-plugins/games.nix
+    ./../../home-plugins/gtk.nix
     ./../../home-plugins/i18n.nix
   ];
 
@@ -105,16 +106,6 @@
     # };
   };
 
-  # You can also manage environment variables but you will have to manually
-  # source
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/savau/etc/profile.d/hm-session-vars.sh
-  #
-  # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
     EDITOR     = "vim";
     GIT_EDITOR = "vim";
@@ -241,31 +232,6 @@
       exec xfce4-panel &
       exec xmonad
     '';
-  };
-
-  gtk = {
-    enable = true;
-    theme = {
-      name = "Arc-Dark";
-      package = pkgs.arc-theme;
-    };
-    iconTheme = {
-      name = "Arc-Dark";
-      package = pkgs.arc-icon-theme;
-    };
-    font.name = "Sans 10";
-    gtk2.extraConfig = ''
-      gtk-enable-event-sounds = 0
-      gtk-enable-input-feedback-sounds = 0
-    '';
-    gtk3.extraConfig = {
-      gtk-enable-event-sounds = 0;
-      gtk-enable-input-feedback-sounds = 0;
-    };
-    gtk4.extraConfig = {
-      gtk-enable-event-sounds = 0;
-      gtk-enable-input-feedback-sounds = 0;
-    };
   };
 
   # Let Home Manager install and manage itself.
