@@ -122,6 +122,8 @@
       "wheel"
     ];
   };
+
+  programs.zsh.enable = true;
   users.users.root.shell = pkgs.zsh;
 
   system.stateVersion = "23.05";
