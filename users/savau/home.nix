@@ -67,7 +67,7 @@
     xfce.xfce4-netload-plugin   # internet load speed plugin for xfce panel
     xfce.xfce4-embed-plugin     # embed arbitrary app windows on xfce panel
     # pulseaudio
-    xfce.xfce4panel_gtk3  # required for pulseaudio, see https://github.com/NixOS/nixpkgs/issues/18724
+    # xfce.xfce4panel_gtk3  # required for pulseaudio, see https://github.com/NixOS/nixpkgs/issues/18724
     xfce.xfce4-pulseaudio-plugin
     xfce.xfce4-volumed-pulse
     # thunar
