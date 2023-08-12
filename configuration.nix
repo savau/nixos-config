@@ -8,9 +8,6 @@ let
 in
 {
   imports = [
-    # Include the results of the hardware scan
-    ./machines/${hostname}/hardware-configuration.nix
-
     # Include machine-specific configuration.nix
     ./machines/${hostname}/configuration.nix
   ];
