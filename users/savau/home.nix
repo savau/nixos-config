@@ -139,7 +139,7 @@
         status-notifier-item
         tuple
       ];
-      config = pkgs.writeText "xmonad.hs" (builtins.fetchGit {
+      config = builtins.readFile (builtins.fetchGit {
         url = "https://github.com/savau/xmonad-config.git";
         ref = "master";
       } + "/xmonad-monolith.hs");
