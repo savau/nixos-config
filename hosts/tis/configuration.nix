@@ -117,6 +117,7 @@
       "wheel"
     ];
   };
+  users.users.root.shell = pkgs.zsh;
 
   system.stateVersion = "23.05";
 
@@ -127,10 +128,6 @@
 
   # time zone this machine typically resides in
   # timezone = "Europe/Berlin";
-
-  # system shell to use for all users on this machine including root and other system users
-  # can be overriden per user via users.<username>.shell
-  # systemShell = pkgs.zsh;
 
   # # the physical keyboard layout on this machine
   # keyboardLayout = {
