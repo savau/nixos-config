@@ -9,7 +9,7 @@ in
 {
   imports = [
     # Include machine-specific configuration.nix
-    ./machines/${hostname}/configuration.nix
+    ./hosts/${hostname}/configuration.nix
   ];
 
     # import each module in ./modules
