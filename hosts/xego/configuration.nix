@@ -18,6 +18,12 @@
     <home-manager/nixos>
   ];
 
+  boot.initrd.luks.devices.luksroot = {
+    device = "/dev/disk/by-uuid/869d3b66-b638-48cf-aee5-594cc5de9b4b";
+    preLVM = true;
+    allowDiscards = true;
+  };
+
   # Use the systemd-boot EFI loader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
