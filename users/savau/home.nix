@@ -31,6 +31,8 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
 
+    xorg.xmodmap
+
     dmenu
 
     autoconf automake pkg-config # needed for xmonad integration with xfce4-panel
