@@ -65,7 +65,7 @@
     xfce.xfce4-genmon-plugin    # generic monitor plugin for xfce panel
     xfce.xfce4-fsguard-plugin   # filesystem usage monitor plugin for xfce panel
     xfce.xfce4-netload-plugin   # internet load speed plugin for xfce panel
-    xfce.xfce4-embed-plugin     # embed arbitrary app windows on xfce panel
+    # xfce.xfce4-embed-plugin     # embed arbitrary app windows on xfce panel (currently marked as broken)
     # pulseaudio
     # xfce.xfce4panel_gtk3  # required for pulseaudio, see https://github.com/NixOS/nixpkgs/issues/18724
     xfce.xfce4-pulseaudio-plugin
