@@ -51,12 +51,29 @@
     xclip
 
     # XFCE packages
-    autoconf automake pkg-config # needed for xmonad integration with xfce4-panel # TODO: maybe move to xmonad nix file and integrate that one?
     xfce.xfce4-session
+    xfce.xfce4-power-manager
+    # panel
+    autoconf automake pkg-config # needed for xmonad integration with xfce4-panel # TODO: maybe move to xmonad nix file and integrate that one?
+    xfce.xfce4-panel
+    xfce.xfce4-panel-profiles   # simple application to manage xfce panel layouts
+    xfce.xfce4-battery-plugin   # battery plugin for xfce panel
+    xfce.xfce4-clipman-plugin   # clipboard manager plugin for xfce panel
+    xfce.xfce4-datetime-plugin  # shows the date and time in the panel, and a calendar appears when you left-click on it
+    xfce.xfce4-mailwatch-plugin # mail watcher plugin for xfce panel
+    xfce.xfce4-cpugraph-plugin  # CPU graph show for xfce panel
+    xfce.xfce4-genmon-plugin    # generic monitor plugin for xfce panel
+    xfce.xfce4-fsguard-plugin   # filesystem usage monitor plugin for xfce panel
+    xfce.xfce4-netload-plugin   # internet load speed plugin for xfce panel
+    xfce.xfce4-embed-plugin     # embed arbitrary app windows on xfce panel
+    # pulseaudio
     xfce.xfce4panel_gtk3  # required for pulseaudio, see https://github.com/NixOS/nixpkgs/issues/18724
+    xfce.xfce4-pulseaudio-plugin
     xfce.xfce4-volumed-pulse
+    # thunar
     xfce.thunar
     xfce.thunar-archive-plugin
+    xfce.thunar-media-tags-plugin
     xfce.thunar-volman
     xfce.tumbler # thunar thumbnails
     xfce.xfconf  # thunar save settings
