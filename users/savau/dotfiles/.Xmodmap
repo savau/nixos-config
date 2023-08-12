@@ -1,0 +1,19 @@
+! Xmodmap
+
+! Set CapsLock as the Modifier (Mod) key
+keycode 66 = Mode_switch
+
+! Map german umlauts and currencies to Mod + <key>
+keysym a = a A adiaeresis Adiaeresis
+keysym o = o O odiaeresis Odiaeresis
+keysym u = u U udiaeresis Udiaeresis
+keysym s = s S ssharp
+
+! Map german currency to Mod + E
+keysym e = e E EuroSign
+
+! Map german quotation marks to Mod + ; and Mod + '
+keycode 47 = semicolon colon doublelowquotemark
+keycode 48 = apostrophe quotedbl leftdoublequotemark
+
+keycode 13 = 4 dollar section
