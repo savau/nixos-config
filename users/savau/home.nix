@@ -129,7 +129,6 @@
   };
 
   home.sessionVariables = {
-    EDITOR     = "vim";
     GIT_EDITOR = "vim";
   };
 
