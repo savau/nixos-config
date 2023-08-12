@@ -1,6 +1,10 @@
-{ lib, pkgs, ... }:
+{ lib, pkgs, home, ... }:
 
 {
+  imports = [
+    ./../../home-plugins/direnv.nix
+  ];
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "savau";
@@ -39,6 +43,7 @@
     xfce.thunar
 
     dmenu
+    screen
 
     okular
 
