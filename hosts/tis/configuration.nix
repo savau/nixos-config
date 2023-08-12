@@ -10,6 +10,7 @@
     ./../../plugins/bluetooth.nix
     ./../../plugins/fonts/powerline.nix
     ./../../plugins/laptop-battery.nix
+    ./../../plugins/lightdm.nix
     ./../../plugins/printing.nix
     ./../../plugins/ssh.nix
     ./../../plugins/video.nix
@@ -50,27 +51,6 @@
     layout = "de";          # Configure keymap in X11
     libinput.enable = true; # Enable touchpad support
 
-    displayManager.lightdm = {
-      enable = true;
-      greeters.gtk = {
-        enable = true;
-        theme = {
-          package = pkgs.arc-theme;
-          name    = "Arc-Dark";
-        };
-        iconTheme = {
-          package = pkgs.arc-theme;
-          name    = "Arc";
-        };
-        clock-format = "%Y-%m-%d %H:%M:%S";
-        indicators = [ "~host" "~spacer" "~clock" "~separator" "~session" "~a11y" "~power" ];
-        extraConfig = ''
-          background=#000000
-          user-background=false
-          hide-user-image=true
-        '';
-      };
-    };
     displayManager.defaultSession = "xfce+xmonad";
 
     displayManager.sessionCommands = ''
