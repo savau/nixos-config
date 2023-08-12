@@ -3,10 +3,10 @@
 {
   home.packages = [ pkgs.direnv ];
 
-  programs.bash.interactiveShellInit = ''
+  programs.bash.initExtra = ''
     eval "$(${pkgs.direnv}/bin/direnv hook bash)"
   '';
-  programs.zsh.interactiveShellInit = ''
+  programs.zsh.initExtra = ''
     eval "$(${pkgs.direnv}/bin/direnv hook zsh)"
   '';
 
