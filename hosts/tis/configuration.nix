@@ -29,7 +29,7 @@
   console = {
     font = "Lat2-Terminus16";
     keyMap = lib.mkForce "de";
-    useXkbConfig = true; # use xkbOptions in tty
+    useXkbConfig = true;  # use xkbOptions in tty
   };
 
   i18n = {
@@ -53,7 +53,9 @@
 
     displayManager.defaultSession = "xfce+xmonad";
 
+    # TODO: create Xresources dotfile and use it here
     displayManager.sessionCommands = ''
+      # Merge Xresurces:
       ${pkgs.xorg.xrdb}/bin/xrdb -merge <${pkgs.writeText "Xresources" ''
         ! Xresources
 
@@ -71,6 +73,9 @@
         XTerm*faceName: Liberation Mono for Powerline
         XTerm*faceSize: 11
       ''}
+
+      # Set desktop background to solid black
+      xsetroot -solid black
     '';
 
     desktopManager = {
