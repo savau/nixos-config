@@ -56,6 +56,26 @@ args@{ config, lib, pkgs, ... }:
     };
     displayManager.defaultSession = "xfce+xmonad";
 
+    displayManager.sessionCommands = ''
+      ${pkgs.xorg.xrdb}/bin/xrdb -merge <${pkgs.writeText "Xresources" ''
+        ! Xresources
+
+        ! Blinking cursor
+        XTerm*cursorBlink: true
+
+        ! Copy selection to clipboard
+        XTerm*selectToClipboard: true
+
+        ! Dark colours for xterm
+        XTerm*background: black
+        XTerm*foreground: lightgray
+
+        ! Powerline font for agnoster zsh theme
+        XTerm*faceName: Liberation Mono for Powerline
+        XTerm*faceSize: 11
+      ''}
+    '';
+
     desktopManager = {
       xterm.enable = true;
       xfce = {
