@@ -35,19 +35,25 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
 
+    # Terminal packages
+    magic-wormhole
+    screen
+
+    # X-related packages
     xorg.xmodmap
     xclip
 
-    autoconf automake pkg-config # needed for xmonad integration with xfce4-panel
+    # XFCE packages
+    autoconf automake pkg-config # needed for xmonad integration with xfce4-panel # TODO: maybe move to xmonad nix file and integrate that one?
     xfce.xfce4-panel
     xfce.thunar
 
-    dmenu
-    screen
-
+    # GUI packages
+    dmenu # TODO: maybe move this to xmonad nix file and integrate that one?
     okular
 
-    firefox chromium
+    # GUI web packages
+    firefox
     thunderbird
   ];
 
