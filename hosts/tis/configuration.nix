@@ -98,11 +98,13 @@ args@{ config, lib, pkgs, ... }:
 
   # System packages
   environment.systemPackages = with pkgs; [
-    curl
-    git
+    gparted
     htop
+
     vim
-    wget
+
+    curl wget
+    git
   ];
 
 
