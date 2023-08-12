@@ -120,43 +120,4 @@
   users.users.root.shell = pkgs.zsh;
 
   system.stateVersion = "23.05";
-
-  # TODO: replace below config options with module contents
-
-  # configuration options for Linux Unified Key Setup (LUKS) disk encryption
-  # luks.fullDiskEncryption.enable = false;
-
-  # time zone this machine typically resides in
-  # timezone = "Europe/Berlin";
-
-  # # the physical keyboard layout on this machine
-  # keyboardLayout = {
-  #   layout = "de,us";
-  #   xkbOptions = "grp:rctrl_rshift_toggle";
-  # };
-
-  # # configuration options for audio services
-  # audio = {
-  #   enable = true;
-  # };
-
-  # # configuration options for battery management and optimization services
-  # batteryManagement = {
-  #   enable = true;
-  # };
-
-  # # configuration options for bluetooth services
-  # bluetooth = {
-  #   enable = true;
-  # };
-
-  # # configuration options for game services
-  # games = {
-  #   enable = true;
-  # };
-
-  # # configuration options for SSD optimizations
-  # ssdOptimizations = {
-  #   enable = true;
-  # };
 }
