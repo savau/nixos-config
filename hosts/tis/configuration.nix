@@ -8,6 +8,7 @@ args@{ config, lib, pkgs, ... }:
     # Plug-ins
     ./../../plugins/audio.nix
     ./../../plugins/bluetooth.nix
+    ./../../plugins/fonts/powerline.nix
 
     <home-manager/nixos>
   ];

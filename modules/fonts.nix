@@ -9,9 +9,6 @@
       source-sans-pro
       source-serif-pro
       dejavu_fonts
-
-      # TODO: maybe move powerline fonts to plugins
-      powerline-fonts
     ];
   };
 }
