@@ -1,9 +1,9 @@
 { lib, pkgs, home, ... }:
 
 {
-  programs.steam.enable = true;
-
   home.packages = with pkgs; [
+    steam
+
     wine
     (wine.override { wineBuild = "wine64"; })
     wineWowPackages.stable
