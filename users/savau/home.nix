@@ -139,10 +139,13 @@
         status-notifier-item
         tuple
       ];
-      config = builtins.readFile (builtins.fetchGit {
-        url = "https://github.com/savau/xmonad-config.git";
-        ref = "master";
-      } + "/xmonad-monolith.hs");
+      config = pkgs.writeTextFile {
+        name = "xmonad.hs";
+        text = builtins.fetchGit {
+          url = "https://github.com/savau/xmonad-config.git";
+          ref = "master";
+        } + "/xmonad-monolith.hs";
+      };
     };
     initExtra = ''
       exec xfce4-panel
