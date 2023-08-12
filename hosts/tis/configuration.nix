@@ -1,4 +1,4 @@
-args@{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports = [
@@ -118,7 +118,7 @@ args@{ config, lib, pkgs, ... }:
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = false;
 
-  home-manager.users.savau = import ./../../users/savau/home.nix args;
+  home-manager.users.savau = import ./../../users/savau/home.nix;
   users.users.savau = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
