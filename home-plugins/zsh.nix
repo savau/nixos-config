@@ -22,7 +22,18 @@
     oh-my-zsh = {
       enable = true;
       theme = "agnoster";
-      plugins = [ "git" ];
+      plugins = [
+        "git"
+        {
+          name = "zsh-nix-shell";
+          file = "nix-shell.plugin.zsh";
+          src = pkgs.fetchFromGithub {
+            owner = "chisui";
+            repo = "zsh-nix-shell";
+            rev = "v0.7.0";
+          };
+        }
+      ];
     };
     initExtraFirst = ''
       export PATH=~/.utils/bin:$PATH
