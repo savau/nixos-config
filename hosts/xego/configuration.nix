@@ -14,6 +14,7 @@
     ./../../plugins/printing.nix
     ./../../plugins/ssh.nix
     ./../../plugins/video.nix
+    ./../../plugins/xfce.nix
 
     <home-manager/nixos>
   ];
