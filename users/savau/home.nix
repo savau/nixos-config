@@ -147,7 +147,7 @@
       compression = false;
       controlMaster = "auto";
       controlPath = "~/.ssh/master-%r@%n:%p";
-      controlPersists = "30m";
+      controlPersist = "30m";
       serverAliveInterval = 6;
       serverAliveCountMax = 10;
       extraConfig = builtins.readFile ./dotfiles/.ssh/config;
