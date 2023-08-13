@@ -127,7 +127,6 @@
     ];
   };
 
-  programs.bash.enable = true;
   users.users.root.shell = pkgs.bash;
 
   system.stateVersion = "23.05";
