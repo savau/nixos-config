@@ -142,7 +142,6 @@
     ssh = {
       enable = true;
       hashKnownHosts = true;
-      identitiesOnly = true;
       forwardAgent = false;
       compression = false;
       controlMaster = "auto";
