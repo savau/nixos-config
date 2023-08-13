@@ -112,7 +112,6 @@
   environment.systemPackages = with pkgs; [
     arc-icon-theme  # add missing icons
     gparted
-    vim
   ];
 
 
@@ -131,8 +130,13 @@
     ];
   };
 
-  programs.zsh.enable = true;
+  home-manager.users.root = {
+    programs.home-manager.enable = true;
+    imports = [ ./../../home-plugins/neovim.nix ];
+  };
   users.users.root.shell = pkgs.zsh;
+
+  programs.zsh.enable = true;
 
   system.stateVersion = "23.05";
 }
