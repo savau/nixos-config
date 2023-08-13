@@ -104,7 +104,7 @@
 
   xsession = {
     enable = true;
-    windowManager.windowmaker.enable = true;
+    windowManager.command = "wmaker";
   };
 
   # Let Home Manager install and manage itself.
