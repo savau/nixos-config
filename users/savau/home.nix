@@ -7,6 +7,7 @@
     ./../../home-plugins/gtk/arc-dark.nix
     ./../../home-plugins/i18n.nix
     ./../../home-plugins/neovim.nix
+    ./../../home-plugins/zsh.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -151,38 +152,6 @@
 
         inherit (pkgs) zsh;
       });
-    };
-
-    zsh = {
-      enable = true;
-      autocd = true;
-      enableAutosuggestions = true;
-      history = {
-        size = 1000000;
-        save = 1000000;
-        ignorePatterns = [
-          "rm *"
-          "pkill *"
-        ];
-        ignoreSpace = true;
-        extended = true;
-        share = true;
-      };
-      shellAliases = {
-        "ll" = "ls -la";
-      };
-      oh-my-zsh = {
-        enable = true;
-        theme = "agnoster";
-        plugins = [ "git" ];
-      };
-      initExtraFirst = ''
-        export PATH=~/.utils/bin:$PATH
-      '';
-      initExtra = ''
-        GPG_TTY=$(tty)
-        export GPG_TTY
-      '';
     };
   };
 
