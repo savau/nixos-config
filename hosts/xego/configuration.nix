@@ -132,6 +132,7 @@
 
   home-manager.users.root = {
     programs.home-manager.enable = true;
+    home.stateVersion = "22.11";
     imports = [
       ./../../home-plugins/neovim.nix
       ./../../home-plugins/zsh.nix
