@@ -40,7 +40,7 @@
   i18n = {
     defaultLocale = "de_DE.UTF-8";
     extraLocaleSettings = {
-      LC_TIME = "en_DK.UTF-8";
+      LC_TIME = "de_DE.UTF-8";
     };
     supportedLocales = [
       "en_US.UTF-8/UTF-8"
@@ -56,7 +56,7 @@
     layout = "de";          # Configure keymap in X11
     libinput.enable = true; # Enable touchpad support
 
-    displayManager.defaultSession = "xfce+xmonad";
+    displayManager.defaultSession = "xfce+windowmaker";
 
     # TODO: create Xresources dotfile and use it here
     displayManager.sessionCommands = ''
@@ -128,8 +128,8 @@
     ];
   };
 
-  programs.zsh.enable = true;
-  users.users.root.shell = pkgs.zsh;
+  programs.bash.enable = true;
+  users.users.root.shell = pkgs.bash;
 
   system.stateVersion = "23.05";
 }
