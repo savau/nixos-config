@@ -107,7 +107,6 @@
 
   # System packages
   environment.systemPackages = with pkgs; [
-    arc-icon-theme  # add missing icons
     gparted
     vim
   ];
@@ -116,8 +115,8 @@
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = false;
 
-  home-manager.users.savau = import ./../../users/savau/home.nix;
-  users.users.savau = {
+  home-manager.users.ishka = import ./../../users/ishka/home.nix;
+  users.users.ishka = {
     isNormalUser = true;
     extraGroups = [
       "audio" "video"
