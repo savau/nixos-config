@@ -6,6 +6,7 @@
     ./../../home-plugins/games.nix
     ./../../home-plugins/gtk/arc-dark.nix
     ./../../home-plugins/i18n.nix
+    ./../../home-plugins/neovim.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -101,9 +102,6 @@
     # };
   };
 
-  home.sessionVariables = {
-    GIT_EDITOR = "vim";
-  };
 
   programs = {
     autorandr = {
@@ -120,23 +118,6 @@
         pull.rebase = false;
         submodule.recurse = true;
       };
-    };
-
-    # TODO: configure coc (see vim-config repo)
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      viAlias = true; vimAlias = true; vimdiffAlias = true;
-      withPython3 = true;
-      plugins = with pkgs.vimPlugins; [
-        airline
-        fugitive
-        vim-nix
-      ];
-      extraConfig = builtins.readFile (builtins.fetchGit {
-        url = "https://github.com/savau/vim-config.git";
-        ref = "main";
-      } + "/.vimrc");
     };
 
     ssh = {
