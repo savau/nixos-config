@@ -132,7 +132,10 @@
 
   home-manager.users.root = {
     programs.home-manager.enable = true;
-    imports = [ ./../../home-plugins/neovim.nix ];
+    imports = [
+      ./../../home-plugins/neovim.nix
+      ./../../home-plugins/zsh.nix
+    ];
   };
   users.users.root.shell = pkgs.zsh;
 
