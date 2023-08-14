@@ -161,6 +161,13 @@
     };
   };
 
+  # Git repositories that should be synchronised to your home directory
+  services.git-sync = {
+    enable = true;
+    repositories = {
+    };
+  };
+
   xsession = {
     enable = true;
 
