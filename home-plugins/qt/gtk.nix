@@ -1,12 +1,16 @@
 { lib, pkgs, home, ... }:
 
 {
+  home.packages = with pkgs; [
+    qt5ct
+  ];
+
+  home.sessionVariables = {
+    QT_QPA_PLATFORMTHEME = "qt5ct";
+  };
+
   qt = {
     enable = true;
-    platformTheme = "gtk";
-    style = {
-      name = "gtk2";
-      package = pkgs.libsForQt5.qtstyleplugins;
-    };
+    style.name = "qt5ct";
   };
 }
