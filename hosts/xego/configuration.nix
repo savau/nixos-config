@@ -33,7 +33,7 @@
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
   services.fstrim.enable = true;
 
-  networking.hostName = "tis";
+  networking.hostName = "xego";
 
   time.timeZone = "Europe/Berlin";
 
