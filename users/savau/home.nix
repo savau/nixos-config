@@ -2,6 +2,7 @@
 
 {
   imports = [
+    # Generic home plugins
     ./../../home-plugins/direnv.nix
     ./../../home-plugins/i18n.nix
     ./../../home-plugins/neovim.nix
@@ -10,12 +11,12 @@
     ./../../home-plugins/gtk/arc-dark.nix
     ./../../home-plugins/qt/gtk.nix
 
+    # User plugins
     ./plugins/mail/protonmail-bridge.nix
     ./plugins/games.nix
   ];
 
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
+  # Home Manager needs a bit of information about you and the paths it should manage.
   home.username = "savau";
   home.homeDirectory = "/home/savau";
 
@@ -28,8 +29,7 @@
   # release notes.
   home.stateVersion = "22.11"; # Please read the comment before changing.
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
+  # The home.packages option allows you to install Nix packages into your environment.
   home.packages = with pkgs; [
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -74,8 +74,8 @@
     thunderbird
   ];
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
+  # Home Manager is pretty good at managing dotfiles.
+  # The primary way to manage plain files is through 'home.file'.
   home.file = {
     ".Xmodmap".source = ./dotfiles/.Xmodmap;
 
@@ -96,6 +96,8 @@
     # '';
 
     # TODO: fetch xmonad-config in "workable" state, i.e. with .git and over ssh with pubkey
+    # TODO: once the xmonad settings below have been moved to a user plugin, move the workable
+    #       checkout with it
     # ".xmonad" = {
     #   source = pkgs.fetchFromGitHub {
     #     owner = "savau";
@@ -161,6 +163,7 @@
 
   xsession = {
     enable = true;
+
     windowManager.xmonad = {
       enable = true;
       enableContribAndExtras = true;
@@ -179,6 +182,7 @@
         } + "/xmonad-monolith.hs");
       };
     };
+
     initExtra = ''
       xmodmap ~/.Xmodmap
       exec xfce4-session &
