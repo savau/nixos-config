@@ -3,11 +3,14 @@
 {
   imports = [
     ./../../home-plugins/direnv.nix
-    ./../../home-plugins/games.nix
-    ./../../home-plugins/gtk/arc-dark.nix
     ./../../home-plugins/i18n.nix
     ./../../home-plugins/neovim.nix
     ./../../home-plugins/zsh.nix
+
+    ./../../home-plugins/gtk/arc-dark.nix
+    ./../../home-plugins/qt/gtk.nix
+
+    ./../../home-plugins/games.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
