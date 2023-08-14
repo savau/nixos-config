@@ -43,6 +43,7 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
 
+    protonmail-bridge
     stack
     texlive.combined.scheme-full
 
@@ -184,6 +185,15 @@
       exec xfce4-panel &
       exec xmonad
     '';
+  };
+
+  systemd.user.services.protonmail-bridge = {
+    Unit.Description = "Protonmail Bridge";
+    Unit.After = [ "network.target" ];
+    Service.ExecStart = "${pkgs.protonmail-bridge}/bin/protonmail-bridge --log-level info --noninteractive";
+    Service.Environment = "PATH=${pkgs.gnome3.gnome-keyring}/bin:$PATH";
+    Service.Restart = "always";
+    Install.WantedBy = [ "default.target" ];
   };
 
   # Let Home Manager install and manage itself.
