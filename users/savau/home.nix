@@ -165,6 +165,13 @@
   services.git-sync = {
     enable = true;
     repositories = {
+      xmonad-config = {
+        name = "xmonad-config";
+        uri = "git+ssh://savau@github.com:/~savau/xmonad-config.git";
+        path = ~/Configs/xmonad;
+        interval = 3600; # automatically sync every hour, independently of filesystem changes
+                         # (on local filesystem changes, a sync should be triggered outside of this interval using inotify)
+      };
     };
   };
 
