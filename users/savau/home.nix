@@ -1,6 +1,6 @@
 { lib, pkgs, home, ... }:
 
-{
+rec {
   imports = [
     # Generic home plugins
     ./../../home-plugins/direnv.nix
@@ -107,6 +107,12 @@
     #   };
     #   recursive = true;
     # };
+
+    # Directories containing all you synchronised git repositories
+    # Configs = {
+    #   inherit source;
+    #   recursive = true;
+    # };
   };
 
 
@@ -168,7 +174,7 @@
       xmonad-config = {
         name = "xmonad-config";
         uri = "git+ssh://savau@github.com:/~savau/xmonad-config.git";
-        path = ~/Configs/xmonad;
+        path = "${home.homeDirectory}/Configs/xmonad" + ./.;
         interval = 3600; # automatically sync every hour, independently of filesystem changes
                          # (on local filesystem changes, a sync should be triggered outside of this interval using inotify)
       };
