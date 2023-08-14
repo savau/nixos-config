@@ -10,7 +10,7 @@
     ./../../home-plugins/gtk/arc-dark.nix
     ./../../home-plugins/qt/gtk.nix
 
-    ./../../home-plugins/games.nix
+    ./plugins/games.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
