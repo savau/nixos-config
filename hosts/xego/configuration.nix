@@ -102,12 +102,6 @@
     windowManager.xmonad.enable = true;
   };
 
-  programs.gnupg.agent.enable = true;
-  programs.seahorse.enable = true;
-
-  services.gnome.gnome-keyring.enable = true;
-  security.pam.services.lightdm.enableGnomeKeyring = true;
-
   # System packages
   environment.systemPackages = with pkgs; [
     arc-icon-theme  # add missing icons
