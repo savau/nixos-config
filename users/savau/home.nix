@@ -62,7 +62,7 @@ rec {
     audacity
     gimp
     keepassxc
-    libreoffice
+    # libreoffice  # FIXME: liberation fonts package currently broken
     okular
     vlc
     xournal
