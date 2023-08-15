@@ -95,25 +95,6 @@ rec {
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-
-    # TODO: fetch xmonad-config in "workable" state, i.e. with .git and over ssh with pubkey
-    # TODO: once the xmonad settings below have been moved to a user plugin, move the workable
-    #       checkout with it
-    # ".xmonad" = {
-    #   source = pkgs.fetchFromGitHub {
-    #     owner = "savau";
-    #     repo = "xmonad-config";
-    #     leaveDotGit = true;
-    #     fetchSubmodules = true;
-    #   };
-    #   recursive = true;
-    # };
-
-    # Directories containing all you synchronised git repositories
-    # Configs = {
-    #   inherit source;
-    #   recursive = true;
-    # };
   };
 
 
