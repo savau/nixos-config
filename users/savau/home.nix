@@ -68,6 +68,7 @@ rec {
     xournal
 
     # GUI web packages
+    chromium
     element-desktop
     firefox
     nextcloud-client
