@@ -5,8 +5,6 @@
     protonmail-bridge
   ];
 
-  services.gnome-keyring.enable = true;
-
   systemd.user.services.protonmail-bridge = {
     Unit.Description = "Protonmail Bridge";
     Unit.After = [ "network.target" ];

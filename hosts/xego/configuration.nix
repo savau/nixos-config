@@ -108,6 +108,11 @@
     gparted
   ];
 
+  programs.gnupg.agent.enable = true;
+
+  services.gnome.gnome-keyring.enable = true;
+  # security.pam.services.lightdm.enableGnomeKeyring = true;
+
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = false;
