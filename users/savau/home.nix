@@ -183,25 +183,25 @@ rec {
     };
 
     srv01-config = {
-      src = "git@gitlab.uniworx.de:savau/uniworx/machines/srv01.git";
+      src = "git@gitlab.uniworx.de:uniworx/machines/srv01.git";
       dest = "${home.homeDirectory}/git/machines/srv01";
     };
 
     uniworx-website = {
-      src = "git@gitlab.uniworx.de:savau/uniworx/uniworx.de.git";
+      src = "git@gitlab.uniworx.de:uniworx/uniworx.de.git";
       dest = "${home.homeDirectory}/git/websites/uniworx.de";
     };
 
     fradrive = {
-      src = "git@gitlab.uniworx.de:savau/fradrive/fradrive.git";
+      src = "git@gitlab.uniworx.de:fradrive/fradrive.git";
       dest = "${home.homeDirectory}/git/projects/fradrive/fradrive";
     };
     uni2work = {
-      src = "git@gitlab.uniworx.de:savau/uni2work/uni2work.git";
+      src = "git@gitlab.uniworx.de:uni2work/uni2work.git";
       dest = "${home.homeDirectory}/git/projects/uni2work/uni2work";
     };
     u2w-workflows = {
-      src = "git@gitlab.uniworx.de:savau/uni2work/workflows/workflows.git";
+      src = "git@gitlab.uniworx.de:uni2work/workflows/workflows.git";
       dest = "${home.homeDirectory}/git/projects/uni2work/workflows/workflows";
     };
   };
