@@ -168,16 +168,10 @@ rec {
   };
 
   # Git repositories that should be synchronised to your home directory
-  services.git-sync = {
-    enable = true;
-    repositories = {
-      xmonad-config = {
-        name = "xmonad-config";
-        uri = "git+ssh://savau@github.com:/~savau/xmonad-config.git";
-        path = "${home.homeDirectory}/Configs/xmonad" + ./.;
-        interval = 3600; # automatically sync every hour, independently of filesystem changes
-                         # (on local filesystem changes, a sync should be triggered outside of this interval using inotify)
-      };
+  systemd.user.services = import ./../../utils/systemd-git-init.nix {
+    xmonad-config = {
+      src = "git@github.com:savau/xmonad-config.git";
+      dest = "${home.homeDirectory}/git/configs/xmonad";
     };
   };
 
