@@ -169,9 +169,17 @@ rec {
 
   # Git repositories that should be synchronised to your home directory
   systemd.user.services = import ./../../utils/systemd-git-init.nix {
+    nixos-config = {
+      src = "git@github.com:savau/nixos-config.git";
+      dest = "${home.homeDirectory}/git/configs/nixos-config";
+    };
+    vim-config = {
+      src = "git@github.com:savau/vim-config.git";
+      dest = "${home.homeDirectory}/git/configs/vim-config";
+    };
     xmonad-config = {
       src = "git@github.com:savau/xmonad-config.git";
-      dest = "${home.homeDirectory}/git/configs/xmonad";
+      dest = "${home.homeDirectory}/git/configs/xmonad-config";
     };
   };
 
