@@ -87,15 +87,6 @@
       </property>
       <property name="hidden-legacy-items" type="array">
       </property>
-      <property name="known-legacy-items" type="array">
-        <value type="string" value="wi-fi network connection “unimatrix 43” active: unimatrix 43 (85%)"/>
-        <value type="string" value="nextcloud"/>
-        <value type="string" value="ethernet network connection “auto ethernet” active"/>
-      </property>
-      <property name="known-items" type="array">
-        <value type="string" value="chrome_status_icon_1"/>
-        <value type="string" value="blueman"/>
-      </property>
     </property>
     <property name="plugin-12" type="string" value="clock">
       <property name="tooltip-format" type="string" value=""/>
@@ -130,6 +121,7 @@
       <property name="new-document" type="bool" value="false"/>
       <property name="new-folder" type="bool" value="false"/>
       <property name="icon-name" type="string" value="org.xfce.panel.directorymenu"/>
+      <property name="file-pattern" type="string" value="*"/>
     </property>
     <property name="plugin-8" type="string" value="pager">
       <property name="rows" type="uint" value="1"/>
