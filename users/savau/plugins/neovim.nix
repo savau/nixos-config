@@ -14,6 +14,8 @@
     plugins = with pkgs.vimPlugins; [
       airline
       fugitive
+      nerdtree
+      nerdtree-git-plugin
       plenary-nvim # required for telescope
       telescope-hoogle
       telescope-nvim
