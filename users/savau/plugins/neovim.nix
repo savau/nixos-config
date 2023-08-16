@@ -15,6 +15,7 @@
       airline
       fugitive
       vim-nix
+      vimtex
     ];
     extraConfig = builtins.readFile (builtins.fetchGit {
       url = "https://github.com/savau/vim-config.git";
