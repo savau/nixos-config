@@ -12,8 +12,9 @@ rec {
     ./../../home-plugins/qt/gtk.nix
 
     # User plugins
-    ./plugins/mail/protonmail-bridge.nix
     ./plugins/games.nix
+    ./plugins/mail/protonmail-bridge.nix
+    ./plugins/neovim.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should manage.
