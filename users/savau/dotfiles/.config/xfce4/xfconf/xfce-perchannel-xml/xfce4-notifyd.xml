@@ -4,11 +4,13 @@
   <property name="applications" type="empty">
     <property name="known_applications" type="array">
       <value type="string" value="blueman"/>
+      <value type="string" value="chromium-browser"/>
       <value type="string" value="com.nextcloud.desktopclient.nextcloud"/>
       <value type="string" value="Firefox"/>
       <value type="string" value="org.freedesktop.network-manager-applet"/>
       <value type="string" value="org.xfce.Thunar"/>
       <value type="string" value="Thunderbird"/>
+      <value type="string" value="Xfce volume control"/>
       <value type="string" value="Xfce volume daemon"/>
       <value type="string" value="xfce4-power-manager"/>
       <value type="string" value="xfce4-settings-helper"/>

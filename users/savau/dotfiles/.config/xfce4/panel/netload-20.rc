@@ -1,0 +1,15 @@
+Use_Label=false
+Show_Values=true
+Show_Bars=true
+Colorize_Values=true
+Color_In=rgb(255,120,0)
+Color_Out=rgb(28,113,216)
+Text=Net
+Network_Device=enp0s31f6
+Max_In=12800000
+Max_Out=3840000
+Auto_Max=false
+Update_Interval=750
+Values_As_Bits=false
+Digits=1
+
