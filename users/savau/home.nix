@@ -5,8 +5,6 @@ rec {
     # Generic home plugins
     ./../../home-plugins/direnv.nix
     ./../../home-plugins/i18n.nix
-    ./../../home-plugins/neovim.nix
-    ./../../home-plugins/zsh.nix
 
     ./../../home-plugins/gtk/arc-dark.nix
     ./../../home-plugins/qt/gtk.nix
@@ -15,6 +13,7 @@ rec {
     ./plugins/games.nix
     ./plugins/mail/protonmail-bridge.nix
     ./plugins/neovim.nix
+    ./plugins/zsh.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should manage.
