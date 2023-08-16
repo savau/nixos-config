@@ -133,8 +133,8 @@
     programs.home-manager.enable = true;
     home.stateVersion = "22.11";
     imports = [
-      ./../../home-plugins/neovim.nix
-      ./../../home-plugins/zsh.nix
+      ./../../users/savau/plugins/neovim.nix
+      ./../../users/savau/plugins/zsh.nix
     ];
   };
   users.users.root.shell = pkgs.zsh;
