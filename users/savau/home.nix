@@ -80,11 +80,6 @@ rec {
   home.file = {
     ".Xmodmap".source = ./dotfiles/.Xmodmap;
 
-    ".config/xfce4" = {
-      source    = ./dotfiles/.config/xfce4;
-      recursive = true;
-    };
-
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
@@ -95,6 +90,19 @@ rec {
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+  };
+
+  # Set up Xfce configuration
+  # Using `xdg.configFile` instead of `home.file` to allow for overwriting
+  # existing files, which otherwise would cause the home-manager activation
+  # to fail due to the old configuration being "in the way".
+  # (xfce seems to touch all configuration files on session start by default,
+  #  so the home activation would basically fail after every nixos-rebuild
+  #  when using `home.file` for xfce config files.)
+  xdg.configFile.".config/xfce4" = {
+    source    = ./dotfiles/.config/xfce4;
+    recursive = true;
+    force     = true; # allow overwriting existing xfce config files
   };
 
 
