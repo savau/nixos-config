@@ -2,15 +2,15 @@
 
 rec {
   imports = [
-    # Generic home plugins
+    # Host-agnostic generic home plugins
     ./../../home-plugins/direnv.nix
     ./../../home-plugins/i18n.nix
 
+    # TODO: move those to user plugins
     ./../../home-plugins/gtk/arc-dark.nix
     ./../../home-plugins/qt/gtk.nix
 
-    # User plugins
-    ./plugins/games.nix
+    # Host-agnostic user plugins
     ./plugins/mail/protonmail-bridge.nix
     ./plugins/neovim.nix
     ./plugins/zsh.nix
