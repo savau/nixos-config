@@ -5,6 +5,10 @@
     GIT_EDITOR = "vim";
   };
 
+  home.packages = with pkgs; [
+    fd ripgrep  # required for telescope
+  ];
+
   # TODO: configure coc (see vim-config repo)
   programs.neovim = {
     enable = true;
@@ -16,7 +20,8 @@
       fugitive
       nerdtree
       nerdtree-git-plugin
-      plenary-nvim # required for telescope
+      nvim-treesitter  # required for telescope
+      plenary-nvim  # required for telescope
       telescope-nvim
       telescope_hoogle
       vim-gitgutter
