@@ -17,8 +17,8 @@
       nerdtree
       nerdtree-git-plugin
       plenary-nvim # required for telescope
-      telescope-hoogle
       telescope-nvim
+      telescope_hoogle
       vim-gitgutter
       vim-nix
       vimtex
