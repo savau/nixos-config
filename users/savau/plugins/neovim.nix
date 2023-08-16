@@ -17,12 +17,12 @@
       nerdtree
       nerdtree-git-plugin
       plenary-nvim # required for telescope
-      supertab
       telescope-nvim
       telescope_hoogle
       vim-gitgutter
       vim-nix
       vimtex
+      YouCompleteMe
     ];
     extraConfig = builtins.readFile (builtins.fetchGit {
       url = "https://github.com/savau/vim-config.git";
