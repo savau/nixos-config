@@ -14,6 +14,7 @@
     plugins = with pkgs.vimPlugins; [
       airline
       fugitive
+      vim-gitgutter
       vim-nix
       vimtex
     ];
