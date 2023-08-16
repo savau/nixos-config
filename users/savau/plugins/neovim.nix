@@ -14,6 +14,9 @@
     plugins = with pkgs.vimPlugins; [
       airline
       fugitive
+      plenary-nvim # required for telescope
+      telescope-hoogle
+      telescope-nvim
       vim-gitgutter
       vim-nix
       vimtex
