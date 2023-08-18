@@ -3,14 +3,15 @@
 {
   home.packages = with pkgs; [
     qt5ct
+    libsForQt5.qtstyleplugins
   ];
 
   home.sessionVariables = {
-    QT_QPA_PLATFORMTHEME = "qt5ct";
+    QT_QPA_PLATFORMTHEME = "gtk2";
   };
 
   qt = {
     enable = true;
-    style.name = "qt5ct";
+    style.name = "gtk2";
   };
 }
