@@ -5,15 +5,15 @@
     enable = true;
 
     theme = {
-      name = "Arc-Dark";
-      package = pkgs.arc-theme;
+      name = "Adwaita-Dark";
+      package = pkgs.adwaita-theme;
     };
     iconTheme = {
-      name = "Arc-Dark";
-      package = pkgs.arc-icon-theme;
+      name = "Adwaita";
+      package = pkgs.adwaita-icon-theme;
     };
     font = {
-      name = "Sans 10";
+      name = "Liberation Sans Regular 10";
     };
 
     gtk2.extraConfig = ''

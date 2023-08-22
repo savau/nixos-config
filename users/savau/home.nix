@@ -7,10 +7,10 @@ rec {
     ./../../home-plugins/i18n.nix
 
     # TODO: move those to user plugins
-    ./../../home-plugins/gtk/arc-dark.nix
     ./../../home-plugins/qt/gtk.nix
 
     # Host-agnostic user plugins
+    ./plugins/gtk.nix
     ./plugins/mail/protonmail-bridge.nix
     ./plugins/neovim.nix
     ./plugins/zsh.nix
