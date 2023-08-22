@@ -1,12 +1,9 @@
 { lib, pkgs, home, ... }:
 
 {
-  home.sessionVariables = {
-    QT_QPA_PLATFORMTHEME = "adwaita-dark";
-  };
-
   qt = {
     enable = true;
+    platformTheme = "gtk";
     style.name = "adwaita-dark";
   };
 }
