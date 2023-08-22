@@ -1,17 +1,12 @@
 { lib, pkgs, home, ... }:
 
 {
-  home.packages = with pkgs; [
-    qt5ct
-    libsForQt5.qtstyleplugins
-  ];
-
   home.sessionVariables = {
-    QT_QPA_PLATFORMTHEME = "gtk2";
+    QT_QPA_PLATFORMTHEME = "adwaita-dark";
   };
 
   qt = {
     enable = true;
-    style.name = "gtk2";
+    style.name = "adwaita-dark";
   };
 }
