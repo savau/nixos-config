@@ -1,20 +1,21 @@
 { lib, pkgs, home, ... }:
 
 {
+  home.packages = with pkgs; [
+    gnome.adwaita-icon-theme
+  ];
+
   gtk = {
     enable = true;
 
-    theme = {
-      name = "Adwaita-Dark";
-      package = pkgs.adwaita-theme;
-    };
+    theme.name = "Adwaita-Dark";
     iconTheme = {
       name = "Adwaita";
-      package = pkgs.adwaita-icon-theme;
+      package = pkgs.gnome.adwaita-icon-theme;
     };
     font = {
       name = "Liberation Sans Regular 10";
-      package = pkgs.liberation-fonts;
+      package = pkgs.liberation_ttf;
     };
 
     gtk2.extraConfig = ''
