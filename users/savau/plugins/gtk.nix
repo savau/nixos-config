@@ -5,6 +5,8 @@
     gnome.adwaita-icon-theme
   ];
 
+  programs.dconf.enable = true;
+
   gtk = {
     enable = true;
 
