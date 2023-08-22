@@ -9,6 +9,7 @@
   dconf = {
     enable = true;
     settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+    settings."org/gnome/desktop/interface".monospace-font-name = "Liberation Mono for Powerline 10";
   };
 
   gtk = {
