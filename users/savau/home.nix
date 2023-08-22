@@ -6,13 +6,11 @@ rec {
     ./../../home-plugins/direnv.nix
     ./../../home-plugins/i18n.nix
 
-    # TODO: move those to user plugins
-    ./../../home-plugins/qt/gtk.nix
-
     # Host-agnostic user plugins
     ./plugins/gtk.nix
     ./plugins/mail/protonmail-bridge.nix
     ./plugins/neovim.nix
+    ./plugins/qt.nix
     ./plugins/zsh.nix
   ];
 
