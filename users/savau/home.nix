@@ -59,6 +59,7 @@ rec {
     arandr
     audacity
     gimp
+    krita
     keepassxc
     libreoffice
     okular
