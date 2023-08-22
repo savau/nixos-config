@@ -14,6 +14,7 @@
     };
     font = {
       name = "Liberation Sans Regular 10";
+      package = pkgs.liberation-fonts;
     };
 
     gtk2.extraConfig = ''
