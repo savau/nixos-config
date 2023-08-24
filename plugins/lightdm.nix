@@ -7,12 +7,11 @@
     greeters.gtk = {
       enable = true;
       theme = {
-        package = pkgs.arc-theme;
-        name    = "Arc-Dark";
+        name    = "Adwaita-dark";
       };
       iconTheme = {
-        package = pkgs.arc-theme;
-        name    = "Arc";
+        package = pkgs.gnome.adwaita-icon-theme;
+        name    = "Adwaita";
       };
       clock-format = "%Y-%m-%d %H:%M:%S";
       indicators = [ "~host" "~spacer" "~clock" "~separator" "~session" "~a11y" "~power" ];
