@@ -12,6 +12,7 @@ rec {
     ./plugins/zsh.nix
     ./plugins/neovim.nix
     ./plugins/browsers/chromium.nix
+    ./plugins/browsers/firefox.nix
     ./plugins/mail/protonmail-bridge.nix
   ];
 
