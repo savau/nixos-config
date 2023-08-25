@@ -8,10 +8,11 @@ rec {
 
     # Host-agnostic user plugins
     ./plugins/gtk.nix
-    ./plugins/mail/protonmail-bridge.nix
-    ./plugins/neovim.nix
     ./plugins/qt.nix
     ./plugins/zsh.nix
+    ./plugins/neovim.nix
+    ./plugins/browsers/chromium.nix
+    ./plugins/mail/protonmail-bridge.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should manage.
@@ -67,7 +68,6 @@ rec {
     xournal
 
     # GUI web packages
-    chromium
     element-desktop
     firefox
     nextcloud-client
