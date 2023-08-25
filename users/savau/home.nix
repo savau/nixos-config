@@ -14,6 +14,7 @@ rec {
     ./plugins/browsers/chromium.nix
     ./plugins/browsers/firefox.nix
     ./plugins/mail/protonmail-bridge.nix
+    ./plugins/mail/thunderbird.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should manage.
@@ -70,9 +71,7 @@ rec {
 
     # GUI web packages
     element-desktop
-    firefox
     nextcloud-client
-    thunderbird
   ];
 
   # Home Manager is pretty good at managing dotfiles.
