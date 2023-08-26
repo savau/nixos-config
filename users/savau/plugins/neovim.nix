@@ -23,7 +23,6 @@
       nvim-treesitter  # required for telescope
       plenary-nvim  # required for telescope
       telescope-nvim
-      telescope_hoogle
       vim-gitgutter
       vim-nix
       vimtex
@@ -32,7 +31,7 @@
     extraConfig = builtins.readFile (builtins.fetchGit {
       url = "https://github.com/savau/vim-config.git";
       ref = "main";
-      rev = "3e8ff0ac3abdce9e35f63bffc89ae9b0b218755d";
+      rev = "9281463e102aae116b057a7ee9bae2c307bf6220";
     } + "/.vimrc");
   };
 }
