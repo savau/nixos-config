@@ -11,10 +11,10 @@ rec {
     ./plugins/qt.nix
     ./plugins/zsh.nix
     ./plugins/neovim.nix
-    ./plugins/browsers/chromium.nix
     ./plugins/browsers/firefox.nix
-    ./plugins/mail/protonmail-bridge.nix
+    ./plugins/browsers/chromium.nix
     ./plugins/mail/thunderbird.nix
+    ./plugins/mail/protonmail-bridge.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should manage.
