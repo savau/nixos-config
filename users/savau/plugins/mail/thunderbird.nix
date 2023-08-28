@@ -28,8 +28,10 @@
         "mail.purge.ask" = false;
         "mail.startup.enabledMailCheckOnce" = true;
         "mailnews.start_page.enabled" = false;
-        "network.cookie.cookieBehavior" = 2;
+        "msgcompose.font_face" = "monospace";
+        "network.cookie.cookieBehavior" = 3;
         "places.history.enabled" = false;
+        "privacy.trackingprotection.enabled" = true;
         "privacy.donottrackheader.enabled" = true;
         "spellchecker.dictionary" = "en-US,de-DE";
       };
