@@ -9,6 +9,7 @@
       { id = "mlomiejdfkolichcflejclcbmpeaniij"; } # Ghostery
       { id = "oboonakemofpalcgghocfoadofidjkkk"; } # KeePassXC-Browser
       { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; } # Dark Reader
+      { id = "doojmbjmlfjjnbmnoijecmcbfeoakpjm"; } # NoScript
     ];
   };
 }
