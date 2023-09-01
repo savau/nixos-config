@@ -218,7 +218,7 @@ user_pref("toolkit.coverage.endpoint.base", "");
 user_pref("toolkit.coverage.opt-out", true);
 user_pref("toolkit.telemetry.coverage.opt-out", true);
 user_pref("trailhead.firstrun.didSeeAboutWelcome", true);
-user_pref("ui.systemUsesDarkTheme", 0);
+user_pref("ui.systemUsesDarkTheme", 1);
 user_pref("ui.use_standins_for_native_colors", true);
 user_pref("webgl.disable-fail-if-major-performance-caveat", true);
 user_pref("webgl.enable-debug-renderer-info", false);
