@@ -1,11 +1,6 @@
-{ lib, pkgs, home, ... }:
+{ lib, pkgs, home, ... }@args:
 
 rec {
-  nix = {
-    package = pkgs.nix;
-    settings.experimental-features = [ "nix-command" "flakes" ];
-  };
-
   imports = [
     # Host-agnostic generic home plugins
     ./../../home-plugins/direnv.nix
@@ -162,7 +157,7 @@ rec {
   };
 
   # Git repositories that should be synchronised to your home directory
-  systemd.user.services = import ./../../utils/systemd-git-init.nix {
+  systemd.user.services = import ./../../utils/systemd-git-init.nix args {
     nixos-config = {
       src = "git@github.com:savau/nixos-config.git";
       dest = "${home.homeDirectory}/git/configs/nixos-config";

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, home-manager, ... }:
 
 {
   imports = [
@@ -16,7 +16,7 @@
     ./../../plugins/video.nix
     ./../../plugins/xfce.nix
 
-    <home-manager/nixos>
+    home-manager.nixosModules.default
   ];
 
   boot.initrd.luks.devices.luksroot = {

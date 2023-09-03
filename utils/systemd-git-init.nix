@@ -1,9 +1,6 @@
-repositories:
+{ lib, pkgs, ... }: repositories:
 
 let
-  pkgs = import <nixpkgs> {};
-  lib = import <nixpkgs/lib>;
-
   mkService = name': repo: {
     name = "git-init-${name'}";
     value = {
