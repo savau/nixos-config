@@ -3,7 +3,6 @@
 {
   imports = [
     ./../../home-plugins/direnv.nix
-    ./../../home-plugins/i18n.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -36,8 +35,12 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
 
-    perl
+    aspell
+    aspellDicts.en
+    aspellDicts.de
+
     texlive.combined.scheme-full
+    perl
 
     # Terminal packages
     magic-wormhole

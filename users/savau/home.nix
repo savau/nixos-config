@@ -4,7 +4,6 @@ rec {
   imports = [
     # Host-agnostic generic home plugins
     ./../../home-plugins/direnv.nix
-    ./../../home-plugins/i18n.nix
 
     # Host-agnostic user plugins
     ./plugins/gtk.nix
@@ -45,8 +44,12 @@ rec {
     #   echo "Hello, ${config.home.username}!"
     # '')
 
-    stack
+    aspell
+    aspellDicts.en
+    aspellDicts.de
+
     texlive.combined.scheme-full
+    stack
 
     # Terminal packages
     magic-wormhole
