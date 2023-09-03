@@ -115,6 +115,11 @@ rec {
       profiles = {}; # TODO: configure (caution: partially host-specific!)
     };
 
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+
     git = {
       enable = true;
       userName = "Sarah Vaupel";

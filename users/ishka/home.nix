@@ -1,10 +1,6 @@
 { lib, pkgs, home, ... }:
 
 {
-  imports = [
-    ./../../home-plugins/direnv.nix
-  ];
-
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "ishka";
@@ -91,6 +87,11 @@
 
   programs = {
     bash.enable = true;
+
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
 
     git = {
       enable = true;
