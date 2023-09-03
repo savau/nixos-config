@@ -20,13 +20,6 @@
   inputs = {
     nixpkgs.url = github:NixOS/nixpkgs;
     home-manager.url = github:nix-community/home-manager;
-
-    # TODO use below repo to create nixosConfigurations for all hosts
-    # (nixos-rebuild will pick the correct config based on hostname)
-    nixos-config = {
-      url = path:/etc/nixos; # TODO switch to git repo
-      flake = false;
-    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
