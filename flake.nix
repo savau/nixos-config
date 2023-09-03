@@ -19,7 +19,16 @@
 
   inputs = {
     nixpkgs.url = github:NixOS/nixpkgs;
-    home-manager.url = github:nix-community/home-manager;
+    home-manager = {
+      url = github:nix-community/home-manager;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    xmonad-config = {
+      url = github:savau/xmonad-config;
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
