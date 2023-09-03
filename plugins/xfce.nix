@@ -7,7 +7,7 @@
     xfce4-power-manager
 
     # xfce-panel
-    autoconf automake pkg-config # needed for xmonad integration with xfce4-panel # TODO: maybe move to xmonad nix file and integrate that one?
+    autoconf automake pkg-config # needed for xmonad integration with xfce4-panel
     xfce4-panel
     xfce4-panel-profiles    # simple application to manage xfce panel layouts
     xfce4-battery-plugin    # battery plugin for xfce panel
