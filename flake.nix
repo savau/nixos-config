@@ -29,14 +29,21 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixos-config, ... }@attrs: {
-    nixosConfigurations.xego = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = attrs;
-      modules = [
-        ./hosts/xego/configuration.nix
-        ./modules.nix
+  outputs = { self, nixpkgs, ... }@inputs: {
+    nixosConfigurations = let
+      hosts = [
+        "xego"
+        "tis"
+        "gsateo"
       ];
-    };
+      mkDefaultSystem = host: nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = inputs;
+        modules = [
+          ./hosts/${host}/configuration.nix
+          ./modules.nix
+        ];
+      };
+    in nixpkgs.lib.genAttrs hosts mkDefaultSystem;
   };
 }
