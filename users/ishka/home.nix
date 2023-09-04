@@ -4,10 +4,6 @@
   imports = [
     ./../../home-plugins/direnv.nix
     ./../../home-plugins/i18n.nix
-
-    ./../savau/plugins/browsers/firefox.nix
-    ./../savau/plugins/browsers/chromium.nix
-    ./../savau/plugins/mail/thunderbird.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -62,6 +58,11 @@
     libreoffice
     pqiv
     xournal
+
+    # GUI web packages
+    firefox
+    chromium
+    thunderbird
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
