@@ -60,6 +60,7 @@ rec {
     # X-related packages
     xorg.xmodmap
     xorg.xrandr
+    xorg.xkill
     xclip
 
     # GUI packages
