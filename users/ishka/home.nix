@@ -103,6 +103,11 @@
     vim.enable = true;
   };
 
+  services.screen-locker = {
+    enable = true;
+    lockCmd = "${pkgs.xlockmore}/bin/xlock";
+  };
+
   xsession = {
     enable = true;
     windowManager.command = "wmaker";
