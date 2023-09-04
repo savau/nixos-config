@@ -2,9 +2,6 @@
 
 rec {
   imports = [
-    # Host-agnostic generic home plugins
-    ./../../home-plugins/direnv.nix
-
     # Host-agnostic user plugins
     ./plugins/gtk.nix
     ./plugins/qt.nix
