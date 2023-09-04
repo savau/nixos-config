@@ -46,7 +46,9 @@
     # X-related packages
     xorg.xmodmap
     xorg.xrandr
+    xorg.xkill
     xclip
+    xlockmore
 
     # GUI packages
     audacity
@@ -59,8 +61,8 @@
     xournal
 
     # GUI web packages
-    chromium
     firefox
+    chromium
     thunderbird
   ];
 
@@ -104,6 +106,11 @@
     ssh.enable = true;
 
     vim.enable = true;
+  };
+
+  services.screen-locker = {
+    enable = true;
+    lockCmd = "${pkgs.xlockmore}/bin/xlock";
   };
 
   xsession = {

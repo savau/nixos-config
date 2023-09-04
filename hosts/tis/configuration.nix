@@ -23,6 +23,12 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.initrd.luks.devices.luksroot = {
+    device = "/dev/disk/by-uuid/f599d151-c3ee-4498-ac61-15885d03a1b6";
+    preLVM = true;
+    allowDiscards = true;
+  };
+
   # SSD optimizations
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
   services.fstrim.enable = true;
