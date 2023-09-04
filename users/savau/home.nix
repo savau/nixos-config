@@ -1,6 +1,10 @@
-{ lib, pkgs, home, ... }@args:
+{ lib, pkgs, home, savau-xmonad-config, ... }@args:
 
 rec {
+  nix = {
+    settings.experimental-features = [ "nix-command" "flakes" ];
+  };
+
   imports = [
     # Host-agnostic user plugins
     ./plugins/gtk.nix
@@ -11,6 +15,8 @@ rec {
     ./plugins/browsers/chromium.nix
     ./plugins/mail/thunderbird.nix
     ./plugins/mail/protonmail-bridge.nix
+
+    savau-xmonad-config
   ];
 
   # Home Manager needs a bit of information about you and the paths it should manage.
@@ -59,7 +65,6 @@ rec {
     xclip
 
     # GUI packages
-    dmenu # TODO: maybe move this to xmonad nix file and integrate that one?
     arandr
     audacity
     gimp
@@ -203,26 +208,6 @@ rec {
 
   xsession = {
     enable = true;
-
-    windowManager.xmonad = {
-      enable = true;
-      enableContribAndExtras = true;
-      extraPackages = haskellPackages: with haskellPackages; [
-        xmonad xmonad-contrib xmonad-extras
-        dbus
-        gtk-sni-tray
-        status-notifier-item
-        tuple
-      ];
-      config = pkgs.writeTextFile {
-        name = "xmonad.hs";
-        text = builtins.readFile (builtins.fetchGit {
-          url = "https://github.com/savau/xmonad-config.git";
-          ref = "master";
-          rev = "3bfe9ff81a7783fe8ae41b5f9beeab2eb9ed8c38";
-        } + "/xmonad-monolith.hs");
-      };
-    };
 
     initExtra = ''
       xmodmap ~/.Xmodmap
