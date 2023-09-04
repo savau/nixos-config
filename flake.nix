@@ -24,26 +24,23 @@
       "ishka"
     ];
 
-    inherit (self) outputs;
     system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+
     mkHostConfiguration = host: nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
         ./hosts/${host}/configuration.nix
         ./modules.nix
       ];
-      specialArgs = inputs;
+      specialArgs = { inherit inputs; };
     };
     mkHomeConfiguration = user: home-manager.lib.homeManagerConfiguration {
-      inherit system;
-      username = "${user}";
-      homeDirectory = "/home/${user}";
-      configuration.imports = [
+      inherit system pkgs;
+      modules = [
         ./users/${user}/home.nix
       ];
-      extraSpecialArgs = {
-        inherit inputs outputs;
-      };
+      extraSpecialArgs = { inherit inputs; };
     };
   in {
     nixosConfigurations = nixpkgs.lib.genAttrs hosts mkHostConfiguration;
