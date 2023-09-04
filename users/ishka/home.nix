@@ -49,6 +49,7 @@
     xorg.xrandr
     xorg.xkill
     xclip
+    xlockmore
 
     # GUI packages
     audacity
