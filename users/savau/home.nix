@@ -1,11 +1,6 @@
 { lib, pkgs, home, ... }:
 
 rec {
-  nix = {
-    package = pkgs.nix;
-    settings.experimental-features = [ "nix-command" "flakes" ];
-  };
-
   imports = [
     # Host-agnostic generic home plugins
     ./../../home-plugins/direnv.nix
