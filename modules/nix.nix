@@ -2,9 +2,6 @@
 
 {
   nix = {
-    package = pkgs.nix;
-
-
   # daemonNiceLevel = 0;          # Nix daemon process priority (0: highest, 19: lowest)
     daemonIOSchedPriority = 0;    # Nix daemon process I/O priority (0: highest, 7: lowest)
   # allowedUsers = [ "@wheel" ];  # grant the wheel user group permission to connect to the Nix daemon
