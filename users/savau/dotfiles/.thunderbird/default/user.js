@@ -4,7 +4,7 @@ user_pref("beacon.enabled", false);
 user_pref("browser.cache.disk.enable", false);
 user_pref("browser.cache.offline.enable", false);
 user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
-user_pref("browser.chrome.site_icons", false);
+// user_pref("browser.chrome.site_icons", false);
 user_pref("browser.chrome.favicons", false);
 user_pref("browser.display.use_document_fonts", 0);
 user_pref("browser.display.use_system_colors", true);
