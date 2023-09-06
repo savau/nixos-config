@@ -166,7 +166,7 @@ rec {
   };
   services.screen-locker = {
     enable = true;
-    package = "${pkgs.xscreensaver}/bin/xscreensaver-command -lock";
+    lockCmd = "${pkgs.xscreensaver}/bin/xscreensaver-command -lock";
   };
 
   # Git repositories that should be synchronised to your home directory
