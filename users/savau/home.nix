@@ -157,6 +157,18 @@ rec {
     };
   };
 
+  services.xscreensaver = {
+    enable = true;
+    settings = {
+      mode = "blank";
+      lock = true;
+    };
+  };
+  services.screen-locker = {
+    enable = true;
+    package = "${pkgs.xscreensaver}/bin/xscreensaver-command -lock";
+  };
+
   # Git repositories that should be synchronised to your home directory
   systemd.user.services = import ./../../utils/systemd-git-init.nix {
     nixos-config = {
