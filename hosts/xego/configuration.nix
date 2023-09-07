@@ -64,27 +64,7 @@
 
     displayManager.defaultSession = "xfce+xmonad";
 
-    # TODO: create Xresources dotfile and use it here
     displayManager.sessionCommands = ''
-      # Merge Xresources:
-      ${pkgs.xorg.xrdb}/bin/xrdb -merge <${pkgs.writeText "Xresources" ''
-        ! Xresources
-
-        ! Blinking cursor
-        XTerm*cursorBlink: true
-
-        ! Copy selection to clipboard
-        XTerm*selectToClipboard: true
-
-        ! Dark colours for xterm
-        XTerm*background: black
-        XTerm*foreground: white
-
-        ! Powerline font for agnoster zsh theme
-        XTerm*faceName: Liberation Mono for Powerline
-        XTerm*faceSize: 10
-      ''}
-
       # Set desktop background to solid black
       xsetroot -solid black
     '';

@@ -92,6 +92,18 @@ rec {
     # '';
   };
 
+  xresources.properties = {
+    "XTerm*cursorBlink" = true;
+    "XTerm*selectToClipboard" = true;
+    "XTerm*background" = "black";
+    "XTerm*foreground" = "white";
+    "XTerm*faceName" = "Liberation Mono for Powerline";
+    "XTerm*faceSize" = 10;
+    "xscreensaver-auth.default.Dialog.background" = "black";
+    "xscreensaver-auth.default.Dialog.foreground" = "white";
+    "xscreensaver-auth.default.Dialog.bodyFont" = "Liberation Sans 10";
+  };
+
   # Set up Xfce configuration
   # Using `xdg.configFile` instead of `home.file` to allow for overwriting
   # existing files, which otherwise would cause the home-manager activation
