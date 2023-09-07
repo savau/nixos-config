@@ -71,7 +71,7 @@ rec {
     xournal
 
     # GUI web packages
-    element-desktop
+    # element-desktop # seems to be buggy currently
     nextcloud-client
   ];
 
@@ -160,8 +160,11 @@ rec {
   services.xscreensaver = {
     enable = true;
     settings = {
+      timeout = "03:00:00";
       mode = "blank";
-      lock = true;
+      lock = true; lockTimeout = "00:00:00";
+      fade = false; unfade = false;
+      dpmsEnabled = false;
     };
   };
   services.screen-locker = {
