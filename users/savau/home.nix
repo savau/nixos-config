@@ -99,9 +99,7 @@ rec {
     "XTerm*foreground" = "white";
     "XTerm*faceName" = "Liberation Mono for Powerline";
     "XTerm*faceSize" = 10;
-    "xscreensaver-auth.default.Dialog.background" = "black";
-    "xscreensaver-auth.default.Dialog.foreground" = "white";
-    "xscreensaver-auth.default.Dialog.bodyFont" = "Liberation Sans 10";
+    "xscreensaver-auth.borderlessblack.Dialog.bodyFont" = "Liberation Sans 10";
   };
 
   # Set up Xfce configuration
@@ -174,6 +172,9 @@ rec {
     settings = {
       timeout = "03:00:00";
       mode = "blank";
+      dialogTheme = "borderlessblack";
+      grabDesktopImages = false;
+      dateFormat = "%Y-%m-%d %H:%M:%S";
       lock = true; lockTimeout = "00:00:00";
       fade = false; unfade = false;
       dpmsEnabled = false;
