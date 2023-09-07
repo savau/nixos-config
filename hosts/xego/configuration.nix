@@ -84,7 +84,6 @@
 
   # System packages
   environment.systemPackages = with pkgs; [
-    arc-icon-theme  # add missing icons
     gparted
   ];
 
