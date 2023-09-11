@@ -76,7 +76,7 @@
         XTerm*faceName: Liberation Mono for Powerline
         XTerm*faceSize: 10
 
-        xscreensaver.timeout: 3:00:00
+        xscreensaver.timeout: 4:00:00
         xscreensaver.mode: blank
         xscreensaver.grabDesktopImages: false
         xscreensaver.dateFormat: %Y-%m-%d %H:%M:%S
@@ -85,21 +85,20 @@
         xscreensaver.fade: false
         xscreensaver.unfade: false
         xscreensaver.dpmsEnabled: false
-        xscreensaver.dialogTheme: adwaitadark
-        xscreensaver.adwaitadark.Dialog.foreground: #FFFFFF
-        xscreensaver.adwaitadark.Dialog.background: #242424
-        xscreensaver.adwaitadark.Dialog.topShadowColor: #000000
-        xscreensaver.adwaitadark.Dialog.bottomShadowColor: #000000
-        xscreensaver.adwaitadark.Dialog.text.foreground: #FFFFFF
-        xscreensaver.adwaitadark.Dialog.text.background: #1E1E1E
-        xscreensaver.adwaitadark.Dialog.button.foreground: #FFFFFF
-        xscreensaver.adwaitadark.Dialog.button.background: #1E1E1E
-        xscreensaver.adwaitadark.Dialog.logo.background: #242424
-        xscreensaver.adwaitadark.Dialog.thermometer.foreground: #FFFFFF
-        xscreensaver.adwaitadark.Dialog.thermometer.background: #242424
-        xscreensaver.adwaitadark.Dialog.thermometer.width: 3
-        xscreensaver.adwaitadark.Dialog.borderColor: #242424
-        xscreensaver.adwaitadark.Dialog.borderWidth: 1
+        xscreensaver.Dialog.foreground: #FFFFFF
+        xscreensaver.Dialog.background: #242424
+        xscreensaver.Dialog.topShadowColor: #000000
+        xscreensaver.Dialog.bottomShadowColor: #000000
+        xscreensaver.Dialog.text.foreground: #FFFFFF
+        xscreensaver.Dialog.text.background: #1E1E1E
+        xscreensaver.Dialog.button.foreground: #FFFFFF
+        xscreensaver.Dialog.button.background: #1E1E1E
+        xscreensaver.Dialog.logo.background: #242424
+        xscreensaver.Dialog.thermometer.foreground: #FFFFFF
+        xscreensaver.Dialog.thermometer.background: #242424
+        xscreensaver.Dialog.thermometer.width: 3
+        xscreensaver.Dialog.borderColor: #242424
+        xscreensaver.Dialog.borderWidth: 1
       ''}
     '';
 
