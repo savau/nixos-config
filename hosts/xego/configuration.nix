@@ -76,9 +76,10 @@
         XTerm*faceName: Liberation Mono for Powerline
         XTerm*faceSize: 10
 
-        xscreensaver.timeout: 4:00:00
+        xscreensaver.timeout: 0
         xscreensaver.mode: blank
         xscreensaver.grabDesktopImages: false
+        xscreensaver.useBackground: false
         xscreensaver.dateFormat: %Y-%m-%d %H:%M:%S
         xscreensaver.lock: true
         xscreensaver.lockTimeout: 0:00:00
