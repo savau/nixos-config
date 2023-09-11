@@ -92,15 +92,15 @@ rec {
     # '';
   };
 
-  xresources.properties = {
-    "XTerm*cursorBlink" = true;
-    "XTerm*selectToClipboard" = true;
-    "XTerm*background" = "black";
-    "XTerm*foreground" = "white";
-    "XTerm*faceName" = "Liberation Mono for Powerline";
-    "XTerm*faceSize" = 10;
-    "xscreensaver-auth.borderlessblack.Dialog.bodyFont" = "Liberation Sans 10";
-  };
+  # xresources.properties = {
+  #   "XTerm*cursorBlink" = true;
+  #   "XTerm*selectToClipboard" = true;
+  #   "XTerm*background" = "black";
+  #   "XTerm*foreground" = "white";
+  #   "XTerm*faceName" = "Liberation Mono for Powerline";
+  #   "XTerm*faceSize" = 10;
+  #   "xscreensaver-auth.borderlessblack.Dialog.bodyFont" = "Liberation Sans 10";
+  # };
 
   # Set up Xfce configuration
   # Using `xdg.configFile` instead of `home.file` to allow for overwriting
@@ -167,19 +167,7 @@ rec {
     };
   };
 
-  services.xscreensaver = {
-    enable = true;
-    settings = {
-      timeout = "03:00:00";
-      mode = "blank";
-      dialogTheme = "borderlessblack";
-      grabDesktopImages = false;
-      dateFormat = "%Y-%m-%d %H:%M:%S";
-      lock = true; lockTimeout = "00:00:00";
-      fade = false; unfade = false;
-      dpmsEnabled = false;
-    };
-  };
+  services.xscreensaver.enable = true;
 
   # Git repositories that should be synchronised to your home directory
   systemd.user.services = import ./../../utils/systemd-git-init.nix {

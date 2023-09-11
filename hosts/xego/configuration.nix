@@ -66,7 +66,41 @@
 
     displayManager.sessionCommands = ''
       # Set desktop background to solid black
-      xsetroot -solid black
+      # xsetroot -solid black
+
+      ${pkgs.xorg.xrdb}/bin/xrdb -merge <${pkgs.writeText "Xresources" ''
+        XTerm*cursorBlink: true
+        XTerm*selectToClipboard: true
+        XTerm*background: black
+        XTerm*foreground: white
+        XTerm*faceName: Liberation Mono for Powerline
+        XTerm*faceSize: 10
+
+        xscreensaver.timeout: 3:00:00
+        xscreensaver.mode: blank
+        xscreensaver.grabDesktopImages: false
+        xscreensaver.dateFormat: %Y-%m-%d %H:%M:%S
+        xscreensaver.lock: true
+        xscreensaver.lockTimeout: 0:00:00
+        xscreensaver.fade: false
+        xscreensaver.unfade: false
+        xscreensaver.dpmsEnabled: false
+        xscreensaver.dialogTheme: adwaitadark
+        xscreensaver.adwaitadark.Dialog.foreground: #FFFFFF
+        xscreensaver.adwaitadark.Dialog.background: #242424
+        xscreensaver.adwaitadark.Dialog.topShadowColor: #000000
+        xscreensaver.adwaitadark.Dialog.bottomShadowColor: #000000
+        xscreensaver.adwaitadark.Dialog.text.foreground: #FFFFFF
+        xscreensaver.adwaitadark.Dialog.text.background: #1E1E1E
+        xscreensaver.adwaitadark.Dialog.button.foreground: #FFFFFF
+        xscreensaver.adwaitadark.Dialog.button.background: #1E1E1E
+        xscreensaver.adwaitadark.Dialog.logo.background: #242424
+        xscreensaver.adwaitadark.Dialog.thermometer.foreground: #FFFFFF
+        xscreensaver.adwaitadark.Dialog.thermometer.background: #242424
+        xscreensaver.adwaitadark.Dialog.thermometer.width: 3
+        xscreensaver.adwaitadark.Dialog.borderColor: #242424
+        xscreensaver.adwaitadark.Dialog.borderWidth: 1
+      ''}
     '';
 
     desktopManager = {
