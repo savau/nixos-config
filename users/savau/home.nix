@@ -9,6 +9,7 @@ rec {
     # Host-agnostic user plugins
     ./plugins/gtk.nix
     ./plugins/qt.nix
+    ./plugins/screen-locker.nix
     ./plugins/zsh.nix
     ./plugins/neovim.nix
     ./plugins/browsers/firefox.nix
@@ -92,15 +93,14 @@ rec {
     # '';
   };
 
-  # xresources.properties = {
-  #   "XTerm*cursorBlink" = true;
-  #   "XTerm*selectToClipboard" = true;
-  #   "XTerm*background" = "black";
-  #   "XTerm*foreground" = "white";
-  #   "XTerm*faceName" = "Liberation Mono for Powerline";
-  #   "XTerm*faceSize" = 10;
-  #   "xscreensaver-auth.borderlessblack.Dialog.bodyFont" = "Liberation Sans 10";
-  # };
+  xresources.properties = {
+    "XTerm*cursorBlink" = true;
+    "XTerm*selectToClipboard" = true;
+    "XTerm*background" = "black";
+    "XTerm*foreground" = "white";
+    "XTerm*faceName" = "Liberation Mono for Powerline";
+    "XTerm*faceSize" = 10;
+  };
 
   # Set up Xfce configuration
   # Using `xdg.configFile` instead of `home.file` to allow for overwriting
@@ -166,8 +166,6 @@ rec {
       });
     };
   };
-
-  services.xscreensaver.enable = true;
 
   # Git repositories that should be synchronised to your home directory
   systemd.user.services = import ./../../utils/systemd-git-init.nix {

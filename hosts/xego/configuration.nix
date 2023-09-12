@@ -75,31 +75,6 @@
         XTerm*foreground: white
         XTerm*faceName: Liberation Mono for Powerline
         XTerm*faceSize: 10
-
-        xscreensaver.timeout: 0
-        xscreensaver.mode: blank
-        xscreensaver.grabDesktopImages: false
-        xscreensaver.useBackground: false
-        xscreensaver.dateFormat: %Y-%m-%d %H:%M:%S
-        xscreensaver.lock: true
-        xscreensaver.lockTimeout: 0:00:00
-        xscreensaver.fade: false
-        xscreensaver.unfade: false
-        xscreensaver.dpmsEnabled: false
-        xscreensaver.Dialog.foreground: #FFFFFF
-        xscreensaver.Dialog.background: #242424
-        xscreensaver.Dialog.topShadowColor: #000000
-        xscreensaver.Dialog.bottomShadowColor: #000000
-        xscreensaver.Dialog.text.foreground: #FFFFFF
-        xscreensaver.Dialog.text.background: #1E1E1E
-        xscreensaver.Dialog.button.foreground: #FFFFFF
-        xscreensaver.Dialog.button.background: #1E1E1E
-        xscreensaver.Dialog.logo.background: #242424
-        xscreensaver.Dialog.thermometer.foreground: #FFFFFF
-        xscreensaver.Dialog.thermometer.background: #242424
-        xscreensaver.Dialog.thermometer.width: 3
-        xscreensaver.Dialog.borderColor: #242424
-        xscreensaver.Dialog.borderWidth: 1
       ''}
     '';
 
