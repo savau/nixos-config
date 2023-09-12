@@ -9,11 +9,12 @@
     ];
 
     extensions = [
-      { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # uBlock Origin
+      { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; } # Dark Reader
       { id = "mlomiejdfkolichcflejclcbmpeaniij"; } # Ghostery
       { id = "oboonakemofpalcgghocfoadofidjkkk"; } # KeePassXC-Browser
-      { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; } # Dark Reader
       { id = "doojmbjmlfjjnbmnoijecmcbfeoakpjm"; } # NoScript
+      { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # uBlock Origin
+      { id = "dbepggeogbaibhgnhhndojpepiihcmeb"; } # Vimium
     ];
   };
 }
