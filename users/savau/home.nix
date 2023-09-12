@@ -169,6 +169,11 @@ rec {
 
   # Git repositories that should be synchronised to your home directory
   systemd.user.services = import ./../../utils/systemd-git-init.nix {
+    uwx-utils = {
+      src = "git@github.com:savau/u2w-utils.git"; # TODO: update src once repo has been moved
+      dest = "${home.homeDirectory}/.utils/uniworx";
+    };
+
     nixos-config = {
       src = "git@github.com:savau/nixos-config.git";
       dest = "${home.homeDirectory}/git/configs/nixos-config";
