@@ -72,7 +72,7 @@ rec {
     xournal
 
     # GUI web packages
-    # element-desktop # seems to be buggy currently
+    element-desktop
     nextcloud-client
   ];
 
