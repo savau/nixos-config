@@ -229,7 +229,7 @@ rec {
         text = builtins.readFile (builtins.fetchGit {
           url = "https://github.com/savau/xmonad-config.git";
           ref = "master";
-          rev = "d679fa78fc8426ed85d0915dcf6283184c4d7665";
+          rev = "efa6e1c0e39a59f7b372c5aef74c62cb16a8006a";
         } + "/xmonad-monolith.hs");
       };
     };
