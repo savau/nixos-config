@@ -10,7 +10,7 @@ user_pref("msgcompose.text_color", "#ffffff");
 user_pref("msgcompose.default_colors", false);
 
 // Font settings
-user_pref("browser.display.use_document_fonts", 0);
+user_pref("browser.display.use_document_fonts", 1);
 user_pref("font.name.monospace.x-western", "Liberation Mono");
 user_pref("font.name.sans-serif.x-western", "Liberation Sans");
 user_pref("font.name.serif.x-western", "Liberation Serif");
