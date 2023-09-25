@@ -8,6 +8,7 @@
     # Plug-ins
     ./../../plugins/audio.nix
     ./../../plugins/bluetooth.nix
+    ./../../plugins/fonts/fontawesome.nix
     ./../../plugins/fonts/powerline.nix
     ./../../plugins/laptop-battery.nix
     ./../../plugins/lightdm.nix
