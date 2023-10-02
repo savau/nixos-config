@@ -29,6 +29,8 @@
     allowDiscards = true;
   };
 
+  boot.cleanTmpDir = true;
+
   # SSD optimizations
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
   services.fstrim.enable = true;
