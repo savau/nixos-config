@@ -6,6 +6,7 @@
     ./hardware-configuration.nix
 
     # Plug-ins
+    ./../../plugins/android.nix
     ./../../plugins/audio.nix
     ./../../plugins/bluetooth.nix
     ./../../plugins/fonts/fontawesome.nix
