@@ -1,7 +1,10 @@
 { lib, pkgs, home, ... }:
 
 {
-  home.packages = [ pkgs.direnv ];
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
 
   programs.bash.initExtra = ''
     eval "$(${pkgs.direnv}/bin/direnv hook bash)"
