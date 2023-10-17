@@ -35,7 +35,7 @@ user_pref("mail.compose.big_attachments.notify", false);
 
 // Mail display settings
 user_pref("mail.strict_threading", true);
-user_pref("mail.inline_attachments", false);
+user_pref("mail.inline_attachments", true);
 user_pref("mailnews.display.html_as", 1);
 user_pref("mailnews.display.prefer_plaintext", true);
 user_pref("mailnews.headers.showSender", true);
@@ -107,8 +107,8 @@ user_pref("network.prefetch-next", 0);
 user_pref("pdfjs.disabled", true);
 user_pref("pdfjs.enableScripting", false);
 user_pref("places.history.enabled", false);
-user_pref("privacy.donottrackheader.enabled", true);
-user_pref("privacy.trackingprotection.enabled", true);
+user_pref("privacy.donottrackheader.enabled", false);
+user_pref("privacy.trackingprotection.enabled", false);
 user_pref("security.family_safety.mode", 0);
 user_pref("security.cert_pinning.enforcement_level", 2);
 user_pref("security.mixed_content.upgrade_display_content", 2);
