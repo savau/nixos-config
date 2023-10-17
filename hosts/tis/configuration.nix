@@ -76,15 +76,15 @@
         XTerm*cursorBlink: true
 
         ! Copy selection to clipboard
-        XTerm*selectToClipboard: true
+        XTerm*selectToClipboard: false
 
         ! Dark colours for xterm
         XTerm*background: black
-        XTerm*foreground: lightgray
+        XTerm*foreground: white
 
         ! Powerline font for agnoster zsh theme
         XTerm*faceName: Liberation Mono for Powerline
-        XTerm*faceSize: 11
+        XTerm*faceSize: 10
       ''}
 
       # Set desktop background to solid black
