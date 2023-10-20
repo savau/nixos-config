@@ -37,6 +37,7 @@
     # '')
 
     perl
+    stack
     texlive.combined.scheme-full
 
     # Terminal packages
