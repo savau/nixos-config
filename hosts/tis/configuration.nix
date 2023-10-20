@@ -134,6 +134,20 @@
       "wheel"
     ];
   };
+  home-manager.users.barth = import ./../../users/ishka/home.nix // {
+    home.username = "barth";
+    home.homeDirectory = "/home/barth";
+  };
+  users.users.barth = {
+    isNormalUser = true;
+    extraGroups = [
+      "audio" "video"
+      "networkmanager"
+      "lp" "scanner"
+      "systemd-journal"
+      "wheel"
+    ];
+  };
 
   users.users.root.shell = pkgs.bash;
 
