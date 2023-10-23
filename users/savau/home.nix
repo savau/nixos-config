@@ -68,6 +68,7 @@ rec {
     keepassxc
     libreoffice
     okular
+    super-productivity
     vlc
     xournal
 
