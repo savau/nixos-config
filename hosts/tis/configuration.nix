@@ -134,9 +134,10 @@
       "wheel"
     ];
   };
-  home-manager.users.barth = import ./../../users/ishka/home.nix // {
-    home.username = "barth";
-    home.homeDirectory = "/home/barth";
+  home-manager.users.barth = { ... }: {
+    imports = [ ./../../users/ishka/home.nix ];
+    home.username = lib.mkForce "barth";
+    home.homeDirectory = lib.mkForce "/home/barth";
   };
   users.users.barth = {
     isNormalUser = true;
