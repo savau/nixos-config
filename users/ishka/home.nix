@@ -38,9 +38,12 @@
 
     perl
     stack
+    ghc
     texlive.combined.scheme-full
 
     # Terminal packages
+    bsdgames
+    file
     magic-wormhole
     rlwrap
     screen
