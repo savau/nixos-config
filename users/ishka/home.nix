@@ -93,7 +93,15 @@
   gtk.enable = true;
 
   programs = {
-    bash.enable = true;
+    bash = {
+      enable = true;
+      historyControl = [ "ignorespace" "ignoredups" ];
+      bashrcExtra = ''
+        if [[ -e .bashrc_stateful ]]; then
+          . .bashrc_stateful
+        fi
+      '';
+    };
 
     git = {
       enable = true;
