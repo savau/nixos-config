@@ -7,7 +7,6 @@
 
     # Plug-ins
     ./../../plugins/audio.nix
-    ./../../plugins/fonts/powerline.nix
     ./../../plugins/lightdm.nix
     ./../../plugins/ssh.nix
     ./../../plugins/video.nix
