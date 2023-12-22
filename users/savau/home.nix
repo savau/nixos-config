@@ -29,7 +29,7 @@ rec {
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "22.11"; # Please read the comment before changing.
+  home.stateVersion = "24.05"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your environment.
   home.packages = with pkgs; [
@@ -56,20 +56,16 @@ rec {
     # X-related packages
     xorg.xmodmap
     xorg.xrandr
-    xorg.xkill
     xclip
 
     # GUI packages
     dmenu # TODO: maybe move this to xmonad nix file and integrate that one?
     arandr
-    audacity
+    evince
     gimp
-    krita
     keepassxc
     libreoffice
-    okular
-    super-productivity
-    vlc
+    mplayer gnome_mplayer
     xournal
 
     # GUI web packages
@@ -150,7 +146,28 @@ rec {
     tmux = {
       enable = true;
       clock24 = true;
+      customPaneNavigationAndResize = true;
+      keyMode = "vi";
+      mouse = true;
+      newSession = true;
+      prefix = "C-x";
+      terminal = "screen-256color";
+      shell = "${pkgs.zsh}/bin/zsh";
       historyLimit = 50000;
+      plugins = with pkgs.tmuxPlugins; [
+        cpu
+        {
+          plugin = resurrect;
+          extraConfig = "set -g @resurrect-strategy-nvim 'session'";
+        }
+        {
+          plugin = continuum;
+          extraConfig = ''
+            set -g @continuum-restore 'on'
+            set -g @continuum-save-interval '60' # minutes
+          '';
+        }
+      ];
       extraConfig = lib.readFile (pkgs.stdenv.mkDerivation {
         name = "tmux.conf";
         src = ./dotfiles/tmux.conf;

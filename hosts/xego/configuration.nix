@@ -123,7 +123,7 @@
 
   home-manager.users.root = {
     programs.home-manager.enable = true;
-    home.stateVersion = "22.11";
+    home.stateVersion = "24.05";
     imports = [
       ./../../users/savau/plugins/neovim.nix
       ./../../users/savau/plugins/zsh.nix
@@ -133,5 +133,5 @@
 
   programs.zsh.enable = true;
 
-  system.stateVersion = "23.05";
+  system.stateVersion = "24.05";
 }
