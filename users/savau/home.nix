@@ -186,48 +186,48 @@ rec {
   };
 
   # Git repositories that should be synchronised to your home directory
-  systemd.user.services = import ./../../utils/systemd-git-init.nix {
-    uwx-utils = {
-      src = "git@github.com:savau/uwx-utils.git";
-      dest = "${home.homeDirectory}/.utils/uniworx";
-    };
+  # systemd.user.services = import ./../../utils/systemd-git-init.nix {
+  #   uwx-utils = {
+  #     src = "git@github.com:savau/uwx-utils.git";
+  #     dest = "${home.homeDirectory}/.utils/uniworx";
+  #   };
 
-    nixos-config = {
-      src = "git@github.com:savau/nixos-config.git";
-      dest = "${home.homeDirectory}/git/configs/nixos-config";
-    };
-    vim-config = {
-      src = "git@github.com:savau/vim-config.git";
-      dest = "${home.homeDirectory}/git/configs/vim-config";
-    };
-    xmonad-config = {
-      src = "git@github.com:savau/xmonad-config.git";
-      dest = "${home.homeDirectory}/git/configs/xmonad-config";
-    };
+  #   nixos-config = {
+  #     src = "git@github.com:savau/nixos-config.git";
+  #     dest = "${home.homeDirectory}/git/configs/nixos-config";
+  #   };
+  #   vim-config = {
+  #     src = "git@github.com:savau/vim-config.git";
+  #     dest = "${home.homeDirectory}/git/configs/vim-config";
+  #   };
+  #   xmonad-config = {
+  #     src = "git@github.com:savau/xmonad-config.git";
+  #     dest = "${home.homeDirectory}/git/configs/xmonad-config";
+  #   };
 
-    srv01-config = {
-      src = "git@gitlab.uniworx.de:uniworx/machines/srv01.git";
-      dest = "${home.homeDirectory}/git/machines/srv01";
-    };
+  #   srv01-config = {
+  #     src = "git@gitlab.uniworx.de:uniworx/machines/srv01.git";
+  #     dest = "${home.homeDirectory}/git/machines/srv01";
+  #   };
 
-    uniworx-website = {
-      src = "git@gitlab.uniworx.de:uniworx/uniworx.de.git";
-      dest = "${home.homeDirectory}/git/websites/uniworx.de";
-    };
+  #   uniworx-website = {
+  #     src = "git@gitlab.uniworx.de:uniworx/uniworx.de.git";
+  #     dest = "${home.homeDirectory}/git/websites/uniworx.de";
+  #   };
 
-    fradrive = {
-      src = "git@gitlab.uniworx.de:fradrive/fradrive.git";
-      dest = "${home.homeDirectory}/git/projects/fradrive/fradrive";
-    };
-    uni2work = {
-      src = "git@gitlab.uniworx.de:uni2work/uni2work.git";
-      dest = "${home.homeDirectory}/git/projects/uni2work/uni2work";
-    };
-    u2w-workflows = {
-      src = "git@gitlab.uniworx.de:uni2work/workflows/workflows.git";
-      dest = "${home.homeDirectory}/git/projects/uni2work/workflows/workflows";
-    };
-  };
+  #   fradrive = {
+  #     src = "git@gitlab.uniworx.de:fradrive/fradrive.git";
+  #     dest = "${home.homeDirectory}/git/projects/fradrive/fradrive";
+  #   };
+  #   uni2work = {
+  #     src = "git@gitlab.uniworx.de:uni2work/uni2work.git";
+  #     dest = "${home.homeDirectory}/git/projects/uni2work/uni2work";
+  #   };
+  #   u2w-workflows = {
+  #     src = "git@gitlab.uniworx.de:uni2work/workflows/workflows.git";
+  #     dest = "${home.homeDirectory}/git/projects/uni2work/workflows/workflows";
+  #   };
+  # };
 
   xsession = {
     enable = true;
