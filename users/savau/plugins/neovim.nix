@@ -14,7 +14,6 @@
     enable = true;
     defaultEditor = true;
     viAlias = true; vimAlias = true; vimdiffAlias = true;
-    withPython3 = true;
     plugins = with pkgs.vimPlugins; [
       airline
       fugitive
@@ -31,7 +30,7 @@
     extraConfig = builtins.readFile (builtins.fetchGit {
       url = "https://github.com/savau/vim-config.git";
       ref = "main";
-      rev = "9281463e102aae116b057a7ee9bae2c307bf6220";
+      rev = "c35ac46413188d2e8d4b60ebb4e94876b960f0a4";
     } + "/.vimrc");
   };
 }
