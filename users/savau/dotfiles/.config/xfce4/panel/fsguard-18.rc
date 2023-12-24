@@ -3,7 +3,7 @@ red=5
 lab_size_visible=false
 progress_bar_visible=true
 hide_button=true
-label=spc
+label=disk
 label_visible=true
 mnt=/
 

@@ -1,15 +1,15 @@
 Use_Label=true
 Show_Values=false
 Show_Bars=true
-Colorize_Values=true
+Colorize_Values=false
 Color_In=rgb(255,120,0)
 Color_Out=rgb(28,113,216)
-Text=eth
-Network_Device=enp0s31f6
+Text=wlan
+Network_Device=wlp0s20f3
 Max_In=12800000
 Max_Out=3840000
 Auto_Max=false
 Update_Interval=1000
 Values_As_Bits=false
-Digits=1
+Digits=2
 

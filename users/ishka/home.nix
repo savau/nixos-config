@@ -31,14 +31,14 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
 
-    aspell
-    aspellDicts.en
-    aspellDicts.de
-
-    texlive.combined.scheme-full
     perl
+    stack
+    ghc
+    texlive.combined.scheme-full
 
     # Terminal packages
+    bsdgames
+    file
     magic-wormhole
     rlwrap
     screen
@@ -88,7 +88,15 @@
   gtk.enable = true;
 
   programs = {
-    bash.enable = true;
+    bash = {
+      enable = true;
+      historyControl = [ "ignorespace" "ignoredups" ];
+      bashrcExtra = ''
+        if [[ -e .bashrc_stateful ]]; then
+          . .bashrc_stateful
+        fi
+      '';
+    };
 
     direnv = {
       enable = true;

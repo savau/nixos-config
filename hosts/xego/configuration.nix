@@ -8,6 +8,7 @@
     ./hardware-configuration.nix
 
     # Plug-ins
+    ./../../plugins/android.nix
     ./../../plugins/audio.nix
     ./../../plugins/bluetooth.nix
     ./../../plugins/fonts/powerline.nix
@@ -30,6 +31,8 @@
   # Use the systemd-boot EFI loader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.tmp.cleanOnBoot = true;
 
   # SSD optimizations
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
@@ -66,29 +69,18 @@
 
     displayManager.defaultSession = "xfce+xmonad";
 
-    # TODO: create Xresources dotfile and use it here
     displayManager.sessionCommands = ''
-      # Merge Xresources:
+      # Set desktop background to solid black
+      # xsetroot -solid black
+
       ${pkgs.xorg.xrdb}/bin/xrdb -merge <${pkgs.writeText "Xresources" ''
-        ! Xresources
-
-        ! Blinking cursor
         XTerm*cursorBlink: true
-
-        ! Copy selection to clipboard
         XTerm*selectToClipboard: true
-
-        ! Dark colours for xterm
         XTerm*background: black
         XTerm*foreground: white
-
-        ! Powerline font for agnoster zsh theme
         XTerm*faceName: Liberation Mono for Powerline
         XTerm*faceSize: 10
       ''}
-
-      # Set desktop background to solid black
-      xsetroot -solid black
     '';
 
     desktopManager = {
@@ -106,14 +98,19 @@
 
   # System packages
   environment.systemPackages = with pkgs; [
-    arc-icon-theme  # add missing icons
     gparted
   ];
 
-  programs.gnupg.agent.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+    enableBrowserSocket = true;
+    pinentryFlavor = "gnome3";
+  };
+  services.dbus.packages = [ pkgs.gcr ]; # https://github.com/nix-community/home-manager/blob/a2523ea0343b056ba240abbac90ab5f116a7aa7b/modules/services/gpg-agent.nix#L206-L212
 
   services.gnome.gnome-keyring.enable = true;
-  # security.pam.services.lightdm.enableGnomeKeyring = true;
+  security.pam.services.lightdm.enableGnomeKeyring = true;
 
 
   home-manager.useGlobalPkgs = true;
@@ -133,7 +130,7 @@
 
   home-manager.users.root = {
     programs.home-manager.enable = true;
-    home.stateVersion = "22.11";
+    home.stateVersion = "24.05";
     imports = [
       ./../../users/savau/plugins/neovim.nix
       ./../../users/savau/plugins/zsh.nix
@@ -143,5 +140,5 @@
 
   programs.zsh.enable = true;
 
-  system.stateVersion = "23.05";
+  system.stateVersion = "24.05";
 }

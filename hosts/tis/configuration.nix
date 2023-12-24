@@ -8,7 +8,6 @@
     # Plug-ins
     ./../../plugins/audio.nix
     ./../../plugins/bluetooth.nix
-    ./../../plugins/fonts/powerline.nix
     ./../../plugins/laptop-battery.nix
     ./../../plugins/lightdm.nix
     ./../../plugins/printing.nix
@@ -28,6 +27,8 @@
     preLVM = true;
     allowDiscards = true;
   };
+
+  boot.tmp.cleanOnBoot = true;
 
   # SSD optimizations
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
@@ -74,15 +75,15 @@
         XTerm*cursorBlink: true
 
         ! Copy selection to clipboard
-        XTerm*selectToClipboard: true
+        XTerm*selectToClipboard: false
 
         ! Dark colours for xterm
         XTerm*background: black
-        XTerm*foreground: lightgray
+        XTerm*foreground: white
 
         ! Powerline font for agnoster zsh theme
         XTerm*faceName: Liberation Mono for Powerline
-        XTerm*faceSize: 11
+        XTerm*faceSize: 10
       ''}
 
       # Set desktop background to solid black
@@ -123,6 +124,21 @@
 
   home-manager.users.ishka = import ./../../users/ishka/home.nix;
   users.users.ishka = {
+    isNormalUser = true;
+    extraGroups = [
+      "audio" "video"
+      "networkmanager"
+      "lp" "scanner"
+      "systemd-journal"
+      "wheel"
+    ];
+  };
+  home-manager.users.barth = { ... }: {
+    imports = [ ./../../users/ishka/home.nix ];
+    home.username = lib.mkForce "barth";
+    home.homeDirectory = lib.mkForce "/home/barth";
+  };
+  users.users.barth = {
     isNormalUser = true;
     extraGroups = [
       "audio" "video"

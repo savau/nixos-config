@@ -9,6 +9,7 @@ rec {
     # Host-agnostic user plugins
     ./plugins/gtk.nix
     ./plugins/qt.nix
+    ./plugins/screen-locker.nix
     ./plugins/zsh.nix
     ./plugins/neovim.nix
     ./plugins/browsers/firefox.nix
@@ -30,7 +31,7 @@ rec {
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "22.11"; # Please read the comment before changing.
+  home.stateVersion = "24.05"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your environment.
   home.packages = with pkgs; [
@@ -61,18 +62,15 @@ rec {
     # X-related packages
     xorg.xmodmap
     xorg.xrandr
-    xorg.xkill
     xclip
 
     # GUI packages
     arandr
-    audacity
+    evince
     gimp
-    krita
     keepassxc
     libreoffice
-    okular
-    vlc
+    mplayer gnome_mplayer
     xournal
 
     # GUI web packages
@@ -95,6 +93,15 @@ rec {
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+  };
+
+  xresources.properties = {
+    "XTerm*cursorBlink" = true;
+    "XTerm*selectToClipboard" = true;
+    "XTerm*background" = "black";
+    "XTerm*foreground" = "white";
+    "XTerm*faceName" = "Liberation Mono for Powerline";
+    "XTerm*faceSize" = 10;
   };
 
   # Set up Xfce configuration
@@ -149,7 +156,28 @@ rec {
     tmux = {
       enable = true;
       clock24 = true;
+      customPaneNavigationAndResize = true;
+      keyMode = "vi";
+      mouse = true;
+      newSession = true;
+      prefix = "C-x";
+      terminal = "screen-256color";
+      shell = "${pkgs.zsh}/bin/zsh";
       historyLimit = 50000;
+      plugins = with pkgs.tmuxPlugins; [
+        cpu
+        {
+          plugin = resurrect;
+          extraConfig = "set -g @resurrect-strategy-nvim 'session'";
+        }
+        {
+          plugin = continuum;
+          extraConfig = ''
+            set -g @continuum-restore 'on'
+            set -g @continuum-save-interval '60' # minutes
+          '';
+        }
+      ];
       extraConfig = lib.readFile (pkgs.stdenv.mkDerivation {
         name = "tmux.conf";
         src = ./dotfiles/tmux.conf;
@@ -167,47 +195,82 @@ rec {
     };
   };
 
-  # Git repositories that should be synchronised to your home directory
-  systemd.user.services = import ./../../utils/systemd-git-init.nix args {
-    nixos-config = {
-      src = "git@github.com:savau/nixos-config.git";
-      dest = "${home.homeDirectory}/git/configs/nixos-config";
-    };
-    vim-config = {
-      src = "git@github.com:savau/vim-config.git";
-      dest = "${home.homeDirectory}/git/configs/vim-config";
-    };
-    xmonad-config = {
-      src = "git@github.com:savau/xmonad-config.git";
-      dest = "${home.homeDirectory}/git/configs/xmonad-config";
-    };
-
-    srv01-config = {
-      src = "git@gitlab.uniworx.de:uniworx/machines/srv01.git";
-      dest = "${home.homeDirectory}/git/machines/srv01";
-    };
-
-    uniworx-website = {
-      src = "git@gitlab.uniworx.de:uniworx/uniworx.de.git";
-      dest = "${home.homeDirectory}/git/websites/uniworx.de";
-    };
-
-    fradrive = {
-      src = "git@gitlab.uniworx.de:fradrive/fradrive.git";
-      dest = "${home.homeDirectory}/git/projects/fradrive/fradrive";
-    };
-    uni2work = {
-      src = "git@gitlab.uniworx.de:uni2work/uni2work.git";
-      dest = "${home.homeDirectory}/git/projects/uni2work/uni2work";
-    };
-    u2w-workflows = {
-      src = "git@gitlab.uniworx.de:uni2work/workflows/workflows.git";
-      dest = "${home.homeDirectory}/git/projects/uni2work/workflows/workflows";
+  services = {
+    gpg-agent = {
+      enable = true;
+      enableSshSupport = true;
+      enableScDaemon = false;
+      pinentryFlavor = "gnome3";
+      enableZshIntegration = true;
     };
   };
 
+  # Git repositories that should be synchronised to your home directory
+  # systemd.user.services = import ./../../utils/systemd-git-init.nix {
+  #   uwx-utils = {
+  #     src = "git@github.com:savau/uwx-utils.git";
+  #     dest = "${home.homeDirectory}/.utils/uniworx";
+  #   };
+
+  #   nixos-config = {
+  #     src = "git@github.com:savau/nixos-config.git";
+  #     dest = "${home.homeDirectory}/git/configs/nixos-config";
+  #   };
+  #   vim-config = {
+  #     src = "git@github.com:savau/vim-config.git";
+  #     dest = "${home.homeDirectory}/git/configs/vim-config";
+  #   };
+  #   xmonad-config = {
+  #     src = "git@github.com:savau/xmonad-config.git";
+  #     dest = "${home.homeDirectory}/git/configs/xmonad-config";
+  #   };
+
+  #   srv01-config = {
+  #     src = "git@gitlab.uniworx.de:uniworx/machines/srv01.git";
+  #     dest = "${home.homeDirectory}/git/machines/srv01";
+  #   };
+
+  #   uniworx-website = {
+  #     src = "git@gitlab.uniworx.de:uniworx/uniworx.de.git";
+  #     dest = "${home.homeDirectory}/git/websites/uniworx.de";
+  #   };
+
+  #   fradrive = {
+  #     src = "git@gitlab.uniworx.de:fradrive/fradrive.git";
+  #     dest = "${home.homeDirectory}/git/projects/fradrive/fradrive";
+  #   };
+  #   uni2work = {
+  #     src = "git@gitlab.uniworx.de:uni2work/uni2work.git";
+  #     dest = "${home.homeDirectory}/git/projects/uni2work/uni2work";
+  #   };
+  #   u2w-workflows = {
+  #     src = "git@gitlab.uniworx.de:uni2work/workflows/workflows.git";
+  #     dest = "${home.homeDirectory}/git/projects/uni2work/workflows/workflows";
+  #   };
+  # };
+
   xsession = {
     enable = true;
+
+    windowManager.xmonad = {
+      enable = true;
+      enableContribAndExtras = true;
+      extraPackages = haskellPackages: with haskellPackages; [
+        xmonad xmonad-contrib xmonad-extras
+        dbus
+        gtk-sni-tray
+        status-notifier-item
+        tuple
+      ];
+      config = pkgs.writeTextFile {
+        name = "xmonad.hs";
+        text = builtins.readFile (builtins.fetchGit {
+          url = "https://github.com/savau/xmonad-config.git";
+          ref = "master";
+          rev = "6225c82cf37caf31f3b53f5aa3fbd75c39c4a1d3";
+        } + "/xmonad.hs");
+      };
+    };
 
     initExtra = ''
       xmodmap ~/.Xmodmap
