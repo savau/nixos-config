@@ -101,12 +101,14 @@
 
   programs.gnupg.agent = {
     enable = true;
+    enableSSHSupport = true;
+    enableBrowserSocket = true;
     pinentryFlavor = "gnome3";
   };
   services.dbus.packages = [ pkgs.gcr ]; # https://github.com/nix-community/home-manager/blob/a2523ea0343b056ba240abbac90ab5f116a7aa7b/modules/services/gpg-agent.nix#L206-L212
 
   services.gnome.gnome-keyring.enable = true;
-  # security.pam.services.lightdm.enableGnomeKeyring = true;
+  security.pam.services.lightdm.enableGnomeKeyring = true;
 
 
   home-manager.useGlobalPkgs = true;

@@ -185,6 +185,17 @@ rec {
     };
   };
 
+  services = {
+    gpg-agent = {
+      enable = true;
+      enableSSHSupport = true;
+      enableScDaemon = false;
+      pinentryFlavor = "gnome3";
+      enableZshIntegration = true;
+    };
+    dbus.packages = [ pkgs.gcr ];
+  };
+
   # Git repositories that should be synchronised to your home directory
   # systemd.user.services = import ./../../utils/systemd-git-init.nix {
   #   uwx-utils = {
