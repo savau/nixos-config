@@ -188,7 +188,7 @@ rec {
   services = {
     gpg-agent = {
       enable = true;
-      enableSSHSupport = true;
+      enableSshSupport = true;
       enableScDaemon = false;
       pinentryFlavor = "gnome3";
       enableZshIntegration = true;
