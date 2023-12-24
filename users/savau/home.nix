@@ -193,7 +193,6 @@ rec {
       pinentryFlavor = "gnome3";
       enableZshIntegration = true;
     };
-    dbus.packages = [ pkgs.gcr ];
   };
 
   # Git repositories that should be synchronised to your home directory
