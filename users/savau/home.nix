@@ -7,6 +7,7 @@ rec {
     ./../../home-plugins/i18n.nix
 
     # Host-agnostic user plugins
+    ./plugins/games.nix
     ./plugins/gtk.nix
     ./plugins/qt.nix
     ./plugins/screen-locker.nix

@@ -4,9 +4,10 @@
   home.packages = with pkgs; [
     steam
 
+    dosbox
     # wine
     # (wine.override { wineBuild = "wine64"; })
-    # wineWowPackages.stable
+    wineWowPackages.stable
 
     minetest
 #   openmw  # FIXME: currently crashes with error: qt.qpa.plugin: Could not find the Qt platform plugin "xcb" in ""
