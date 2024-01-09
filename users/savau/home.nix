@@ -117,8 +117,14 @@ rec {
   programs = {
     autorandr = {
       enable = true;
-      hooks = {}; # TODO: maybe configure
+      hooks = {
+        postswitch = {
+          "restart-panel" = "xfce4-panel -r";
+          "set-background" = "xsetroot -solid black";
+        };
+      };
       profiles = {}; # TODO: configure (caution: partially host-specific!)
+      # see https://github.com/nix-community/home-manager/blob/master/modules/programs/autorandr.nix for config options
     };
 
     git = {
