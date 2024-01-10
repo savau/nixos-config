@@ -30,7 +30,7 @@
     extraConfig = builtins.readFile (builtins.fetchGit {
       url = "https://github.com/savau/vim-config.git";
       ref = "main";
-      rev = "71df6adca5975a87b5f2fada830780a645d1e9fc";
+      rev = "e4ed556fa9fff313240b82046a608b2b67e75c6d";
     } + "/.vimrc");
   };
 }
