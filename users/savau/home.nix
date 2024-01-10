@@ -46,6 +46,7 @@ rec {
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    # TODO use pkgs.writeShellScriptBin instead of uwx scripts in xmonad
 
     stack
     texlive.combined.scheme-full
