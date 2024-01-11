@@ -15,6 +15,7 @@
     ./../../plugins/printing.nix
     ./../../plugins/ssh.nix
     ./../../plugins/video.nix
+    ./../../plugins/virtualisation.nix
     ./../../plugins/xfce.nix
 
     <home-manager/nixos>
@@ -122,6 +123,7 @@
       "networkmanager"
       "lp" "scanner"
       "systemd-journal"
+      "docker"
       "wheel"
     ];
   };
