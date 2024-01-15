@@ -65,6 +65,7 @@ rec {
     arandr
     evince
     gimp
+    inkscape
     keepassxc
     libreoffice
     mplayer gnome_mplayer
