@@ -33,7 +33,7 @@
     ];
     extraConfig = lib.readFile (pkgs.stdenv.mkDerivation {
       name = "tmux.conf";
-      src = ./dotfiles/tmux.conf;
+      src = ./../dotfiles/tmux.conf;
       mandb = pkgs.man;
 
       buildInputs = with pkgs; [ makeWrapper ];
