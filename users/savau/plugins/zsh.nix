@@ -8,10 +8,7 @@
     history = {
       size = 1000000;
       save = 1000000;
-      ignorePatterns = [
-        "rm *"
-        "pkill *"
-      ];
+      ignorePatterns = [];
       ignoreSpace = true;
       extended = true;
       share = true;
