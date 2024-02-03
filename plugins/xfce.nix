@@ -20,6 +20,14 @@
     xfce4-fsguard-plugin    # filesystem usage monitor plugin for xfce panel
     xfce4-netload-plugin    # internet load speed plugin for xfce panel
     # xfce4-embed-plugin    # embed arbitrary app windows on xfce panel (currently marked as broken)
+    
+    # yet to be tried out
+    xfce4-time-out-plugin
+    xfce4-weather-plugin
+    xfce4-notes-plugin
+    xfce4-timer-plugin
+    xfce4-verve-plugin
+    xfce4-whiskermenu-plugin
 
     # pulseaudio
     # xfce4panel_gtk3  # required for pulseaudio, see https://github.com/NixOS/nixpkgs/issues/18724
