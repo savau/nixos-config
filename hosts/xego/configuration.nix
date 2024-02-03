@@ -63,7 +63,7 @@
   services.xserver = {
     enable = true;
 
-    layout = "us";          # Configure keymap in X11
+    xkb.layout = "us";      # Configure keymap in X11
     libinput.enable = true; # Enable touchpad support
 
     displayManager.defaultSession = "xfce+xmonad";
