@@ -64,6 +64,7 @@ rec {
     # GUI packages
     dmenu # TODO: maybe move this to xmonad nix file and integrate that one?
     arandr
+    calibre
     evince
     gimp
     inkscape
