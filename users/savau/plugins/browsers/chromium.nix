@@ -4,6 +4,8 @@
   programs.chromium = {
     enable = true;
 
+    package = pkgs.ungoogled-chromium;
+
     commandLineArgs = [
       "--disable-gpu-driver-bug-workarounds"
     ];
