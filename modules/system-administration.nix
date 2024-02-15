@@ -5,5 +5,6 @@
     htop
     ncdu
     parted
+    usbutils
   ];
 }
