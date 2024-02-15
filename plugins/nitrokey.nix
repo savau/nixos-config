@@ -5,5 +5,7 @@
 
   environment.systemPackages = with pkgs; [
     nitrokey-app2
+    libnitrokey
+    pynitrokey
   ];
 }
