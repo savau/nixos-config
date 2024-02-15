@@ -5,6 +5,7 @@
     htop
     ncdu
     parted
+    sirikali
     usbutils
   ];
 }
