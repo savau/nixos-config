@@ -3,6 +3,7 @@
 {
   programs.zsh = {
     enable = true;
+
     autocd = true;
     enableAutosuggestions = true;
     history = {
@@ -13,9 +14,7 @@
       extended = true;
       share = true;
     };
-    shellAliases = {
-      "ll" = "ls -lh";
-    };
+
     plugins = [
       {
         name = "zsh-nix-shell";
@@ -35,6 +34,11 @@
         "git"
       ];
     };
+
+    shellAliases = {
+      "ll" = "ls -lh";
+    };
+
     # initExtraFirst = ''
     #   export PATH=~/.utils/bin:$PATH
     # '';
