@@ -12,7 +12,7 @@
     ./../../plugins/fonts/powerline.nix
     ./../../plugins/laptop-battery.nix
     ./../../plugins/lightdm.nix
-    # ./../../plugins/nitrokey.nix
+    ./../../plugins/nitrokey.nix
     ./../../plugins/printing.nix
     ./../../plugins/ssh.nix
     ./../../plugins/video.nix
