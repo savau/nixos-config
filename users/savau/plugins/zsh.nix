@@ -35,10 +35,6 @@
       ];
     };
 
-    shellAliases = {
-      "ll" = "ls -lh";
-    };
-
     # initExtraFirst = ''
     #   export PATH=~/.utils/bin:$PATH
     # '';
