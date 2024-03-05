@@ -35,12 +35,12 @@
         "git"
       ];
     };
-    initExtraFirst = ''
-      export PATH=~/.utils/bin:$PATH
-    '';
-    initExtra = ''
-      GPG_TTY=$(tty)
-      export GPG_TTY
-    '';
+    # initExtraFirst = ''
+    #   export PATH=~/.utils/bin:$PATH
+    # '';
+    # initExtra = ''
+    #   GPG_TTY=$(tty)
+    #   export GPG_TTY
+    # '';
   };
 }
