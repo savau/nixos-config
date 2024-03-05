@@ -35,6 +35,12 @@
       ];
     };
 
+    dirHashes = {
+      "dl"   = "$HOME/Downloads";
+      "docs" = "$HOME/Nextcloud/Documents";
+      # "proj" = "$HOME/Projects"; # TODO: move current symlinks in proj here?
+    };
+
     # initExtraFirst = ''
     #   export PATH=~/.utils/bin:$PATH
     # '';
