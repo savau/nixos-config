@@ -25,13 +25,14 @@
   boot.initrd.luks = {
     supportedFilesystems = [ "btrfs" ];
     fido2Support = true;
-    devices.luksroot = {
-      device = "/dev/disk/by-uuid/00000000-0000-0000-0000-000000000000"; # TODO
-      preLVM = true;
-      allowDiscards = true;
-      fido2.credential = null; # TODO
-      fallbackToPassword = true;
-    };
+    # managed by disko now
+    # devices.luksroot = {
+    #   device = "/dev/disk/by-uuid/00000000-0000-0000-0000-000000000000"; # TODO
+    #   preLVM = true;
+    #   allowDiscards = true;
+    #   fido2.credential = null; # TODO
+    #   fallbackToPassword = true;
+    # };
   };
 
   # Use the systemd-boot EFI loader
@@ -40,11 +41,10 @@
 
   boot.tmp.cleanOnBoot = true;
 
-  # SSD optimizations
-  fileSystems."/" = {
-    fsType = 
-    options = [ "noatime" "nodiratime" "discard" ];
-  };
+  # managed by disko now
+  # fileSystems."/" = {
+  #   options = [ "noatime" "nodiratime" "discard" ]; # SSD optimizations
+  # };
   services.fstrim.enable = true;
 
   networking.hostName = "frigg";
