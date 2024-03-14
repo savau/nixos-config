@@ -45,6 +45,14 @@
   # fileSystems."/" = {
   #   options = [ "noatime" "nodiratime" "discard" ]; # SSD optimizations
   # };
+
+  services.btrfs = {
+    autoScrub = {
+      enable = true;
+      interval = "weekly";
+    };
+  };
+
   services.fstrim.enable = true;
 
   networking.hostName = "frigg";
