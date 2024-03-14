@@ -22,12 +22,16 @@
     <home-manager/nixos>
   ];
 
-  boot.initrd.luks.devices.luksroot = {
-    device = "/dev/disk/by-uuid/00000000-0000-0000-0000-000000000000"; # TODO
-    preLVM = true;
-    allowDiscards = true;
-    # fido2.credential = null; # TODO
-    # fallbackToPassword = true;
+  boot.initrd.luks = {
+    supportedFilesystems = [ "btrfs" ];
+    fido2Support = true;
+    devices.luksroot = {
+      device = "/dev/disk/by-uuid/00000000-0000-0000-0000-000000000000"; # TODO
+      preLVM = true;
+      allowDiscards = true;
+      fido2.credential = null; # TODO
+      fallbackToPassword = true;
+    };
   };
 
   # Use the systemd-boot EFI loader
