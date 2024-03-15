@@ -45,6 +45,12 @@
   # fileSystems."/" = {
   #   options = [ "noatime" "nodiratime" "discard" ]; # SSD optimizations
   # };
+  fileSystems = {
+    "/".options = [ "compress=zstd" ];
+    "/home".options = [ "compress=zstd" ];
+    "/nix".options = [ "compress=zstd" "noatime" ];
+    # "/swap".options = [ "noatime" ];
+  };
 
   services.btrfs = {
     autoScrub = {
