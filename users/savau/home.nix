@@ -160,7 +160,7 @@ rec {
       enable = true;
       enableSshSupport = true;
       enableScDaemon = false;
-      pinentryFlavor = "gnome3";
+      # pinentryFlavor = "gnome3"; # TODO use pinentryPackage?
       enableZshIntegration = true;
     };
   };
