@@ -105,7 +105,7 @@
     enable = true;
     enableSSHSupport = true;
     enableBrowserSocket = true;
-    pinentryFlavor = "gnome3";
+    #pinentryFlavor = "gnome3"; # TODO use pinentryPackage?
   };
   services.dbus.packages = [ pkgs.gcr ]; # https://github.com/nix-community/home-manager/blob/a2523ea0343b056ba240abbac90ab5f116a7aa7b/modules/services/gpg-agent.nix#L206-L212
 
