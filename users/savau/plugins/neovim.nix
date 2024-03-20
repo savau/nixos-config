@@ -22,6 +22,7 @@
       nvim-treesitter  # required for telescope
       plenary-nvim  # required for telescope
       telescope-nvim
+      vim-bbye
       vim-gitgutter
       vim-nix
       vimtex
