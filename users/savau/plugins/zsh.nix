@@ -5,7 +5,7 @@
     enable = true;
 
     autocd = true;
-    autosuggestions.enable = true;
+    autosuggestion.enable = true;
     history = {
       size = 1000000;
       save = 1000000;
