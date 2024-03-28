@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  programs.ssh.startAgent = false;
+  programs.ssh.startAgent = true;
 
   services.openssh.enable = true;
 
