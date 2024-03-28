@@ -5,6 +5,8 @@ let
 in
 {
   imports = [
+    <home-manager/nixos>
+
     # Include machine-specific configuration.nix
     ./hosts/${hostname}/configuration.nix
   ]
@@ -23,4 +25,36 @@ in
       )
       (builtins.readDir ./modules)
     );
+
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = false;
+
+  home-manager.users.root = {
+    programs.home-manager.enable = true;
+    home.stateVersion = "24.05";
+    imports = [ # TODO: promote those three to system-level
+      ./home/neovim.nix
+      ./home/tmux.nix
+      ./home/zsh.nix
+    ];
+  };
+  users.users.root.shell = pkgs.zsh;
+
+  home-manager.users.savau = import ./home.nix;
+  users.users.savau = {
+    isNormalUser = true;
+    extraGroups = [
+      "audio" "video"
+      "nitrokey"
+      "networkmanager"
+      "lp" "scanner"
+      "systemd-journal"
+      "docker"
+      "wheel"
+    ];
+  };
+
+  programs.zsh.enable = true;
+
+  system.stateVersion = "24.05";
 }
