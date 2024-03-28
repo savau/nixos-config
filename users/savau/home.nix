@@ -2,11 +2,9 @@
 
 rec {
   imports = [
-    # Host-agnostic generic home plugins
-    ./../../home-plugins/direnv.nix
-    ./../../home-plugins/i18n.nix
+    ./../../home/plugins/direnv.nix
+    ./../../home/plugins/i18n.nix
 
-    # Host-agnostic user plugins
     ./plugins/browsers/firefox.nix
     ./plugins/browsers/chromium.nix
     ./plugins/mail/thunderbird.nix
