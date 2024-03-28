@@ -2,20 +2,19 @@
 
 rec {
   imports = [
-    ./../../home/plugins/direnv.nix
-    ./../../home/plugins/i18n.nix
-
-    ./plugins/browsers/firefox.nix
-    ./plugins/browsers/chromium.nix
-    ./plugins/mail/thunderbird.nix
-    ./plugins/mail/protonmail-bridge.nix
-    ./plugins/games.nix
-    ./plugins/gtk.nix
-    ./plugins/neovim.nix
-    ./plugins/qt.nix
-    ./plugins/screen-locker.nix
-    ./plugins/tmux.nix
-    ./plugins/zsh.nix
+    ./../../home/browsers/firefox.nix
+    ./../../home/browsers/chromium.nix
+    ./../../home/direnv.nix
+    ./../../home/mail/thunderbird.nix
+    ./../../home/mail/protonmail-bridge.nix
+    ./../../home/games.nix
+    ./../../home/gtk.nix
+    ./../../home/i18n.nix
+    ./../../home/neovim.nix
+    ./../../home/qt.nix
+    ./../../home/screen-locker.nix
+    ./../../home/tmux.nix
+    ./../../home/zsh.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should manage.
@@ -153,15 +152,15 @@ rec {
     };
   };
 
-  services = {
-    gpg-agent = {
-      enable = true;
-      enableSshSupport = true;
-      enableScDaemon = false;
-      # pinentryFlavor = "gnome3"; # TODO use pinentryPackage?
-      enableZshIntegration = true;
-    };
-  };
+  # services = {
+  #   gpg-agent = {
+  #     enable = true;
+  #     enableSshSupport = true;
+  #     enableScDaemon = false;
+  #     # pinentryFlavor = "gnome3"; # TODO use pinentryPackage?
+  #     enableZshIntegration = true;
+  #   };
+  # };
 
   # Git repositories that should be synchronised to your home directory
   # systemd.user.services = import ./../../utils/systemd-git-init.nix {
