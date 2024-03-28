@@ -18,8 +18,6 @@
     ./../../plugins/video.nix
     ./../../plugins/virtualisation.nix
     ./../../plugins/xfce.nix
-
-    <home-manager/nixos>
   ];
 
   boot.initrd.luks.devices.luksroot = {
@@ -111,36 +109,4 @@
 
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.lightdm.enableGnomeKeyring = true;
-
-
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = false;
-
-  home-manager.users.savau = import ./../../users/savau/home.nix;
-  users.users.savau = {
-    isNormalUser = true;
-    extraGroups = [
-      "audio" "video"
-      "nitrokey"
-      "networkmanager"
-      "lp" "scanner"
-      "systemd-journal"
-      "docker"
-      "wheel"
-    ];
-  };
-
-  home-manager.users.root = {
-    programs.home-manager.enable = true;
-    home.stateVersion = "24.05";
-    imports = [
-      ./../../users/savau/plugins/neovim.nix
-      ./../../users/savau/plugins/zsh.nix
-    ];
-  };
-  users.users.root.shell = pkgs.zsh;
-
-  programs.zsh.enable = true;
-
-  system.stateVersion = "24.05";
 }
