@@ -2,19 +2,19 @@
 
 rec {
   imports = [
-    ./../../home/browsers/firefox.nix
-    ./../../home/browsers/chromium.nix
-    ./../../home/direnv.nix
-    ./../../home/mail/thunderbird.nix
-    ./../../home/mail/protonmail-bridge.nix
-    ./../../home/games.nix
-    ./../../home/gtk.nix
-    ./../../home/i18n.nix
-    ./../../home/neovim.nix
-    ./../../home/qt.nix
-    ./../../home/screen-locker.nix
-    ./../../home/tmux.nix
-    ./../../home/zsh.nix
+    ./home/browsers/firefox.nix
+    ./home/browsers/chromium.nix
+    ./home/direnv.nix
+    ./home/mail/thunderbird.nix
+    ./home/mail/protonmail-bridge.nix
+    ./home/games.nix
+    ./home/gtk.nix
+    ./home/i18n.nix
+    ./home/neovim.nix
+    ./home/qt.nix
+    ./home/screen-locker.nix
+    ./home/tmux.nix
+    ./home/zsh.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should manage.
